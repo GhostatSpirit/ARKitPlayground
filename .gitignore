@@ -32,3 +32,9 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# Plugins
+/Assets/UnityARKitPlugin
+/Assets/UnityARKitPlugin.meta
+/Assets/Zombie
+/Assets/Zombie.meta
