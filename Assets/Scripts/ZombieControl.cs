@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ZombieControl : MonoBehaviour {
 
-	private Animation animation;
+	private new Animation animation;
 	private bool shouldMove = false;
 
 	// Use this for initialization

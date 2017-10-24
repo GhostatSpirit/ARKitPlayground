@@ -17,6 +17,9 @@ public class RotateTowards : MonoBehaviour {
 	void Update () {
 		Vector3 toTarget = target.position - transform.position;
 		Quaternion qTo = Quaternion.LookRotation (toTarget);
-		transform.rotation = Quaternion.RotateTowards (transform.rotation, qTo, rotateSpeed * Time.deltaTime);
+		transform.rotation = Quaternion.RotateTowards (transform.rotation, qTo, 
+			rotateSpeed * Time.deltaTime);
+		
 	}
+
 }
