@@ -14,9 +14,13 @@ public class NormalProjectile : BaseProjectile {
 		}
 	}
 
-	public override void FireProjectile(GameObject launcher, GameObject target, int damage){
+	public override void FireProjectile(GameObject launcher, GameObject target, Vector3 direction, int damage){
 		if(launcher && target){
-			m_direction = (target.transform.position - launcher.transform.position).normalized;
+			if (direction != Vector3.zero) {
+				m_direction = direction;
+			} else {
+				m_direction = (target.transform.position - launcher.transform.position).normalized;
+			}
 			m_fired = true;
 		}
 	}

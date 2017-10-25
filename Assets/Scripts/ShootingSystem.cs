@@ -31,7 +31,7 @@ public class ShootingSystem : MonoBehaviour {
 			float angle = Quaternion.Angle
 				(transform.rotation, Quaternion.LookRotation (target.transform.position - transform.position));
 
-			Debug.Log ("angle is " + angle.ToString ());
+			// Debug.Log ("angle is " + angle.ToString ());
 
 			if(angle < fieldOfView){
 				SpawnProjectiles ();
@@ -49,7 +49,16 @@ public class ShootingSystem : MonoBehaviour {
 			if(projectileSpawns[i]){
 				GameObject proj = Instantiate (projectile, projectileSpawns [i].transform.position,
 					                  Quaternion.Euler (projectileSpawns [i].transform.forward)) as GameObject;
-				proj.GetComponent<BaseProjectile> ().FireProjectile (projectileSpawns [i], target, damage);
+
+				Vector3 oldScale = proj.transform.localScale;
+				Vector3 parentScale = transform.parent.localScale;
+				Vector3 newScale = new Vector3(oldScale.x * parentScale.x,
+					oldScale.y * parentScale.y, oldScale.z * parentScale.z);
+				proj.transform.localScale = newScale;
+
+				proj.GetComponent<BaseProjectile> ()
+					.FireProjectile (projectileSpawns [i], target,
+						             projectileSpawns[i].transform.forward, damage);
 
 				m_lastProjectiles.Add (proj);
 			}
