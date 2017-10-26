@@ -28,10 +28,13 @@ public class ShootingSystem : MonoBehaviour {
 		m_fireTimer += Time.deltaTime;
 
 		if(m_fireTimer >= fireRate){
-			float angle = Quaternion.Angle
-				(transform.rotation, Quaternion.LookRotation (target.transform.position - transform.position));
+//			float angle = Quaternion.Angle
+//				(transform.rotation, Quaternion.LookRotation (target.transform.position - transform.position));
+			Quaternion tempQuaternion = Quaternion.FromToRotation (transform.forward, 
+				target.transform.position - transform.position);
+			float angle = Quaternion.Angle (tempQuaternion, Quaternion.identity);
 
-			// Debug.Log ("angle is " + angle.ToString ());
+			Debug.Log ("angle is " + angle.ToString ());
 
 			if(angle < fieldOfView){
 				SpawnProjectiles ();
@@ -51,9 +54,16 @@ public class ShootingSystem : MonoBehaviour {
 					                  Quaternion.Euler (projectileSpawns [i].transform.forward)) as GameObject;
 
 				Vector3 oldScale = proj.transform.localScale;
-				Vector3 parentScale = transform.parent.localScale;
-				Vector3 newScale = new Vector3(oldScale.x * parentScale.x,
-					oldScale.y * parentScale.y, oldScale.z * parentScale.z);
+
+				Vector3 localScale = transform.localScale;
+				Vector3 lossyScale = transform.lossyScale;
+
+				Vector3 scaleFactor = new Vector3(lossyScale.x / localScale.x,
+					lossyScale.y / localScale.y, lossyScale.z / localScale.z);
+
+
+				Vector3 newScale = new Vector3(oldScale.x * scaleFactor.x,
+					oldScale.y * scaleFactor.y, oldScale.z * scaleFactor.z);
 				proj.transform.localScale = newScale;
 
 				proj.GetComponent<BaseProjectile> ()

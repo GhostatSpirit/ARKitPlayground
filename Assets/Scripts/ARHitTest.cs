@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.iOS;
 using UnityEngine.EventSystems;
 
-public class ZombieARHitTest : MonoBehaviour
+public class ARHitTest : MonoBehaviour
 {
 	public Transform m_HitTransform;
 
@@ -30,7 +30,7 @@ public class ZombieARHitTest : MonoBehaviour
 			var touch = Input.GetTouch(0);
 			if (touch.phase == TouchPhase.Began && !EventSystem.current.IsPointerOverGameObject(0))
 			{
-				transform.localPosition = Vector3.zero;
+				// transform.localPosition = Vector3.zero;
 
 				var screenPosition = Camera.main.ScreenToViewportPoint(touch.position);
 				ARPoint point = new ARPoint {
