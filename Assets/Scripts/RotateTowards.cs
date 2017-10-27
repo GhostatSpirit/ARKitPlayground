@@ -28,6 +28,11 @@ public class RotateTowards : MonoBehaviour {
 		Quaternion unclampedRot = Quaternion.RotateTowards (transform.localRotation, qTo, 
 						rotateSpeed * Time.deltaTime);
 		Vector3 unclampedEulerRaw = unclampedRot.eulerAngles;
+
+//		Debug.Log (string.Format ("Rotate: x:{0:0.######} y:{1:0.######} z:{2:0.######}", 
+//			unclampedEulerRaw.x, unclampedEulerRaw.y, unclampedEulerRaw.z));
+
+
 		Vector3 unclampedEuler = new Vector3 (
 			unclampedEulerRaw.x < 180.0f ? unclampedEulerRaw.x : unclampedEulerRaw.x - 360f,
 			unclampedEulerRaw.y < 180.0f ? unclampedEulerRaw.y : unclampedEulerRaw.y - 360f,
@@ -38,7 +43,7 @@ public class RotateTowards : MonoBehaviour {
 		clampedRot.eulerAngles = new Vector3 (
 			Mathf.Clamp (unclampedEuler.x, -maxRotation, maxRotation),
 			Mathf.Clamp (unclampedEuler.y, -maxRotation, maxRotation),
-			Mathf.Clamp (unclampedEuler.z, -maxRotation, maxRotation)
+			unclampedEuler.z
 		);
 		transform.localRotation = clampedRot;
 	}

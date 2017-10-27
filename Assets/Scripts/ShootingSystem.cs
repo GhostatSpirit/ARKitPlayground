@@ -34,7 +34,7 @@ public class ShootingSystem : MonoBehaviour {
 				target.transform.position - transform.position);
 			float angle = Quaternion.Angle (tempQuaternion, Quaternion.identity);
 
-			Debug.Log ("angle is " + angle.ToString ());
+			// Debug.Log ("angle is " + angle.ToString ());
 
 			if(angle < fieldOfView){
 				SpawnProjectiles ();
