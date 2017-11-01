@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class BaseProjectile : MonoBehaviour {
 	public float speed = 5.0f;
+	public float destroyDistance = 3.0f;
 
 	public abstract void FireProjectile(GameObject launcher, GameObject target, Vector3 direction, int damage);
+
 }

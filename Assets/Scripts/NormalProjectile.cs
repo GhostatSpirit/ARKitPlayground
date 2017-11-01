@@ -6,16 +6,26 @@ public class NormalProjectile : BaseProjectile {
 
 	Vector3 m_direction;
 	bool m_fired;
-	
+	public int m_damage = 0;
+
+	GameObject m_launcher;
+
 	// Update is called once per frame
 	void Update () {
 		if(m_fired){
 			transform.position += m_direction * speed * Time.deltaTime;
 		}
+
+		if(Vector3.Distance(m_launcher.transform.position, transform.position) > destroyDistance){
+			Destroy (this.gameObject);
+		}
+
 	}
 
 	public override void FireProjectile(GameObject launcher, GameObject target, Vector3 direction, int damage){
-		if(launcher && target){
+		m_damage = damage;
+		if(launcher){
+			m_launcher = launcher;
 			if (direction != Vector3.zero) {
 				m_direction = direction;
 			} else {
@@ -23,5 +33,13 @@ public class NormalProjectile : BaseProjectile {
 			}
 			m_fired = true;
 		}
+	}
+
+	void OnCollisionEnter(Collision coll){
+		HealthSystem hs = coll.transform.GetComponentInParent<HealthSystem> ();
+		if(hs){
+			hs.DoDamage (m_damage);
+		}
+		Destroy (this.gameObject);
 	}
 }
