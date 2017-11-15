@@ -12,14 +12,18 @@ public class CameraPlaytest : MonoBehaviour {
 	// bool updated = false;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 #if !UNITY_EDITOR
 		// when we are on the iOS device...
 		arCamera.gameObject.SetActive(true);
 		editorCamera.gameObject.SetActive(false);
 		if(mountToCamera != null){
-			foreach(Transform child in mountToCamera){
-				child.setParent(arCamera);
+			Transform [] childs = new Transform[mountToCamera.childCount];
+			for(int i = 0; i < mountToCamera.childCount; ++i){
+				childs[i] = mountToCamera.GetChild(i);
+			}
+			foreach(Transform child in childs){
+				child.SetParent(arCamera);
 			}
 		}
 #else
@@ -27,9 +31,12 @@ public class CameraPlaytest : MonoBehaviour {
 		editorCamera.gameObject.SetActive(true);
 		arCamera.gameObject.SetActive(false);
 		if(mountToCamera != null){
-			foreach(Transform child in mountToCamera){
+			Transform [] childs = new Transform[mountToCamera.childCount];
+			for(int i = 0; i < mountToCamera.childCount; ++i){
+				childs[i] = mountToCamera.GetChild(i);
+			}
+			foreach(Transform child in childs){
 				child.SetParent(editorCamera);
-				Debug.Log(child);
 			}
 		}
 #endif
