@@ -3,9 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class BaseProjectile : MonoBehaviour {
-	public float speed = 5.0f;
-	public float destroyDistance = 3.0f;
+	public float m_speed = 5.0f;
+	public float m_destroyDistance = 3.0f;
+	public int m_damage = 10;
 
 	public abstract void FireProjectile(GameObject launcher, GameObject target, Vector3 direction, int damage);
 
+	protected virtual void OnCollisionEnter(Collision coll){
+		HealthSystem hs = coll.transform.GetComponentInParent<HealthSystem> ();
+		if(hs){
+			hs.DoDamage (m_damage);
+		}
+		Destroy (this.gameObject);
+	}
 }
