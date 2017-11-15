@@ -142,8 +142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 1
   m_destroyDistance: 3
-  m_damage: 0
-  rotateSpeed: 5
+  m_damage: 10
+  rotateSpeed: 2.5
 --- !u!136 &136022983069265276
 CapsuleCollider:
   m_ObjectHideFlags: 1
