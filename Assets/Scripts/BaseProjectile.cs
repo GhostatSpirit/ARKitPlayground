@@ -12,7 +12,7 @@ public abstract class BaseProjectile : MonoBehaviour {
 	protected virtual void OnCollisionEnter(Collision coll){
 		HealthSystem hs = coll.transform.GetComponentInParent<HealthSystem> ();
 		if(hs){
-			hs.DoDamage (m_damage);
+			hs.DoDamage (m_damage, gameObject, coll);
 		}
 		Destroy (this.gameObject);
 	}
