@@ -5,13 +5,23 @@ using UnityEngine;
 public class RotateTowards : MonoBehaviour {
 
 	public Transform target;
+	public Transform yawSegment;
+	public Transform pitchSegment;
 
-	public float rotateSpeed = 20.0f;
-	public float maxRotation = 90.0f;
+	Quaternion yawSegmentStartRotation;
+	Quaternion pitchSegmentStartRotation;
+
+	public float yawSpeed = 30.0f;
+	public float yawLimit = 90.0f;
+	public float pitchSpeed = 30.0f;
+	public float pitchLimit = 90.0f;
+
+	public bool isPitchSymmetric = true;
 
 	// Use this for initialization
 	void Start () {
-		
+		yawSegmentStartRotation = yawSegment.localRotation;
+		pitchSegmentStartRotation = pitchSegment.localRotation;
 	}
 	
 	// Update is called once per frame
@@ -20,32 +30,47 @@ public class RotateTowards : MonoBehaviour {
 //		Quaternion qTo = Quaternion.LookRotation (toTarget);
 //		transform.rotation = Quaternion.RotateTowards (transform.rotation, qTo, 
 //			rotateSpeed * Time.deltaTime);
+		Vector3 targetRelative;
+		float angle;
+		Quaternion targetRotation;
 
-		Vector3 toTarget = target.position - transform.position;
-		// transform the vector into parent's local space
-		toTarget = transform.parent.InverseTransformVector (toTarget);
-		Quaternion qTo = Quaternion.LookRotation (toTarget, transform.parent.up);
-		Quaternion unclampedRot = Quaternion.RotateTowards (transform.localRotation, qTo, 
-						rotateSpeed * Time.deltaTime);
-		Vector3 unclampedEulerRaw = unclampedRot.eulerAngles;
+		if (yawSegment && yawLimit != 0f) {
+			targetRelative = yawSegment.InverseTransformPoint (target.position);
+			angle = Mathf.Atan2 (targetRelative.x, targetRelative.z) * Mathf.Rad2Deg;
 
-//		Debug.Log (string.Format ("Rotate: x:{0:0.######} y:{1:0.######} z:{2:0.######}", 
-//			unclampedEulerRaw.x, unclampedEulerRaw.y, unclampedEulerRaw.z));
+			if (isPitchSymmetric) {
+				if (angle >= 90f)
+					angle = -(180f - angle);	
+				if (angle <= -135f)
+					angle = -(-180f + angle);
+			}
 
+			Quaternion yRot = Quaternion.Euler (0f, Mathf.Clamp (angle, -yawSpeed * Time.deltaTime, yawSpeed * Time.deltaTime), 0f);
+			targetRotation = yawSegment.rotation * yRot;
 
-		Vector3 unclampedEuler = new Vector3 (
-			unclampedEulerRaw.x < 180.0f ? unclampedEulerRaw.x : unclampedEulerRaw.x - 360f,
-			unclampedEulerRaw.y < 180.0f ? unclampedEulerRaw.y : unclampedEulerRaw.y - 360f,
-			unclampedEulerRaw.z < 180.0f ? unclampedEulerRaw.z : unclampedEulerRaw.z - 360f
-		);
+			if (yawLimit < 360f && yawLimit > 0f)
+				yawSegment.rotation = 
+				Quaternion.RotateTowards (yawSegment.parent.rotation * yawSegmentStartRotation, targetRotation, yawLimit);
+			else
+				yawSegment.rotation = targetRotation;
+		}
+		
+		if (pitchSegment && pitchLimit != 0f) {
+			targetRelative = pitchSegment.InverseTransformPoint (target.position);
+			angle = -Mathf.Atan2 (targetRelative.y, targetRelative.z) * Mathf.Rad2Deg;
+			if (angle >= 180f)
+				angle = 180f - angle;	
+			if (angle <= -180f)
+				angle = -180f + angle;
+			targetRotation = pitchSegment.rotation *
+			Quaternion.Euler (Mathf.Clamp (angle, -pitchSpeed * Time.deltaTime, pitchSpeed * Time.deltaTime), 0f, 0f);
+			if (pitchLimit < 360f && pitchLimit > 0f)
+				pitchSegment.rotation = 
+				Quaternion.RotateTowards (pitchSegment.parent.rotation * pitchSegmentStartRotation, targetRotation, pitchLimit);
+			else
+				pitchSegment.rotation = targetRotation;
+		}
 
-		Quaternion clampedRot = new Quaternion();
-		clampedRot.eulerAngles = new Vector3 (
-			Mathf.Clamp (unclampedEuler.x, -maxRotation, maxRotation),
-			Mathf.Clamp (unclampedEuler.y, -maxRotation, maxRotation),
-			unclampedEuler.z
-		);
-		transform.localRotation = clampedRot;
 	}
 
 }
