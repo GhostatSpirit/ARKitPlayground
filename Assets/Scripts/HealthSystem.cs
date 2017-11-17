@@ -7,6 +7,13 @@ using UnityEngine.UI;
 public class ObjectDeadEventArgs : EventArgs {
 	public GameObject attacker { get; private set; }
 	public GameObject attacked { get; private set; }
+	public Collision collision { get; private set; }
+
+	public ObjectDeadEventArgs(GameObject attacker, GameObject attacked, Collision coll){
+		this.attacker = attacker;
+		this.attacked = attacked;
+		this.collision = coll;
+	}
 
 	public ObjectDeadEventArgs(GameObject attacker, GameObject attacked){
 		this.attacker = attacker;
@@ -85,7 +92,7 @@ public class HealthSystem : MonoBehaviour {
 		if(!isDead && currentHealth == 0){
 			isDead = true;
 			if(OnObjectDead != null){
-				var eventArgs = new ObjectDeadEventArgs (attacker, gameObject);
+				var eventArgs = new ObjectDeadEventArgs (attacker, gameObject, coll);
 				OnObjectDead (gameObject, eventArgs);
 			}
 			if(destoryOnDead){
