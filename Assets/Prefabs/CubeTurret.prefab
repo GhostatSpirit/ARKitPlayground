@@ -388,8 +388,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  rotateSpeed: 40
-  maxRotation: 45
+  yawSegment: {fileID: 0}
+  pitchSegment: {fileID: 0}
+  yawSpeed: 30
+  yawLimit: 90
+  pitchSpeed: 30
+  pitchLimit: 90
+  isPitchSymmetric: 1
 --- !u!114 &114354302802561976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -419,6 +424,7 @@ MonoBehaviour:
   fireRate: 1
   damage: 5
   fieldOfView: 10
+  pitchSegment: {fileID: 0}
   projectile: {fileID: 1314121851068298, guid: 6160acc8ef8fb4a6591cc43275ea4103, type: 2}
   target: {fileID: 0}
   projectileSpawns:
