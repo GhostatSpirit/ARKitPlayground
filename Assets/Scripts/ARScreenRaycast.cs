@@ -18,10 +18,10 @@ public class ARScreenRaycast : MonoBehaviour {
 		RaycastHit hit;
 		if(Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask)){
 			hitPoint = hit.point;
-			Debug.Log ("ARScreenRaycast: Got Unity hit");
-			Debug.Log (string.Format ("x:{0:0.######} y:{1:0.######} z:{2:0.######}", 
-				hitPoint.x, hitPoint.y, hitPoint.z));
-			Debug.Log (hit.transform.name);
+//			Debug.Log ("ARScreenRaycast: Got Unity hit");
+//			Debug.Log (string.Format ("x:{0:0.######} y:{1:0.######} z:{2:0.######}", 
+//				hitPoint.x, hitPoint.y, hitPoint.z));
+//			Debug.Log (hit.transform.name);
 			return;
 		}
 
@@ -60,9 +60,9 @@ public class ARScreenRaycast : MonoBehaviour {
 		List<ARHitTestResult> hitResults = UnityARSessionNativeInterface.GetARSessionNativeInterface ().HitTest (point, resultTypes);
 		if (hitResults.Count > 0) {
 			foreach (var hitResult in hitResults) {
-				Debug.Log ("ARScreenRaycast: Got AR hit");
-				arHitPoint = UnityARMatrixOps.GetPosition (hitResult.worldTransform);
-				Debug.Log (string.Format ("x:{0:0.######} y:{1:0.######} z:{2:0.######}", arHitPoint.x, arHitPoint.y, arHitPoint.z));
+//				Debug.Log ("ARScreenRaycast: Got AR hit");
+//				arHitPoint = UnityARMatrixOps.GetPosition (hitResult.worldTransform);
+//				Debug.Log (string.Format ("x:{0:0.######} y:{1:0.######} z:{2:0.######}", arHitPoint.x, arHitPoint.y, arHitPoint.z));
 				return true;
 			}
 		}

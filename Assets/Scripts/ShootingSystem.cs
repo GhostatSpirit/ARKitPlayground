@@ -8,7 +8,7 @@ public class ShootingSystem : MonoBehaviour {
 
 	public float fieldOfView = 10f;
 
-
+	public Transform pitchSegment;
 	// public bool beam;
 	public GameObject projectile;
 	public GameObject target;
@@ -30,8 +30,8 @@ public class ShootingSystem : MonoBehaviour {
 		if(m_fireTimer >= fireRate){
 //			float angle = Quaternion.Angle
 //				(transform.rotation, Quaternion.LookRotation (target.transform.position - transform.position));
-			Quaternion tempQuaternion = Quaternion.FromToRotation (transform.forward, 
-				target.transform.position - transform.position);
+			Quaternion tempQuaternion = Quaternion.FromToRotation (pitchSegment.forward, 
+				target.transform.position - pitchSegment.position);
 			float angle = Quaternion.Angle (tempQuaternion, Quaternion.identity);
 
 			// Debug.Log ("angle is " + angle.ToString ());
