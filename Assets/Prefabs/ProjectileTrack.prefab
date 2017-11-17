@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4943283967354118}
   - component: {fileID: 114477303676417648}
   - component: {fileID: 54814706002915628}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ProjectileTrack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 33876995815308916}
   - component: {fileID: 136022983069265276}
   - component: {fileID: 23156401794820896}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
