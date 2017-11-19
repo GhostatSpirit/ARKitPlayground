@@ -8,6 +8,7 @@ public class TurretControl : MonoBehaviour {
 
 	RotateTowards rt;
 	ShootingSystem ss;
+	LaserShootingSystem lss;
 
 	bool isRotating = false;
 	bool isShooting = false;
@@ -17,8 +18,11 @@ public class TurretControl : MonoBehaviour {
 	void Start () {
 		rt = GetComponent<RotateTowards> ();
 		ss = GetComponent<ShootingSystem> ();
+		lss = GetComponent<LaserShootingSystem> ();
+
 		rt.enabled = isRotating;
-		ss.enabled = isShooting;
+		if(ss)  ss.enabled = isShooting;
+		if(lss) lss.enabled = isShooting;
 	}
 	
 	// Update is called once per frame
@@ -33,7 +37,8 @@ public class TurretControl : MonoBehaviour {
 
 	public void ToggleShoot(){
 		isShooting = !isShooting;
-		ss.enabled = isShooting;
+		if(ss)  ss.enabled = isShooting;
+		if(lss) lss.enabled = isShooting;
 	}
 
 	public void Bigger(){
