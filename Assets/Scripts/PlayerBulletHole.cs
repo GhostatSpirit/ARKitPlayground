@@ -6,7 +6,7 @@ using System;
 public class PlayerBulletHole : MonoBehaviour {
 
 	public float duration = 1f;
-	public float size = 1f;
+	public float size = 2f;
 
 	HealthSystem playerHealth;
 
@@ -14,6 +14,7 @@ public class PlayerBulletHole : MonoBehaviour {
 	void Start () {
 		playerHealth = GetComponent<HealthSystem> ();
 		playerHealth.OnObjectHurt += showBulletHole;
+		CameraPlay.CurrentCamera = Camera.main;
 	}
 
 	void showBulletHole(object hurtObj, EventArgs args){

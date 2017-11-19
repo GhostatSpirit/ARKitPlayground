@@ -37,9 +37,5 @@ public class BaseBlock : MonoBehaviour {
 
 		fo.Explode (impactPos, deadExplodeForce);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }
