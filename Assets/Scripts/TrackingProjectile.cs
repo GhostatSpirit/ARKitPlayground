@@ -2,18 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrackingProjectile : BaseProjectile {
+public class TrackingProjectile : NormalProjectile {
 
 	public float rotateSpeed = 5.0f;
 
-	Vector3 m_direction;
-	bool m_fired;
-
-	GameObject m_launcher;
 	GameObject m_target;
 
 	// Update is called once per frame
-	void Update () {
+	protected override void Update () {
 		if(m_fired){
 			if(m_target){
 				Vector3 toTarget = m_target.transform.position - transform.position;

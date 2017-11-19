@@ -23,9 +23,5 @@ public class PlayerBulletHole : MonoBehaviour {
 		Vector3 viewportPos = Camera.main.ScreenToViewportPoint (screenPos);
 		CameraPlay.BulletHole (viewportPos.x, viewportPos.y, duration, size);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }

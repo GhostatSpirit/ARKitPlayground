@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class NormalProjectile : BaseProjectile {
 
-	Vector3 m_direction;
-	bool m_fired;
+	public float m_speed = 5.0f;
+	public float m_destroyDistance = 3.0f;
 
-	GameObject m_launcher;
+	protected Vector3 m_direction;
+	protected bool m_fired;
+
+	protected GameObject m_launcher;
 
 	// Update is called once per frame
-	void Update () {
+	protected virtual void Update () {
 		if(m_fired){
 			transform.position += m_direction * m_speed * Time.deltaTime;
 		}
@@ -34,5 +37,13 @@ public class NormalProjectile : BaseProjectile {
 		}
 	}
 
+	protected virtual void OnCollisionEnter(Collision coll){
+		Debug.Log (coll.transform);
+		HealthSystem hs = coll.transform.GetComponentInParent<HealthSystem> ();
+		if(hs){
+			hs.DoDamage (m_damage, gameObject, coll);
+		}
+		Destroy (this.gameObject);
+	}
 
 }
