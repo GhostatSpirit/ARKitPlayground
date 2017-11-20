@@ -8,16 +8,19 @@ public class ObjectDeadEventArgs : EventArgs {
 	public GameObject attacker { get; private set; }
 	public GameObject attacked { get; private set; }
 	public Collision collision { get; private set; }
+	public Vector3 hitPoint { get; private set; }
 
 	public ObjectDeadEventArgs(GameObject attacker, GameObject attacked, Collision coll){
 		this.attacker = attacker;
 		this.attacked = attacked;
 		this.collision = coll;
+		this.hitPoint = coll.contacts [0].point;
 	}
 
-	public ObjectDeadEventArgs(GameObject attacker, GameObject attacked){
+	public ObjectDeadEventArgs(GameObject attacker, GameObject attacked, Vector3 hitPoint){
 		this.attacker = attacker;
 		this.attacked = attacked;
+		this.hitPoint = hitPoint;
 	}
 }
 
@@ -25,6 +28,7 @@ public class ObjectHurtEventArgs : EventArgs {
 	public GameObject attacker { get; private set; }
 	public int damage { get; private set; }
 	public Collision collision { get; private set; }
+	public Vector3 hitPoint { get; private set; }
 
 	public ObjectHurtEventArgs
 		(GameObject attacker, int damage, Collision coll)
@@ -32,6 +36,15 @@ public class ObjectHurtEventArgs : EventArgs {
 		this.attacker = attacker;
 		this.damage = damage;
 		this.collision = coll;
+		this.hitPoint = coll.contacts [0].point;
+	}
+
+	public ObjectHurtEventArgs
+	(GameObject attacker, int damage, Vector3 hitPoint)
+	{
+		this.attacker = attacker;
+		this.damage = damage;
+		this.hitPoint = hitPoint;
 	}
 }
 
@@ -100,5 +113,32 @@ public class HealthSystem : MonoBehaviour {
 			}
 		}
 	}
+	public void DoDamage(int damage, GameObject attacker, Vector3 hitPoint){
+		currentHealth -= damage;
+		if (currentHealth < 0)
+			currentHealth = 0;
+
+		if (OnHealthChanged != null) {
+			var args = new HealthChangedEventArgs (currentHealth, maxHealth);
+			OnHealthChanged (gameObject, args);
+		}
+		if (OnObjectHurt != null) {
+			var args = new ObjectHurtEventArgs (attacker, damage, hitPoint);
+			OnObjectHurt (gameObject, args);
+		}
+
+
+		if(!isDead && currentHealth == 0){
+			isDead = true;
+			if(OnObjectDead != null){
+				var eventArgs = new ObjectDeadEventArgs (attacker, gameObject, hitPoint);
+				OnObjectDead (gameObject, eventArgs);
+			}
+			if(destoryOnDead){
+				Destroy (this.gameObject);
+			}
+		}
+	}
+
 		
 }

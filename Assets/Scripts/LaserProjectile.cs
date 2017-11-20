@@ -9,6 +9,7 @@ public class LaserProjectile : BaseProjectile {
 
 	public LayerMask m_targetMask;
 
+	float m_deltaDamage = 0f;
 	Vector3 m_direction;
 	// GameObject m_launcher;
 
@@ -39,6 +40,15 @@ public class LaserProjectile : BaseProjectile {
 		if (Physics.Raycast (ray, out hit, m_maxDistance, m_targetMask)) {
 			endPosition = hit.point;
 			//TODO: instantiate particle system for the hit
+			HealthSystem hs = hit.transform.GetComponent<HealthSystem> ();
+			if(hs){
+				m_deltaDamage += m_damage * Time.deltaTime;
+				if(m_deltaDamage > 1f){
+					int idamage = (int)m_deltaDamage;
+					hs.DoDamage (idamage, gameObject, endPosition);
+					m_deltaDamage -= (float)idamage;
+				}
+			}
 		} else {
 			endPosition = transform.position + m_direction * m_maxDistance;
 		}

@@ -19,9 +19,12 @@ public class PlayerBulletHole : MonoBehaviour {
 
 	void showBulletHole(object hurtObj, EventArgs args){
 		ObjectHurtEventArgs hargs = (ObjectHurtEventArgs)args;
-		Vector3 screenPos = Camera.main.WorldToScreenPoint (hargs.collision.contacts [0].point);
-		Vector3 viewportPos = Camera.main.ScreenToViewportPoint (screenPos);
-		CameraPlay.BulletHole (viewportPos.x, viewportPos.y, duration, size);
+		Collision coll = hargs.collision;
+		if (coll != null) {
+			Vector3 screenPos = Camera.main.WorldToScreenPoint (coll.contacts [0].point);
+			Vector3 viewportPos = Camera.main.ScreenToViewportPoint (screenPos);
+			CameraPlay.BulletHole (viewportPos.x, viewportPos.y, duration, size);
+		}
 	}
 
 }
