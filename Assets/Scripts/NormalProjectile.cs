@@ -12,13 +12,15 @@ public class NormalProjectile : BaseProjectile {
 
 	protected GameObject m_launcher;
 
+	protected Vector3 m_initPos;
+
 	// Update is called once per frame
 	protected virtual void Update () {
 		if(m_fired){
 			transform.position += m_direction * m_speed * Time.deltaTime;
 		}
-
-		if(Vector3.Distance(m_launcher.transform.position, transform.position) > m_destroyDistance){
+			
+		if(isOutOfDistance()){
 			Destroy (this.gameObject);
 		}
 
@@ -35,6 +37,7 @@ public class NormalProjectile : BaseProjectile {
 			}
 			m_fired = true;
 		}
+		m_initPos = transform.position;
 	}
 
 	protected virtual void OnCollisionEnter(Collision coll){
@@ -44,6 +47,10 @@ public class NormalProjectile : BaseProjectile {
 			hs.DoDamage (m_damage, gameObject, coll);
 		}
 		Destroy (this.gameObject);
+	}
+
+	protected bool isOutOfDistance(){
+		return Vector3.Distance (m_initPos, transform.position) > m_destroyDistance;
 	}
 
 }

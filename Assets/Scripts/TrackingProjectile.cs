@@ -20,10 +20,9 @@ public class TrackingProjectile : NormalProjectile {
 			transform.position += m_direction * m_speed * Time.deltaTime;
 		}
 
-		if(Vector3.Distance(m_launcher.transform.position, transform.position) > m_destroyDistance){
+		if(isOutOfDistance()){
 			Destroy (this.gameObject);
 		}
-
 	}
 
 	public override void FireProjectile(GameObject launcher, GameObject target, Vector3 direction, int damage){
@@ -46,5 +45,7 @@ public class TrackingProjectile : NormalProjectile {
 
 			m_fired = true;
 		}
+
+		m_initPos = transform.position;
 	}
 }
