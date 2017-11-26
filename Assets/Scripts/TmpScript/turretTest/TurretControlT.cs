@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretControl : MonoBehaviour {
+public class TurretControlT : MonoBehaviour {
 
 	public float scaleInterval = 1f;
 
-	RotateTowards rt;
+	RotateTowardsT rt;
 	ShootingSystem ss;
 	LaserShootingSystem lss;
 
-	bool isRotating = true;
+	public bool isRotating = true;
 	bool isShooting = false;
 
 
 	// Use this for initialization
 	void Start () {
-		rt = GetComponent<RotateTowards> ();
+		rt = GetComponent<RotateTowardsT> ();
 		ss = GetComponent<ShootingSystem> ();
 		lss = GetComponent<LaserShootingSystem> ();
 

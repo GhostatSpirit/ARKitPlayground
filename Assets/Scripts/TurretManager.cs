@@ -21,7 +21,7 @@ public class TurretManager : MonoBehaviour {
 			foreach(Transform turret in turrets){
 				TurretControl tc = turret.GetComponentInChildren<TurretControl> ();
 				tc.ToggleRotate ();
-				tc.ToggleShoot ();
+				//tc.ToggleShoot ();
 			}
 		}
 	}
