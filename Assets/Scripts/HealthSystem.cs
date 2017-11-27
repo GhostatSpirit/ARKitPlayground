@@ -73,7 +73,7 @@ public class HealthSystem : MonoBehaviour {
 
 	public bool destoryOnDead = false;
 
-	public Text healthText;
+	//public Text healthText;
 
 	// Use this for initialization
 	void Start () {
@@ -82,9 +82,10 @@ public class HealthSystem : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (healthText) {
-			healthText.text = "Health: " + currentHealth.ToString ();
-		}
+		//if (healthText) {
+		//	healthText.text = "Health: " + currentHealth.ToString ();
+		//}
+
 	}
 
 	public void DoDamage(int damage, GameObject attacker, Collision coll){
