@@ -6,6 +6,8 @@ using UnityEditor;
 [CustomEditor(typeof(FieldOfView))]
 public class FieldOfViewEditor : Editor {
 
+	float angleStep = 60f;
+
 	protected virtual void OnSceneGUI()
 	{
 		if (Event.current.type == EventType.Repaint)
@@ -13,20 +15,31 @@ public class FieldOfViewEditor : Editor {
 			FieldOfView fov = (FieldOfView)target;
 			Handles.color = Color.white;
 
-			float[] angles = new float[] { 0f, 90f, 180f, 270f };
 
-			Vector3 center = fov.transform.position;
+			Vector3 center = fov.pivot.position;
 
-			foreach(float angle in angles){
+			for(float angle = 0f; angle < 180f; angle += angleStep){
+				// draw the two facing edge rays
+				float length = fov.viewRadius;
+				if(length == Mathf.Infinity){
+					length = 1f;
+				}
+
 				Vector3 edgeA = fov.DirFromAngle (angle);
-				Handles.DrawLine (center, center + edgeA * fov.viewRadius);
+				Handles.DrawLine (center, center + edgeA * length);
+				Vector3 edgeB = fov.DirFromAngle (angle + 180f);
+				Handles.DrawLine (center, center + edgeB * length);
+
+				// draw the curve that connects the two rays
+				Vector3 arcNormal = Vector3.Cross (fov.DirFromAngle (angle), fov.pivot.up);
+				Handles.DrawWireArc (center, arcNormal, fov.DirFromAngle (angle), fov.viewAngle, length);
 			}
 
-			Vector3 arcNormal = Vector3.Cross (fov.DirFromAngle (0f), fov.transform.up);
-			Handles.DrawWireArc (center, arcNormal, fov.DirFromAngle (0f), fov.viewAngle, fov.viewRadius);
-
-			arcNormal = Vector3.Cross (fov.DirFromAngle (90f), fov.transform.up);
-			Handles.DrawWireArc (center, arcNormal, fov.DirFromAngle (90f), fov.viewAngle, fov.viewRadius);
+			Handles.color = Color.red;
+			foreach (Transform visibleTarget in fov.visibleTargets) {
+				Handles.DrawLine (center, visibleTarget.position);
+			}
+				
 		}
 	}
 }

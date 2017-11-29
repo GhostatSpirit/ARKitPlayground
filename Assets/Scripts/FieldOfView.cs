@@ -14,11 +14,26 @@ public class FieldOfView : MonoBehaviour {
 	public LayerMask targetMask;
 	public LayerMask obstacleMask;
 
+	public Transform pivot{
+		get{
+			if (_pivot == null)
+				return transform;
+			else
+				return _pivot;
+		}
+		set{
+			_pivot = value;
+		}
+	}
+
+	public Transform _pivot;
+
 	[HideInInspector]
 	public List<Transform> visibleTargets = new List<Transform>();
 
 	void Start() {
 		StartCoroutine ("FindTargetsWithDelay", .2f);
+
 	}
 
 
@@ -31,36 +46,37 @@ public class FieldOfView : MonoBehaviour {
 
 	void FindVisibleTargets() {
 		visibleTargets.Clear ();
-		Collider[] targetsInViewRadius = Physics.OverlapSphere (transform.position, viewRadius, targetMask);
-
+		Collider[] targetsInViewRadius = Physics.OverlapSphere (pivot.position, viewRadius, targetMask);
 		for (int i = 0; i < targetsInViewRadius.Length; i++) {
 			Transform target = targetsInViewRadius [i].transform;
-			Vector3 dirToTarget = (target.position - transform.position).normalized;
-			if (Vector3.Angle (transform.forward, dirToTarget) < viewAngle / 2f) {
-				float dstToTarget = Vector3.Distance (transform.position, target.position);
+			Vector3 dirToTarget = (target.position - pivot.position).normalized;
+			if (Vector3.Angle (pivot.up, dirToTarget) < viewAngle / 2f) {
+				float dstToTarget = Vector3.Distance (pivot.position, target.position);
 
-				if (!Physics.Raycast (transform.position, dirToTarget, dstToTarget, obstacleMask)) {
+				RaycastHit hit;
+				if (!Physics.Raycast (pivot.position, dirToTarget, out hit, dstToTarget, obstacleMask)) {
+					//Debug.Log (target);
 					visibleTargets.Add (target);
-				}
+				} 
 			}
 		}
 	}
 
 
 	public Vector3 DirFromTransform(Transform target) {
-		return (target.position - transform.position).normalized;
+		return (target.position - pivot.position).normalized;
 	}
 
 	public Vector3 DirFromAngle(float angleInDegrees){
 		Vector3 localDir = new Vector3 (Mathf.Sin (angleInDegrees * Mathf.Deg2Rad),
-			0f,
+			 0f,
 			 Mathf.Cos (angleInDegrees * Mathf.Deg2Rad));
 
-		Vector3 globalDir = transform.TransformDirection (localDir);
+		Vector3 globalDir = pivot.TransformDirection (localDir);
 
 		float normalRad = Mathf.Tan (viewAngle / 2f * Mathf.Deg2Rad);
 
-		Vector3 result = transform.up + globalDir * normalRad;
+		Vector3 result = pivot.up + globalDir * normalRad;
 		result.Normalize ();
 
 		return result;
