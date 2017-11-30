@@ -55,6 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4565601143067346}
   - component: {fileID: 114738714726721728}
+  - component: {fileID: 114598002783510330}
   m_Layer: 12
   m_Name: ProjectileShield
   m_TagString: Untagged
@@ -371,6 +372,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0.25}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114598002783510330
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1381240854426604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 967408fbaf5a4aa44bef79ae9e4ddf89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetScale: {x: 1, y: 1, z: 1}
+  initialFactor: {x: 0, y: 0, z: 1}
+  scaleSpeed: 5
 --- !u!114 &114738714726721728
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -5054,7 +5054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 0.4
   damage: 5
-  fieldOfView: 10
+  fieldOfView: 360
   pitchSegment: {fileID: 1220378367}
   projectile: {fileID: 1314121851068298, guid: 4417c64d136f63a448931b5b314554f7, type: 2}
   target: {fileID: 0}
