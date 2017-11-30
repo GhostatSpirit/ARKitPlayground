@@ -9,6 +9,7 @@ public class TurretControl : MonoBehaviour {
 	RotateTowards rt;
 	ShootingSystem ss;
 	LaserShootingSystem lss;
+	FieldOfView fov;
 
 	bool isRotating = false;
 	bool isShooting = false;
@@ -19,15 +20,25 @@ public class TurretControl : MonoBehaviour {
 		rt = GetComponent<RotateTowards> ();
 		ss = GetComponent<ShootingSystem> ();
 		lss = GetComponent<LaserShootingSystem> ();
+		fov = GetComponent<FieldOfView> ();
 
-		rt.enabled = isRotating;
+		if(rt)  rt.enabled = isRotating;
 		if(ss)  ss.enabled = isShooting;
 		if(lss) lss.enabled = isShooting;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (fov) {
+			Transform target = fov.GetVisibleTarget (0);
+			if (rt)
+				rt.target = target;
+			if (ss)
+				ss.target = target;
+			if (lss)
+				lss.target = target;
+		}
+
 	}
 
 	public void ToggleRotate(){

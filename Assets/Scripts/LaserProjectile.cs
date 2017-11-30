@@ -16,7 +16,7 @@ public class LaserProjectile : BaseProjectile {
 	LineRenderer m_lr;
 
 	// float m_timer = 0f;
-	bool m_fired = false;
+// 	bool m_fired = false;
 
 	// Use this for initialization
 	void Start () {

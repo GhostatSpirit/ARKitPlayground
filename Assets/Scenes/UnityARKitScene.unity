@@ -372,7 +372,7 @@ Transform:
   m_LocalScale: {x: 0.66000056, y: 0.32939902, z: 0.6600004}
   m_Children: []
   m_Father: {fileID: 1093988760}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!23 &45605115
 MeshRenderer:
@@ -1068,7 +1068,7 @@ Transform:
   m_Children:
   - {fileID: 1767428436}
   m_Father: {fileID: 1093988760}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!23 &218974698
 MeshRenderer:
@@ -3133,6 +3133,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 985089623}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1015605817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1015605818}
+  m_Layer: 9
+  m_Name: Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1015605818
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1015605817}
+  m_LocalRotation: {x: 0.7071062, y: -0, z: -0, w: 0.7071074}
+  m_LocalPosition: {x: 0, y: 0, z: 0.7099999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1093988760}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1036868624
 GameObject:
   m_ObjectHideFlags: 0
@@ -3273,6 +3301,7 @@ GameObject:
   - component: {fileID: 1055791546}
   - component: {fileID: 1055791547}
   - component: {fileID: 1055791545}
+  - component: {fileID: 1055791548}
   m_Layer: 9
   m_Name: CubeTurret
   m_TagString: Untagged
@@ -3413,6 +3442,27 @@ MonoBehaviour:
   pitchSpeed: 30
   pitchLimit: 90
   isPitchSymmetric: 1
+--- !u!114 &1055791548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1055791539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef36afd1f4469f499e2fcedaab4bea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: Infinity
+  viewAngle: 180
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 256
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 512
+  _pivot: {fileID: 1015605818}
+  visibleTargets: []
 --- !u!1 &1093988759
 GameObject:
   m_ObjectHideFlags: 0
@@ -3438,6 +3488,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1015605818}
   - {fileID: 45605114}
   - {fileID: 1654845666}
   - {fileID: 218974697}
@@ -4866,7 +4917,7 @@ Transform:
   m_Children:
   - {fileID: 1726164653}
   m_Father: {fileID: 1093988760}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!23 &1654845667
 MeshRenderer:
@@ -4947,7 +4998,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1669556033}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.01}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 320160075}
