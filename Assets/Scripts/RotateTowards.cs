@@ -11,6 +11,7 @@ public class RotateTowards : MonoBehaviour {
 	Quaternion yawSegmentStartRotation;
 	Quaternion pitchSegmentStartRotation;
 
+	public bool yawSelfRotate = false;
 	public float yawSpeed = 30.0f;
 	public float yawLimit = 90.0f;
 	public float pitchSpeed = 30.0f;
@@ -50,6 +51,9 @@ public class RotateTowards : MonoBehaviour {
 			}
 
 			Quaternion yRot = Quaternion.Euler (0f, Mathf.Clamp (angle, -yawSpeed * Time.deltaTime, yawSpeed * Time.deltaTime), 0f);
+			if(yawSelfRotate){
+				yRot = Quaternion.Euler (0f, yawSpeed * Time.deltaTime, 0f);
+			}
 			targetRotation = yawSegment.rotation * yRot;
 
 			if (yawLimit < 360f && yawLimit > 0f)

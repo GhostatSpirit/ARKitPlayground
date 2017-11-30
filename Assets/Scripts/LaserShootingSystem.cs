@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LaserShootingSystem : MonoBehaviour {
 
+	bool needAim = false;
 	public float aimDuration = 3f;
 	public float shootDuration = 1f;
 
@@ -26,15 +27,17 @@ public class LaserShootingSystem : MonoBehaviour {
 
 	IEnumerator LaserLogicIE(){
 		while(true){
-			yield return new WaitForSeconds (aimDuration);
+			if (needAim) {
+				yield return new WaitForSeconds (aimDuration);
+			}
 			yield return new WaitUntil (() => isInSight ());
 
-			rt.enabled = false;
+			// rt.enabled = false;
 			SpawnProjectiles ();
 
 			yield return new WaitForSeconds (shootDuration);
 
-			rt.enabled = true;
+			// rt.enabled = true;
 			DisableProjectiles ();
 		}
 	}
@@ -49,7 +52,8 @@ public class LaserShootingSystem : MonoBehaviour {
 			if (spawn) {
 				BaseProjectile bp = spawn.GetComponent<BaseProjectile> ();
 				if(bp){
-					bp.FireProjectile (spawn, target.gameObject, spawn.transform.forward, damage);
+					GameObject targetGO = (target != null) ? target.gameObject : null;
+					bp.FireProjectile (spawn, targetGO, spawn.transform.forward, damage);
 				}
 			}
 		}

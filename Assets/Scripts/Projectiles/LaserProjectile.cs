@@ -15,6 +15,8 @@ public class LaserProjectile : BaseProjectile {
 
 	LineRenderer m_lr;
 
+	public bool useForward = false;
+
 	// float m_timer = 0f;
 // 	bool m_fired = false;
 
@@ -33,7 +35,12 @@ public class LaserProjectile : BaseProjectile {
 
 	void Update(){
 		m_lr.enabled = true;
-		Ray ray = new Ray (transform.position, m_direction);
+
+		Vector3 tempDir = m_direction;
+		if (useForward)
+			tempDir = transform.forward;
+
+		Ray ray = new Ray (transform.position, tempDir);
 		RaycastHit hit;
 		Vector3 endPosition;
 
@@ -50,7 +57,7 @@ public class LaserProjectile : BaseProjectile {
 				}
 			}
 		} else {
-			endPosition = transform.position + m_direction * m_maxDistance;
+			endPosition = transform.position + tempDir * m_maxDistance;
 		}
 
 		Vector3[] linePoints = new Vector3[2];
