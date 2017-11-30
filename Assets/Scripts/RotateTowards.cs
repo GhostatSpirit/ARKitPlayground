@@ -34,6 +34,10 @@ public class RotateTowards : MonoBehaviour {
 		float angle;
 		Quaternion targetRotation;
 
+		if(target == null){
+			return;
+		}
+
 		if (yawSegment && yawLimit != 0f) {
 			targetRelative = yawSegment.InverseTransformPoint (target.position);
 			angle = Mathf.Atan2 (targetRelative.x, targetRelative.z) * Mathf.Rad2Deg;

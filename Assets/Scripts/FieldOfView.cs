@@ -82,4 +82,12 @@ public class FieldOfView : MonoBehaviour {
 		return result;
 	}
 
+	public Transform GetVisibleTarget(int index){
+		if(index >= visibleTargets.Count || index < 0){
+			return null;
+		} else {
+			return visibleTargets [index];
+		}
+	}
+
 }
