@@ -11,7 +11,7 @@ public class LaserShootingSystem : MonoBehaviour {
 	public float fieldOfView = 10f;
 
 	public Transform pitchSegment;
-	public GameObject target;
+	public Transform target;
 	public List<GameObject> projectileSpawns;
 	RotateTowards rt;
 
@@ -49,7 +49,7 @@ public class LaserShootingSystem : MonoBehaviour {
 			if (spawn) {
 				BaseProjectile bp = spawn.GetComponent<BaseProjectile> ();
 				if(bp){
-					bp.FireProjectile (spawn, target, spawn.transform.forward, damage);
+					bp.FireProjectile (spawn, target.gameObject, spawn.transform.forward, damage);
 				}
 			}
 		}
@@ -68,6 +68,10 @@ public class LaserShootingSystem : MonoBehaviour {
 	}
 
 	bool isInSight(){
+		if(target == null){
+			return false;
+		}
+
 		Quaternion tempQuaternion = Quaternion.FromToRotation (pitchSegment.forward, 
 			target.transform.position - pitchSegment.position);
 		float angle = Quaternion.Angle (tempQuaternion, Quaternion.identity);

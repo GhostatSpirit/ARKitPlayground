@@ -14,7 +14,7 @@ public class PlayerBulletHole : MonoBehaviour {
 	void Start () {
 		playerHealth = GetComponent<HealthSystem> ();
 		playerHealth.OnObjectHurt += showBulletHole;
-		//CameraPlay.CurrentCamera = Camera.main;
+		CameraPlay.CurrentCamera = Camera.main;
 	}
 
 	void showBulletHole(object hurtObj, EventArgs args){
@@ -23,7 +23,7 @@ public class PlayerBulletHole : MonoBehaviour {
 		if (coll != null) {
 			Vector3 screenPos = Camera.main.WorldToScreenPoint (coll.contacts [0].point);
 			Vector3 viewportPos = Camera.main.ScreenToViewportPoint (screenPos);
-			//CameraPlay.BulletHole (viewportPos.x, viewportPos.y, duration, size);
+			CameraPlay.BulletHole (viewportPos.x, viewportPos.y, duration, size);
 		}
 	}
 

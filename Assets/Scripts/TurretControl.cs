@@ -10,7 +10,7 @@ public class TurretControl : MonoBehaviour {
 	ShootingSystem ss;
 	LaserShootingSystem lss;
 
-	bool isRotating = true;
+	bool isRotating = false;
 	bool isShooting = false;
 
 
@@ -29,6 +29,14 @@ public class TurretControl : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void disableFunction() {
+        isRotating = false;
+        rt.enabled = isRotating;
+        isShooting = false;
+        if (ss) ss.enabled = isShooting;
+        if (lss) lss.enabled = isShooting;
+    }
 
 	public void ToggleRotate(){
 		isRotating = !isRotating;

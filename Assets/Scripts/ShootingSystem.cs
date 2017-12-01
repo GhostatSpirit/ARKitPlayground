@@ -11,7 +11,7 @@ public class ShootingSystem : MonoBehaviour {
 	public Transform pitchSegment;
 	// public bool beam;
 	public GameObject projectile;
-	public GameObject target;
+	public Transform target;
 	public List<GameObject> projectileSpawns;
 
 
@@ -26,6 +26,10 @@ public class ShootingSystem : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		m_fireTimer += Time.deltaTime;
+
+		if (target == null) {
+			return;
+		}
 
 		if(m_fireTimer >= fireRate){
 //			float angle = Quaternion.Angle
@@ -67,7 +71,7 @@ public class ShootingSystem : MonoBehaviour {
 				proj.transform.localScale = newScale;
 
 				proj.GetComponent<BaseProjectile> ()
-					.FireProjectile (projectileSpawns [i], target,
+					.FireProjectile (projectileSpawns [i], target.gameObject,
 						             projectileSpawns[i].transform.forward, damage);
 
 				m_lastProjectiles.Add (proj);
