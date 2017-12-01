@@ -16,8 +16,8 @@ public class CollisionHandler : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
        
-        if (collision.gameObject.layer == topPartMask) {
-            Debug.Log("collision!!!");
+        if (collision.collider.gameObject.tag=="TopPart") {
+            Debug.Log("collision!!! " + collision.gameObject.name);
         }
     }
 }
