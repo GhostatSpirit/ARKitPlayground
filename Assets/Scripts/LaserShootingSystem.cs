@@ -14,12 +14,12 @@ public class LaserShootingSystem : MonoBehaviour {
 	public Transform pitchSegment;
 	public Transform target;
 	public List<GameObject> projectileSpawns;
-	RotateTowards rt;
+// 	RotateTowards rt;
 
 
 	// Use this for initialization
 	void Start () {
-		rt = GetComponent<RotateTowards> ();
+//		rt = GetComponent<RotateTowards> ();
 		StartCoroutine (LaserLogicIE ());
 	}
 
