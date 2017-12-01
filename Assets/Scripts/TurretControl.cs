@@ -22,9 +22,9 @@ public class TurretControl : MonoBehaviour {
 		lss = GetComponent<LaserShootingSystem> ();
 		fov = GetComponent<FieldOfView> ();
 
-		if(rt)  rt.enabled = isRotating;
-		if(ss)  ss.enabled = isShooting;
-		if(lss) lss.enabled = isShooting;
+		//if(rt)  rt.enabled = isRotating;
+		//if(ss)  ss.enabled = isShooting;
+		//if(lss) lss.enabled = isShooting;
 	}
 	
 	// Update is called once per frame
@@ -43,7 +43,7 @@ public class TurretControl : MonoBehaviour {
 
 	public void ToggleRotate(){
 		isRotating = !isRotating;
-		rt.enabled = isRotating;
+        if (rt) rt.enabled = isRotating;
 	}
 
 	public void ToggleShoot(){

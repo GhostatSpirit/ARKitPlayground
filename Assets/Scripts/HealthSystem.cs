@@ -64,7 +64,7 @@ public class HealthSystem : MonoBehaviour {
 
 	public int maxHealth = 100;
 
-	public int currentHealth;
+	public int currentHealth { get; private set; }
 	bool isDead = false;
 
 	public event EventHandler<ObjectDeadEventArgs> OnObjectDead;

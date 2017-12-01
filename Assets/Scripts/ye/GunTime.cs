@@ -12,6 +12,8 @@ public class GunTime : MonoBehaviour {
 
     PlayerShootingNew PSN;
 
+    public float overheatRate;
+
 	// Use this for initialization
 	void Start () {
         PSN = GetComponent<PlayerShootingNew>();
@@ -19,6 +21,8 @@ public class GunTime : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        overheatRate = shootTime / OverheatTime * 100;
 
         switch (PSN.enabled)
         {

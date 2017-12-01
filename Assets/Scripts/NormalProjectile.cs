@@ -40,7 +40,22 @@ public class NormalProjectile : BaseProjectile {
 		m_initPos = transform.position;
 	}
 
-	protected virtual void OnCollisionEnter(Collision coll){
+    public override void FireProjectileNoDirection(GameObject launcher, Vector3 direction, int damage)
+    {
+        m_damage = damage;
+        if (launcher)
+        {
+            m_launcher = launcher;
+
+            m_direction = direction;
+            
+            m_fired = true;
+        }
+        m_initPos = transform.position;
+    }
+
+
+    protected virtual void OnCollisionEnter(Collision coll){
 		Debug.Log (coll.transform);
 		HealthSystem hs = coll.transform.GetComponentInParent<HealthSystem> ();
 		if(hs){

@@ -72,4 +72,14 @@ public class LaserProjectile : BaseProjectile {
 		}
 	}
 
+    public override void FireProjectileNoDirection(GameObject launcher, Vector3 direction, int damage)
+    {
+        this.enabled = true;
+        m_damage = damage;
+        if (launcher)
+        {
+                m_direction = direction.normalized; 
+        }
+    }
+
 }
