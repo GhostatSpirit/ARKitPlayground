@@ -17,6 +17,12 @@ public class NewFocus : MonoBehaviour {
 
     public GameObject loadingObject;
 
+    public GameObject hitParent;
+
+    ARHitTestNew ARHTN;
+
+    public GameObject startButton;
+
     // LoadingUI loadingUI;
 
     //for editor version
@@ -46,6 +52,9 @@ public class NewFocus : MonoBehaviour {
     {
         SquareState = FocusState.Initializing;
         trackingInitialized = true;
+
+        ARHTN = hitParent.GetComponent<ARHitTestNew>();
+
         //loadingUI = loadingObject.GetComponent<LoadingUI>();
     }
 
@@ -88,6 +97,8 @@ public class NewFocus : MonoBehaviour {
             //and the rotation from the transform of the plane collider
             SquareState = FocusState.Found;
             loadingObject.SetActive(false);
+            ARHTN.canSet = true;
+            startButton.SetActive(true);
             
             foundSquare.transform.rotation = hit.transform.rotation;
             return;
@@ -126,7 +137,9 @@ public class NewFocus : MonoBehaviour {
         {
             SquareState = FocusState.Finding;
 
+            startButton.SetActive(false);
             loadingObject.SetActive(true);
+            ARHTN.canSet = false;
 
             //check camera forward is facing downward
             if (Vector3.Dot(Camera.main.transform.forward, Vector3.down) > 0)

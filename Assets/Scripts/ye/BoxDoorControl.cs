@@ -217,16 +217,16 @@ public class BoxDoorControl : MonoBehaviour {
                     {
                         
                         instantiateTurrent = Instantiate(turrent, doorXp.transform.position, doorXp.transform.rotation, gameObject.transform);
-                        //TurrentHS = instantiateTurrent.GetComponent<HealthSystem>();
+                        
                         instantiateTurrent.transform.Rotate(0, 0, 180);                       
                         GetTurrentComponent(instantiateTurrent);
                         
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x + distance, startPosition.y, startPosition.z);
+                        endPosition = new Vector3(startPosition.x + distance * transform.localScale.x, startPosition.y, startPosition.z);
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
-                        Debug.Log("instantiate and before set, RT: " + TurrentRT.enabled + "SS: "+ TurrentSS.enabled);
+                        //Debug.Log("instantiate and before set, RT: " + TurrentRT.enabled + "SS: "+ TurrentSS.enabled);
                         EnableComponents(reverse);
-                        Debug.Log("instantiate and after set, RT: " + TurrentRT.enabled + "SS: " + TurrentSS.enabled);
+                        //Debug.Log("instantiate and after set, RT: " + TurrentRT.enabled + "SS: " + TurrentSS.enabled);
                     }
                     else if (instantiateTurrent != null && reverse == true)
                     {
@@ -234,14 +234,14 @@ public class BoxDoorControl : MonoBehaviour {
                         instantiateTurrent.transform.rotation = doorXp.transform.rotation;
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x + distance, startPosition.y, startPosition.z);
+                        endPosition = new Vector3(startPosition.x + distance * transform.localScale.x, startPosition.y, startPosition.z);
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                     }
                     else if (instantiateTurrent != null && reverse != true)
                     {
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x - distance, startPosition.y, startPosition.z);
+                        endPosition = new Vector3(startPosition.x - distance * transform.localScale.x, startPosition.y, startPosition.z);
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                         //Destroy(instantiateTurrent);
@@ -257,7 +257,7 @@ public class BoxDoorControl : MonoBehaviour {
                         GetTurrentComponent(instantiateTurrent);
 
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x - distance, startPosition.y, startPosition.z);
+                        endPosition = new Vector3(startPosition.x - distance * transform.localScale.x, startPosition.y, startPosition.z);
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                     }
@@ -267,14 +267,14 @@ public class BoxDoorControl : MonoBehaviour {
                         instantiateTurrent.transform.rotation = doorXn.transform.rotation;
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x - distance, startPosition.y, startPosition.z);
+                        endPosition = new Vector3(startPosition.x - distance * transform.localScale.x, startPosition.y, startPosition.z);
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                     }
                     else if (instantiateTurrent != null && reverse != true)
                     {
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x + distance, startPosition.y, startPosition.z);
+                        endPosition = new Vector3(startPosition.x + distance * transform.localScale.x, startPosition.y, startPosition.z);
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                         //Destroy(instantiateTurrent);
@@ -289,7 +289,7 @@ public class BoxDoorControl : MonoBehaviour {
                         GetTurrentComponent(instantiateTurrent);
 
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y + distance, startPosition.z);
+                        endPosition = new Vector3(startPosition.x, startPosition.y + distance * transform.localScale.y, startPosition.z);
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                     }
@@ -299,14 +299,14 @@ public class BoxDoorControl : MonoBehaviour {
                         instantiateTurrent.transform.rotation = doorYp.transform.rotation;
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y + distance, startPosition.z);
+                        endPosition = new Vector3(startPosition.x, startPosition.y + distance * transform.localScale.y, startPosition.z);
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                     }
                     else if (instantiateTurrent != null && reverse != true)
                     {
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y - distance, startPosition.z);
+                        endPosition = new Vector3(startPosition.x, startPosition.y - distance * transform.localScale.y, startPosition.z);
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                         //Destroy(instantiateTurrent);
@@ -321,7 +321,7 @@ public class BoxDoorControl : MonoBehaviour {
                         GetTurrentComponent(instantiateTurrent);
 
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y - distance, startPosition.z);
+                        endPosition = new Vector3(startPosition.x, startPosition.y - distance * transform.localScale.y, startPosition.z);
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
 
@@ -332,14 +332,14 @@ public class BoxDoorControl : MonoBehaviour {
                         instantiateTurrent.transform.rotation = doorYn.transform.rotation;
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y - distance, startPosition.z);
+                        endPosition = new Vector3(startPosition.x, startPosition.y - distance * transform.localScale.y, startPosition.z);
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                     }
                     else if (instantiateTurrent != null && reverse != true)
                     {
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y + distance, startPosition.z);
+                        endPosition = new Vector3(startPosition.x, startPosition.y + distance * transform.localScale.y, startPosition.z);
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                         //Destroy(instantiateTurrent);
@@ -354,7 +354,7 @@ public class BoxDoorControl : MonoBehaviour {
                         GetTurrentComponent(instantiateTurrent);
 
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z + distance);
+                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z + distance * transform.localScale.z);
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                     }
@@ -364,14 +364,14 @@ public class BoxDoorControl : MonoBehaviour {
                         instantiateTurrent.transform.rotation = doorZp.transform.rotation;
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z + distance);
+                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z + distance * transform.localScale.z);
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                     }
                     else if (instantiateTurrent != null && reverse != true)
                     {
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z - distance);
+                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z - distance * transform.localScale.z);
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                         //Destroy(instantiateTurrent);
@@ -386,7 +386,7 @@ public class BoxDoorControl : MonoBehaviour {
                         GetTurrentComponent(instantiateTurrent);
 
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z - distance);
+                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z - distance * transform.localScale.z);
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                     }
@@ -396,14 +396,14 @@ public class BoxDoorControl : MonoBehaviour {
                         instantiateTurrent.transform.rotation = doorZn.transform.rotation;
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z - distance);
+                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z - distance * transform.localScale.z);
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                     }
                     else if (instantiateTurrent != null && reverse != true)
                     {
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z + distance);
+                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z + distance * transform.localScale.z);
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                         //Destroy(instantiateTurrent);
@@ -486,7 +486,7 @@ public class BoxDoorControl : MonoBehaviour {
         TurrentHS = turrent.GetComponent<HealthSystem>();
         TurrentRT = turrent.GetComponent<RotateTowards>();
         TurrentSS = turrent.GetComponent<ShootingSystem>();
-        Debug.Log(TurrentRT + " " + TurrentSS + "1");
+        //Debug.Log(TurrentRT + " " + TurrentSS + "1");
     }
 
     void EnableComponents(bool reverseC)
