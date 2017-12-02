@@ -90,7 +90,7 @@ public class HealthSystem : MonoBehaviour {
 
 	public void DoDamage(int damage, GameObject attacker, Collision coll){
 		currentHealth -= damage;
- //       Debug.Log(currentHealth);
+      //  Debug.Log(currentHealth);
         if (currentHealth < 0)
 			currentHealth = 0;
 

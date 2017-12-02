@@ -26,7 +26,7 @@ public class TurretArranger : MonoBehaviour {
     float blockGap = 1f;
     public float range = 100f;
     Vector3 parentScale;
-    float parentScalef=0.1f;
+    float parentScalef;
     
 
 
@@ -35,7 +35,8 @@ public class TurretArranger : MonoBehaviour {
         groundMask = LayerMask.GetMask("Ground");
         cubeMask = LayerMask.GetMask("Cube");
         shadowMask = LayerMask.GetMask("ShadowCollider");
-        parentScale = new Vector3(0.1f, 0.1f, 0.1f);
+        parentScale = hitParent.localScale;
+        parentScalef = parentScale.x;
     }
 
     // Update is called once per frame
@@ -52,7 +53,7 @@ public class TurretArranger : MonoBehaviour {
             tmp.GetComponent<BoxDoorControl>().turrent = turretModels[turretType];
             tmp.transform.parent = hitParent;
             //tmp.GetComponent<RotateTowards>().target = targetPlayer;
-            tmp.transform.localScale = new Vector3(1, 1, 1);
+            //tmp.transform.localScale = new Vector3(1, 1, 1);
             boxes.Add(tmp);
            // willUpdate = true;
             //updateOtherTurret();
@@ -267,14 +268,7 @@ public class TurretArranger : MonoBehaviour {
         return false;
     }
 
-    bool isAlmostEqual(float a,  float b) {
-        if ((a - b <= 0.05*parentScalef && a - b >= -0.05*parentScalef))
-        {
-            return true;
-        }
-        return false;
-    }
-
+   
     public void ToggleTurrets()
     {
         if (boxes != null)

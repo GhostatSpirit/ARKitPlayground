@@ -9,13 +9,16 @@ public class ActiveSetting : MonoBehaviour {
     private int direction=4;
     private bool active=false;
     private bool handicapped = false;
-    private float halfSize = 0.5f;
+    private float halfSize ;
     private DoorDirection ddir;
     private Transform shadowCollider;
 
     // Use this for initialization
     void Start() {
         boxDoorControl = GetComponent<BoxDoorControl>();
+
+        
+        //get shadowCollider
         Transform[] childrenEle;
         childrenEle = transform.GetComponentsInChildren<Transform>();
         foreach (Transform i in childrenEle)
@@ -26,6 +29,7 @@ public class ActiveSetting : MonoBehaviour {
                 break;
             }
         }
+        halfSize = shadowCollider.GetComponent<BoxCollider>().size.x / 2;
     }
 
 
@@ -70,7 +74,7 @@ public class ActiveSetting : MonoBehaviour {
     void enableBase(DoorDirection doorDirection, bool reverseXp, Vector3 center, Vector3 size)
     {
         shadowCollider.GetComponent<BoxCollider>().center = center;
-        shadowCollider.GetComponent<BoxCollider>().size = size;
+        shadowCollider.GetComponent<BoxCollider>().size += 2 * halfSize * size;
             
         ddir = doorDirection;
         boxDoorControl.StartCoroutine(boxDoorControl.TurrentAndDoor(doorDirection, reverseXp));
@@ -84,19 +88,19 @@ public class ActiveSetting : MonoBehaviour {
         {
             case 0:// +z direction
                         
-                enableBase(DoorDirection.zp,true,new Vector3(0,0,halfSize),new Vector3(1,1,2));
+                enableBase(DoorDirection.zp,true,new Vector3(0,0,halfSize),new Vector3(0,0,1));
                 break;
             case 1:// +x direction
-                enableBase(DoorDirection.xp, true, new Vector3(halfSize, 0, 0), new Vector3(2, 1, 1));
+                enableBase(DoorDirection.xp, true, new Vector3(halfSize, 0, 0), new Vector3(1,0,0));
                 break;
             case 2:// -z direction
-                enableBase(DoorDirection.zn, true, new Vector3(0, 0, -halfSize), new Vector3(1, 1, 2));
+                enableBase(DoorDirection.zn, true, new Vector3(0, 0, -halfSize), new Vector3(0,0,1));
                 break;
             case 3:// -x direction
-                enableBase(DoorDirection.xn, true, new Vector3(-halfSize, 0, 0), new Vector3(2, 1, 1));
+                enableBase(DoorDirection.xn, true, new Vector3(-halfSize, 0, 0), new Vector3(1,0,0));
                 break;
             case 4:// +y direction
-                enableBase(DoorDirection.yp, true, new Vector3(0, halfSize, 0), new Vector3(1, 2, 1));
+                enableBase(DoorDirection.yp, true, new Vector3(0, halfSize, 0), new Vector3(0,1,0));
                 break;
             case 5:
                 // disableBase(i);

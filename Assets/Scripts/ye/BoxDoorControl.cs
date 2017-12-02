@@ -36,7 +36,7 @@ public class BoxDoorControl : MonoBehaviour {
 
     public Transform targetPlayer;
 
-    public float distance = 0.05f;
+    public float distance = 0.5f;
 
     public float TurrentWaitDoor = 2f;
 
@@ -219,7 +219,7 @@ public class BoxDoorControl : MonoBehaviour {
                     if (instantiateTurrent == null && reverse == true)
                     {
                         
-                        instantiateTurrent = Instantiate(turrent, doorXp.transform.position, doorXp.transform.rotation, gameObject.transform);
+                        instantiateTurrent = Instantiate(turrent, doorXp.transform.position, doorXp.transform.rotation, cube.transform);
                         instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
                         instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
                         instantiateTurrent.transform.parent = cube.transform;
@@ -255,7 +255,7 @@ public class BoxDoorControl : MonoBehaviour {
                 case DoorDirection.xn:
                     if (instantiateTurrent == null && reverse == true)
                     {
-                        instantiateTurrent = Instantiate(turrent, doorXn.transform.position, doorXn.transform.rotation, gameObject.transform);
+                        instantiateTurrent = Instantiate(turrent, doorXn.transform.position, doorXn.transform.rotation, cube.transform);
                         instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
                         instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
                         instantiateTurrent.transform.parent = cube.transform;
@@ -290,7 +290,7 @@ public class BoxDoorControl : MonoBehaviour {
                 case DoorDirection.yp:
                     if (instantiateTurrent == null && reverse == true)
                     {
-                        instantiateTurrent = Instantiate(turrent, doorYp.transform.position, doorYp.transform.rotation, gameObject.transform);
+                        instantiateTurrent = Instantiate(turrent, doorYp.transform.position, doorYp.transform.rotation, cube.transform);
                         //TurrentHS = instantiateTurrent.GetComponent<HealthSystem>();
                         instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
                         instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
@@ -325,7 +325,7 @@ public class BoxDoorControl : MonoBehaviour {
                 case DoorDirection.yn:
                     if (instantiateTurrent == null && reverse == true)
                     {
-                        instantiateTurrent = Instantiate(turrent, doorYn.transform.position, doorYn.transform.rotation, gameObject.transform);
+                        instantiateTurrent = Instantiate(turrent, doorYn.transform.position, doorYn.transform.rotation, cube.transform);
                         //TurrentHS = instantiateTurrent.GetComponent<HealthSystem>();
                         instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
                         instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
@@ -361,11 +361,10 @@ public class BoxDoorControl : MonoBehaviour {
                 case DoorDirection.zp:
                     if (instantiateTurrent == null && reverse == true)
                     {
-                        instantiateTurrent = Instantiate(turrent, doorZp.transform.position, doorZp.transform.rotation, gameObject.transform);
+                        instantiateTurrent = Instantiate(turrent, doorZp.transform.position, doorZp.transform.rotation, cube.transform);
                         //TurrentHS = instantiateTurrent.GetComponent<HealthSystem>();
                         instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
                         instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
-                        instantiateTurrent.transform.parent = cube.transform;
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         GetTurrentComponent(instantiateTurrent);
 
@@ -396,7 +395,7 @@ public class BoxDoorControl : MonoBehaviour {
                 case DoorDirection.zn:
                     if (instantiateTurrent == null && reverse == true)
                     {
-                        instantiateTurrent = Instantiate(turrent, doorZn.transform.position, doorZn.transform.rotation, gameObject.transform);
+                        instantiateTurrent = Instantiate(turrent, doorZn.transform.position, doorZn.transform.rotation, cube.transform);
                         //TurrentHS = instantiateTurrent.GetComponent<HealthSystem>();
                         instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
                         instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
