@@ -491,10 +491,11 @@ public class BoxDoorControl : MonoBehaviour {
 
     void EnableComponents(bool reverseC)
     {
-        Debug.Log(TurrentRT + " "+reverseC + TurrentSS + "2" + reverseC);
-        TurrentRT.enabled = reverseC;
-        TurrentSS.enabled = reverseC;
-        Debug.Log(TurrentRT.enabled +" "+ TurrentSS.enabled);
+        if(TurrentRT && TurrentSS != null)
+        {
+            TurrentRT.enabled = reverseC;
+            TurrentSS.enabled = reverseC;
+        }
     }
 
 }

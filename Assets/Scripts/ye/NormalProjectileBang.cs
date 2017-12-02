@@ -30,13 +30,19 @@ public class NormalProjectileBang : BaseProjectile {
         if (m_fired)
         {
             transform.position += m_direction * m_speed * Time.deltaTime;
+            
+            
         }
 
         if (isOutOfDistance())
         {
-            Debug.Log("out of range");
+            //Debug.Log("out of range");
+
+            //BreakToSmall(respawnProjectile, respawnNum);
+
             BreakToSmall(respawnProjectile, respawnNum);
-            
+            //Destroy(this.gameObject);
+
         }
 
     }
@@ -76,7 +82,7 @@ public class NormalProjectileBang : BaseProjectile {
 
     protected virtual void OnCollisionEnter(Collision coll)
     {
-        Debug.Log(coll.transform);
+        //Debug.Log(coll.transform);
         HealthSystem hs = coll.transform.GetComponentInParent<HealthSystem>();
         if (hs)
         {
@@ -92,9 +98,11 @@ public class NormalProjectileBang : BaseProjectile {
 
     void BreakToSmall(GameObject respawnProjectile, float num)
     {
+        
         //Debug.Log("break " + gameObject.transform);
         for(int i = 0; i< num; i++)
         {
+            //Debug.Log(i);
             instantiateProjectile = Instantiate(respawnProjectile, gameObject.transform.position, Quaternion.Euler(gameObject.transform.forward)) as GameObject;
             Vector3 localDir = new Vector3(BreakVectorCircle(i, num).x, BreakVectorCircle(i, num).y, 0);
             Vector3 globalDir = transform.TransformDirection(localDir);
@@ -108,9 +116,12 @@ public class NormalProjectileBang : BaseProjectile {
 
     Vector2 BreakVectorCircle(int i, float num)
     {
+        
         Vector2 breakVector = new Vector2();
-        breakVector.x = Mathf.Sin(i * 360 / (float) num);
-        breakVector.y = Mathf.Cos(i * 360 / (float) num);
+        //Debug.Log(i * 360 / (float)(num) + " " + i * 360 / (float)(num));
+        breakVector.x = Mathf.Sin(i * Mathf.PI * 2 / num );
+        breakVector.y = Mathf.Cos(i * Mathf.PI * 2 / num );
+        //Debug.Log(i + " " + breakVector);
         return breakVector;
     }
 

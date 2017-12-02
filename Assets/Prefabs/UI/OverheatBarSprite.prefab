@@ -70,9 +70,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9569df982d5eede42a809a22421b440e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootPlaySpeed: 0.5
   shootReverseSpeed: -0.5
-  OverheatTime: 3
+  gun: {fileID: 0}
 --- !u!212 &212099186293268208
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimatorControl : MonoBehaviour {
 
-    public float shootReverseSpeed;
+    //public float shootReverseSpeed;
     
     public GameObject gun;
 
@@ -64,13 +64,14 @@ public class AnimatorControl : MonoBehaviour {
 
     public void PlayShoot()
     {
-        animator.SetFloat("ShootPlaySpeed", (float) 1 / (float) overHeatTime);
+        Debug.Log((float)1 / (float)overHeatTime);
+        animator.SetFloat("ShootPlaySpeed", (float)2 / (float) overHeatTime);
         animator.SetBool("Idle", false);
         animator.SetBool("Shoot", true); 
     }
     public void PlayShootReverse()
     {
-        animator.SetFloat("ShootPlaySpeed", -(float)1 / (float)overHeatTime);
+        animator.SetFloat("ShootPlaySpeed", -(float)2 / (float)overHeatTime);
         animator.SetBool("Shoot", false);
     }
 }

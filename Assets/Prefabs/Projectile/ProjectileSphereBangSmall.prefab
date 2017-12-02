@@ -111,10 +111,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3de7a97133bf3884987acdb9dc09e127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_damage: 10
-  m_speed: 2
+  m_damage: 4
+  m_speed: 0.5
   m_destroyDistance: 3
-  respawnProjectile: {fileID: 1314121851068298, guid: 6160acc8ef8fb4a6591cc43275ea4103,
+  respawnProjectile: {fileID: 1314121851068298, guid: 681344fa4286406449626d14e5d7317b,
     type: 2}
   respawnDamage: 2
   respawnNum: 8

@@ -56,7 +56,7 @@ public class NormalProjectile : BaseProjectile {
 
 
     protected virtual void OnCollisionEnter(Collision coll){
-		Debug.Log (coll.transform);
+		//Debug.Log (coll.transform);
 		HealthSystem hs = coll.transform.GetComponentInParent<HealthSystem> ();
 		if(hs){
 			hs.DoDamage (m_damage, gameObject, coll);

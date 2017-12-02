@@ -15,6 +15,10 @@ public class PlayerShootingNew : MonoBehaviour {
     [HideInInspector]
     public float ShootTime = 0;
 
+    public float SpreadRadius = 10;
+
+    public float SpreadTime = 2;
+
 
 	List<GameObject> m_lastProjectiles = new List<GameObject> ();
 	float m_fireTimer = 0.0f;
@@ -27,10 +31,14 @@ public class PlayerShootingNew : MonoBehaviour {
     [HideInInspector]
     public bool Overheat = false;
 
+    [HideInInspector]
+    GunTime GT;
+
 	// Use this for initialization
 	void Start () {
         PSN = GetComponent<PlayerShootingNew>();
-	}
+        GT = GetComponent<GunTime>();
+    }
 
 	// Update is called once per frame
 	void Update () {
@@ -78,12 +86,33 @@ public class PlayerShootingNew : MonoBehaviour {
 					oldScale.y * scaleFactor.y, oldScale.z * scaleFactor.z);
 				proj.transform.localScale = newScale;
 
+
+                proj.transform.forward = projectileSpawns[i].transform.forward;
+                Vector3 overHeatVec = new Vector3(RandomSpreadCircle(GT.overheatRate/100).x, RandomSpreadCircle(GT.overheatRate/100).y, 0f); 
+                Vector3 shiftGlobal = proj.transform.TransformVector(overHeatVec);
+                proj.transform.forward += shiftGlobal;
+
 				proj.GetComponent<BaseProjectile> ()
 					.FireProjectile (projectileSpawns [i], null,
-						projectileSpawns[i].transform.forward, damage);
+						proj.transform.forward, damage);
 
 				m_lastProjectiles.Add (proj);
 			}
 		}
 	}
+
+    Vector2 RandomSpreadCircle(float i)
+    {
+        Vector2 randomCircle = new Vector2();
+
+        float time = 1;
+
+        time = Mathf.Pow(i, SpreadTime);
+
+        randomCircle = Random.insideUnitCircle.normalized * time * SpreadRadius;
+
+        return randomCircle;
+    }
+
+
 }
