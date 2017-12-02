@@ -17,6 +17,7 @@ public class TurretArranger : MonoBehaviour {
     public int turretType=0;
 
     //private BoxDoorControl boxDoorControl;
+    private FileDumper fd;
     bool isSet;
     bool isUnset;
     int groundMask;
@@ -35,8 +36,9 @@ public class TurretArranger : MonoBehaviour {
         groundMask = LayerMask.GetMask("Ground");
         cubeMask = LayerMask.GetMask("Cube");
         shadowMask = LayerMask.GetMask("ShadowCollider");
-        parentScale = hitParent.localScale;
-        parentScalef = parentScale.x;
+        parentScale = hitParent.GetComponent<ARScale>().unitVector;
+        parentScalef = hitParent.GetComponent<ARScale>().unit;
+        fd = GetComponent<FileDumper>();
     }
 
     // Update is called once per frame
@@ -52,6 +54,7 @@ public class TurretArranger : MonoBehaviour {
             GameObject tmp = Instantiate(boxModel, turretPostion, arrangeCube.rotation);
             tmp.GetComponent<BoxDoorControl>().turrent = turretModels[turretType];
             tmp.transform.parent = hitParent;
+            tmp.GetComponent<BasicInfo>().initial(turretType, turretPostion);
             //tmp.GetComponent<RotateTowards>().target = targetPlayer;
             //tmp.transform.localScale = new Vector3(1, 1, 1);
             boxes.Add(tmp);
@@ -75,6 +78,17 @@ public class TurretArranger : MonoBehaviour {
         if (rearrange == true)
         {
             rearrangeAllTurret();
+        }
+
+        bool save = Input.GetKeyDown(KeyCode.U);
+        if (save == true) {
+            fd.SaveToFile();
+        }
+
+        bool load = Input.GetKeyDown(KeyCode.L);
+        if (load == true)
+        {
+           // fd.LoadFromFile();
         }
 
         //if (willUpdate == true) {

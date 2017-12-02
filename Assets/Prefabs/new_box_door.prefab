@@ -38,6 +38,8 @@ GameObject:
   - component: {fileID: 4919957244092736}
   - component: {fileID: 114254328416942860}
   - component: {fileID: 114452247791586462}
+  - component: {fileID: 114999935399837798}
+  - component: {fileID: 114314052507362192}
   m_Layer: 0
   m_Name: new_box_door
   m_TagString: Untagged
@@ -1242,8 +1244,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1023149098724048}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalPosition: {x: 0, y: 0.05, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4131591944596476}
   - {fileID: 4148885005101654}
@@ -2726,7 +2728,7 @@ MonoBehaviour:
   doorZn: {fileID: 1761137508077200}
   turrent: {fileID: 1135062114338020, guid: a7a628e068d487747b3c86a81bec9cce, type: 2}
   targetPlayer: {fileID: 0}
-  distance: 0.5
+  distance: 0.05
   TurrentWaitDoor: 2
   destroyed: 0
   TurrentHS: {fileID: 0}
@@ -2756,6 +2758,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7058778fe8d2204469732b50d4d2e3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114314052507362192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1023149098724048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb5ebe7c0b6555a4d88c35e55e1614fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114452247791586462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2765,5 +2778,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ffa627de45d67540be74864b8f18ba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114999935399837798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1023149098724048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb5ebe7c0b6555a4d88c35e55e1614fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
