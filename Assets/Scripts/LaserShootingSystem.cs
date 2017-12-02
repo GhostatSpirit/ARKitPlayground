@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class LaserShootingSystem : MonoBehaviour {
 
-	bool needAim = false;
+
 	public float aimDuration = 3f;
 	public float shootDuration = 1f;
 
 	public int damage = 5;
 	public float fieldOfView = 10f;
+
+	public bool needAim = true;
 
 	public Transform pitchSegment;
 	public Transform target;
