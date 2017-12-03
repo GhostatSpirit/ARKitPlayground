@@ -15,7 +15,13 @@ public class PlayerAimTowards : MonoBehaviour {
 	void Update () {
 		if(arsr){
 			Vector3 towardsTarget = arsr.hitPoint - transform.position;
-			transform.forward = towardsTarget.normalized;
+			if (Vector3.Dot (towardsTarget, Vector3.up) >= 0f) {
+				Debug.Log (">0");
+				transform.rotation = Quaternion.LookRotation (towardsTarget.normalized, Camera.main.transform.up);
+			} else {
+				Debug.Log ("<0");
+				transform.rotation = Quaternion.LookRotation (towardsTarget.normalized, -Camera.main.transform.up);
+			}
 		}
 	}
 }
