@@ -23,6 +23,7 @@ public class TurretArranger : MonoBehaviour {
     
     
     private FileDumper fd;
+    bool needupdate = false;
     bool isSet;
     bool isUnset;
     int groundMask;
@@ -32,7 +33,20 @@ public class TurretArranger : MonoBehaviour {
     public float range = 100f;
     Vector3 parentScale;
     float parentScalef;
-    
+
+   
+    public void cubeDestroyed(object source, ObjectDeadEventArgs args)
+    {
+        Debug.Log("here destroy the cube");
+        GameObject cube = args.attacked;
+        Transform parent = cube.transform.parent;
+        boxes.Remove(parent.gameObject);
+        Destroy(parent.gameObject);
+
+
+        needupdate = true;
+    }
+
 
 
     // Use this for initialization
@@ -50,16 +64,33 @@ public class TurretArranger : MonoBehaviour {
     void Update() {
         //config the pointed location
         ArrangeBoxMotion();
-       
+
+        if (needupdate == true) {
+            foreach (GameObject i in boxes)
+            {
+                if (i.GetComponent<ActiveSetting>().neededToActivate())
+                {
+                    Debug.Log("need to activate" + i.name);
+                    Vector3 direction = findDirection(i);
+                    i.GetComponent<ActiveSetting>().setTurretPosi(direction);
+                }
+            }
+            needupdate = false;
+        }
         //set the turret
         isSet = Input.GetKeyDown(KeyCode.P);
         if (isSet == true)
         {
             Vector3 turretPostion = setTurretPostion();
             GameObject tmp = Instantiate(boxModel, turretPostion, arrangeCube.rotation);
-            tmp.GetComponent<BoxDoorControl>().turrent = turretModels[turretType];
+            if (tmp.GetComponent<BoxDoorControl>())
+            {
+                tmp.GetComponent<BoxDoorControl>().turrent = turretModels[turretType];
+            }
+            
             tmp.transform.parent = hitParent;
             tmp.GetComponent<BasicInfo>().initial(turretType, turretPostion);
+            tmp.GetComponent<HealthSystem>().OnObjectDead += cubeDestroyed;
             boxes.Add(tmp);
            
         }
@@ -81,6 +112,11 @@ public class TurretArranger : MonoBehaviour {
         {
             rearrangeAllTurret();
         }
+        bool withdraw = Input.GetKeyDown(KeyCode.R);
+        if (withdraw == true)
+        {
+            withdrawAllTurret();
+        }
 
         bool save = Input.GetKeyDown(KeyCode.U);
         if (save == true) {
@@ -94,9 +130,16 @@ public class TurretArranger : MonoBehaviour {
             List<Vector3> positions=new List<Vector3>();
             fd.LoadFromFile(ref types,ref positions);
             for (int i = 0; i < positions.Count; i++) {
+                //cannot load the turrets from the initializer
+                if (positions[i].y == 0) { continue; }   
+
                 GameObject tmp = Instantiate(boxModel, positions[i], arrangeCube.rotation);
-                tmp.GetComponent<BoxDoorControl>().turrent = turretModels[types[i]];
+                if (tmp.GetComponent<BoxDoorControl>())
+                {
+                    tmp.GetComponent<BoxDoorControl>().turrent = turretModels[types[i]];
+                }
                 tmp.transform.parent = hitParent;
+                tmp.GetComponent<HealthSystem>().OnObjectDead += cubeDestroyed;
                 tmp.GetComponent<BasicInfo>().initial(turretType, positions[i]);
                 boxes.Add(tmp);
             }
@@ -109,11 +152,13 @@ public class TurretArranger : MonoBehaviour {
     {
         foreach (Transform i in t)
         {
-            Debug.Log("child:"+i.name);
+           // Debug.Log("child:"+i.name);
             if (i.tag == "TurretBox")
             {
-                Debug.Log("here");
+                // Debug.Log("here");
+                i.GetComponentInChildren<HealthSystem>().OnObjectDead += cubeDestroyed;
                 boxes.Add(i.gameObject);
+                //i.GetComponent<BasicInfo>().initial(turretType, turretPostion);
             }
             else {
                 turretInitialize(i);
@@ -121,7 +166,7 @@ public class TurretArranger : MonoBehaviour {
         }
     }
 
-    void rearrangeAllTurret()
+    public void rearrangeAllTurret()
     {
         foreach (GameObject i in boxes)
         {
@@ -130,6 +175,17 @@ public class TurretArranger : MonoBehaviour {
             
         }
         
+    }
+
+    void withdrawAllTurret()
+    {
+        foreach (GameObject i in boxes)
+        {
+
+            i.GetComponent<ActiveSetting>().disableBase() ;
+
+        }
+
     }
 
     bool checkBlockNext(Vector3 objPosition, Vector3 direction) {
@@ -142,10 +198,11 @@ public class TurretArranger : MonoBehaviour {
         if (shootHit.Length == 0) { return false; }
         foreach (RaycastHit i in shootHit)
         {
-            if (Mathf.Approximately((i.point - shootRay.origin).magnitude, blockGap*parentScalef/2))
+          //  Debug.Log(name + "things" + i.point + shootRay.direction + (i.point - shootRay.origin).magnitude+" "+ (blockGap * parentScalef / 2) +almostEqual((i.point - shootRay.origin).magnitude, blockGap * parentScalef / 2));
+            if (almostEqual((i.point - shootRay.origin).magnitude, (blockGap * parentScalef / 2)))
             {
-                if (DebugOn)
-                    Debug.Log("something in direction" + i.point + shootRay.direction + (i.point - shootRay.origin).magnitude);
+                //if (DebugOn)
+                    Debug.Log(name+"something in direction" + i.point + shootRay.direction + (i.point - shootRay.origin).magnitude);
                 flag = true;
             }
 
@@ -186,6 +243,7 @@ public class TurretArranger : MonoBehaviour {
             return new Vector3(0, 1, 0);
             
         }
+       // Debug.Log(name + "something up"  );
 
         //front
         flag = checkBlockNext(objPosition, front);
@@ -289,7 +347,16 @@ public class TurretArranger : MonoBehaviour {
         return false;
     }
 
-   
+    bool almostEqual(float a, float b)
+    {
+        if ((a - b <=  parentScalef / 100 && a - b >= - parentScalef / 100))
+        {
+            return true;
+        }
+        return false;
+    }
+
+
     public void ToggleTurrets()
     {
         if (boxes != null)

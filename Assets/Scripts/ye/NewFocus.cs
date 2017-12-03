@@ -21,7 +21,7 @@ public class NewFocus : MonoBehaviour {
 
     ARHitTestNew ARHTN;
 
-    public GameObject startButton;
+    public GameObject setButton;
 
     // LoadingUI loadingUI;
 
@@ -99,7 +99,7 @@ public class NewFocus : MonoBehaviour {
 
             loadingObject.SetActive(false);
             ARHTN.canSet = true;
-            startButton.SetActive(true);
+            setButton.SetActive(true);
             
             foundSquare.transform.rotation = hit.transform.rotation;
             return;
@@ -130,7 +130,7 @@ public class NewFocus : MonoBehaviour {
 
                 loadingObject.SetActive(false);
                 ARHTN.canSet = true;
-                startButton.SetActive(true);
+                setButton.SetActive(true);
 
 				return;
 			}
@@ -143,7 +143,7 @@ public class NewFocus : MonoBehaviour {
         {
             SquareState = FocusState.Finding;
 
-            startButton.SetActive(false);
+            setButton.SetActive(false);
             loadingObject.SetActive(true);
             ARHTN.canSet = false;
 
