@@ -96,6 +96,7 @@ public class NewFocus : MonoBehaviour {
 
             //and the rotation from the transform of the plane collider
             SquareState = FocusState.Found;
+
             loadingObject.SetActive(false);
             ARHTN.canSet = true;
             startButton.SetActive(true);
@@ -126,6 +127,11 @@ public class NewFocus : MonoBehaviour {
 			if (HitTestWithResultType (point, resultType))
 			{
 				SquareState = FocusState.Found;
+
+                loadingObject.SetActive(false);
+                ARHTN.canSet = true;
+                startButton.SetActive(true);
+
 				return;
 			}
 		}

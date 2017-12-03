@@ -2652,7 +2652,8 @@ MonoBehaviour:
   doorZn: {fileID: 1387602059278000}
   turrent: {fileID: 0}
   distance: 0.05
-  TurrentWaitDoor: 2
+  TurretWaitDoor: 1.9
+  DoorWaitTurret: 0
   destroyed: 0
   TurrentHS: {fileID: 0}
   TurrentRT: {fileID: 0}
