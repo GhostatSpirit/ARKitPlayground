@@ -4,7 +4,8 @@ using UnityEngine;
 
 public enum DoorDirection { xp, xn, yp, yn, zp, zn };
 
-public class BoxDoorControl : MonoBehaviour {
+public class BoxDoorControl : MonoBehaviour
+{
 
     DoorDirection doorDirection;
     [HideInInspector]
@@ -29,16 +30,25 @@ public class BoxDoorControl : MonoBehaviour {
     bool reverseZn = true;
 
     GameObject instantiateTurrent;
+
     private GameObject cube;
+
 
     Vector3 startPosition;
     Vector3 endPosition;
 
-    public Transform targetPlayer;
+
+    //public Transform targetPlayer;
 
     public float distance = 0.5f;
 
-    public float TurrentWaitDoor = 2f;
+
+
+    float distanceTime = 1.90f;
+
+    public float TurretWaitDoor = 1.9f;
+
+    public float DoorWaitTurret = 0f;
 
     [HideInInspector]
     public bool destroyed = false;
@@ -53,7 +63,8 @@ public class BoxDoorControl : MonoBehaviour {
     bool set = false;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         doorXpAnim = doorXp.GetComponent<Animation>();
         doorXnAnim = doorXn.GetComponent<Animation>();
         doorYpAnim = doorYp.GetComponent<Animation>();
@@ -61,7 +72,8 @@ public class BoxDoorControl : MonoBehaviour {
         doorZpAnim = doorZp.GetComponent<Animation>();
         doorZnAnim = doorZn.GetComponent<Animation>();
 
-        
+
+
         foreach (Transform i in transform)
         {
             if (i.name == "cube")
@@ -70,78 +82,26 @@ public class BoxDoorControl : MonoBehaviour {
                 break;
             }
         }
-        
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-        //if(Input.GetKeyDown(KeyCode.A)){
-        //    Debug.Log("pressA");
-        //    doorDirection = DoorDirection.xp;
-        //    StartCoroutine(TurrentAndDoor(doorDirection, reverseXp));
-        //    reverseXp = !reverseXp;
-        //}
-        //if (Input.GetKeyDown(KeyCode.D)){
-        //    Debug.Log("pressD");
-        //    doorDirection = DoorDirection.xn;
-        //    StartCoroutine(TurrentAndDoor(doorDirection, reverseXn));
-        //    reverseXn = !reverseXn;
-        //    //turrentSingle(doorDirection, reverseXp);
-        //}
-        //if (Input.GetKeyDown(KeyCode.Q)){
-        //    doorDirection = DoorDirection.yp;
-        //    StartCoroutine(TurrentAndDoor(doorDirection, reverseYp));
-        //    reverseYp = !reverseYp;
-        //    //turrentSingle(doorDirection, reverseXp);
-        //}
-        //if (Input.GetKeyDown(KeyCode.E)){
-        //    doorDirection = DoorDirection.yn;
-        //    StartCoroutine(TurrentAndDoor(doorDirection, reverseYn));
-        //    reverseYn = !reverseYn;
-        //    //turrentSingle(doorDirection, reverseXp);
-        //}
-        //if (Input.GetKeyDown(KeyCode.W)){
-        //    doorDirection = DoorDirection.zp;
-        //    StartCoroutine(TurrentAndDoor(doorDirection, reverseZp));
-        //    reverseZp = !reverseZp;
-        //    //turrentSingle(doorDirection, reverseXp);
-        //}
-        //if (Input.GetKeyDown(KeyCode.S)){
-        //    doorDirection = DoorDirection.zn;
-        //    StartCoroutine(TurrentAndDoor(doorDirection, reverseZn));
-        //    reverseZn = !reverseZn;
-        //    //turrentSingle(doorDirection, reverseXp);
-        //}
-
-
-        //if (Input.GetKeyDown(KeyCode.X))
-        //{
-        //    doorAnimAll(false);
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.LeftControl))
-        //{
-        //    Debug.Log("left ctrl");
-        //    if (set == true)
-        //    {
-        //        Debug.Log("Set in");
-        //        TurrentHS.DoDamage(9999, null, Vector3.zero);
-        //        Debug.Log(TurrentHS.currentHealth);
-        //    }
-        //}
-
-
-        //if(TurrentHS != null && set == false)
-        //{
-        //    TurrentHS.OnObjectDead += turrentDestroyed;
-        //    set = true;
-        //    Debug.Log("set");
-        //}
 
     }
 
-    public void turrentDestroyed(object source,ObjectDeadEventArgs args)
+    // Update is called once per frame
+    void Update()
+    {
+
+
+        if (TurrentHS != null && set == false)
+        {
+            TurrentHS.OnObjectDead += turrentDestroyed;
+            set = true;
+            Debug.Log("set");
+        }
+
+
+
+    }
+
+    public void turrentDestroyed(object source, ObjectDeadEventArgs args)
     {
         turrentDestroyed();
     }
@@ -158,14 +118,16 @@ public class BoxDoorControl : MonoBehaviour {
         switch (reverse)
         {
             case true:
-                if(destroyed == false)
+                if (destroyed == false)
                 {
                     //Debug.Log("get");
                     doorAnimSingle(doorDirection, reverse);
-                    yield return new WaitForSeconds(TurrentWaitDoor);
+
+                    yield return new WaitForSeconds(TurretWaitDoor);
+
                     turrentSingle(doorDirection, reverse);
                 }
-                else if(destroyed == true)
+                else if (destroyed == true)
                 {
                     doorAnimSingle(doorDirection, reverse);
                 }
@@ -174,7 +136,9 @@ public class BoxDoorControl : MonoBehaviour {
                 if (destroyed == false)
                 {
                     turrentSingle(doorDirection, reverse);
-                    yield return new WaitForSeconds(TurrentWaitDoor);
+
+                    yield return new WaitForSeconds(DoorWaitTurret);
+
                     doorAnimSingle(doorDirection, reverse);
                 }
                 else if (destroyed == true)
@@ -217,19 +181,23 @@ public class BoxDoorControl : MonoBehaviour {
                 case DoorDirection.xp:
                     if (instantiateTurrent == null && reverse == true)
                     {
-                        
+
+
                         instantiateTurrent = Instantiate(turrent, doorXp.transform.position, doorXp.transform.rotation, cube.transform);
-                        instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
-                        instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
-                        
-                        //TurrentHS = instantiateTurrent.GetComponent<HealthSystem>();
-                        instantiateTurrent.transform.Rotate(0, 0, 180);                       
+                        // instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
+                        //  instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
+
+                        instantiateTurrent.transform.Rotate(0, 0, 180);
                         GetTurrentComponent(instantiateTurrent);
-                        
+
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x + distance, startPosition.y, startPosition.z);
+
+                        endPosition = new Vector3(startPosition.x + distance * transform.localScale.x, startPosition.y, startPosition.z);
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
+                        //Debug.Log("instantiate and before set, RT: " + TurrentRT.enabled + "SS: "+ TurrentSS.enabled);
                         EnableComponents(reverse);
+                        //Debug.Log("instantiate and after set, RT: " + TurrentRT.enabled + "SS: " + TurrentSS.enabled);
+
                     }
                     else if (instantiateTurrent != null && reverse == true)
                     {
@@ -237,14 +205,18 @@ public class BoxDoorControl : MonoBehaviour {
                         instantiateTurrent.transform.rotation = doorXp.transform.rotation;
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x + distance, startPosition.y, startPosition.z);
+
+                        endPosition = new Vector3(startPosition.x + distance * transform.localScale.x, startPosition.y, startPosition.z);
+
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                     }
                     else if (instantiateTurrent != null && reverse != true)
                     {
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x - distance, startPosition.y, startPosition.z);
+
+                        endPosition = new Vector3(startPosition.x - distanceTime * distance * transform.localScale.x, startPosition.y, startPosition.z);
+
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                         //Destroy(instantiateTurrent);
@@ -254,16 +226,19 @@ public class BoxDoorControl : MonoBehaviour {
                 case DoorDirection.xn:
                     if (instantiateTurrent == null && reverse == true)
                     {
+
                         instantiateTurrent = Instantiate(turrent, doorXn.transform.position, doorXn.transform.rotation, cube.transform);
-                        instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
-                        instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
-                        
+                        //       instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
+                        //        instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
+
                         //TurrentHS = instantiateTurrent.GetComponent<HealthSystem>();
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         GetTurrentComponent(instantiateTurrent);
 
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x - distance, startPosition.y, startPosition.z);
+
+                        endPosition = new Vector3(startPosition.x - distance * transform.localScale.x, startPosition.y, startPosition.z);
+
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                     }
@@ -273,14 +248,18 @@ public class BoxDoorControl : MonoBehaviour {
                         instantiateTurrent.transform.rotation = doorXn.transform.rotation;
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x - distance, startPosition.y, startPosition.z);
+
+                        endPosition = new Vector3(startPosition.x - distance * transform.localScale.x, startPosition.y, startPosition.z);
+
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                     }
                     else if (instantiateTurrent != null && reverse != true)
                     {
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x + distance, startPosition.y, startPosition.z);
+
+                        endPosition = new Vector3(startPosition.x + distanceTime * distance * transform.localScale.x, startPosition.y, startPosition.z);
+
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                         //Destroy(instantiateTurrent);
@@ -289,16 +268,19 @@ public class BoxDoorControl : MonoBehaviour {
                 case DoorDirection.yp:
                     if (instantiateTurrent == null && reverse == true)
                     {
+
                         instantiateTurrent = Instantiate(turrent, doorYp.transform.position, doorYp.transform.rotation, cube.transform);
                         //TurrentHS = instantiateTurrent.GetComponent<HealthSystem>();
-                        instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
-                        instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
-                        
+                        //      instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
+                        //      instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
+
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         GetTurrentComponent(instantiateTurrent);
 
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y + distance, startPosition.z);
+
+                        endPosition = new Vector3(startPosition.x, startPosition.y + distance * transform.localScale.y, startPosition.z);
+
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                     }
@@ -308,14 +290,18 @@ public class BoxDoorControl : MonoBehaviour {
                         instantiateTurrent.transform.rotation = doorYp.transform.rotation;
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y + distance, startPosition.z);
+
+                        endPosition = new Vector3(startPosition.x, startPosition.y + distance * transform.localScale.y, startPosition.z);
+
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                     }
                     else if (instantiateTurrent != null && reverse != true)
                     {
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y - distance, startPosition.z);
+
+                        endPosition = new Vector3(startPosition.x, startPosition.y - distanceTime * distance * transform.localScale.y, startPosition.z);
+
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                         //Destroy(instantiateTurrent);
@@ -324,16 +310,19 @@ public class BoxDoorControl : MonoBehaviour {
                 case DoorDirection.yn:
                     if (instantiateTurrent == null && reverse == true)
                     {
+
                         instantiateTurrent = Instantiate(turrent, doorYn.transform.position, doorYn.transform.rotation, cube.transform);
                         //TurrentHS = instantiateTurrent.GetComponent<HealthSystem>();
-                        instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
-                        instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
-                       
+                        //   instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
+                        //    instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
+
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         GetTurrentComponent(instantiateTurrent);
 
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y - distance, startPosition.z);
+
+                        endPosition = new Vector3(startPosition.x, startPosition.y - distance * transform.localScale.y, startPosition.z);
+
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
 
@@ -344,14 +333,18 @@ public class BoxDoorControl : MonoBehaviour {
                         instantiateTurrent.transform.rotation = doorYn.transform.rotation;
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y - distance, startPosition.z);
+
+                        endPosition = new Vector3(startPosition.x, startPosition.y - distance * transform.localScale.y, startPosition.z);
+
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                     }
                     else if (instantiateTurrent != null && reverse != true)
                     {
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y + distance, startPosition.z);
+
+                        endPosition = new Vector3(startPosition.x, startPosition.y + distanceTime * distance * transform.localScale.y, startPosition.z);
+
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                         //Destroy(instantiateTurrent);
@@ -360,15 +353,19 @@ public class BoxDoorControl : MonoBehaviour {
                 case DoorDirection.zp:
                     if (instantiateTurrent == null && reverse == true)
                     {
+
                         instantiateTurrent = Instantiate(turrent, doorZp.transform.position, doorZp.transform.rotation, cube.transform);
                         //TurrentHS = instantiateTurrent.GetComponent<HealthSystem>();
-                        instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
-                        instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
+                        //         instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
+                        //           instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
+
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         GetTurrentComponent(instantiateTurrent);
 
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z + distance);
+
+                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z + distance * transform.localScale.z);
+
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                     }
@@ -378,14 +375,18 @@ public class BoxDoorControl : MonoBehaviour {
                         instantiateTurrent.transform.rotation = doorZp.transform.rotation;
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z + distance);
+
+                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z + distance * transform.localScale.z);
+
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                     }
                     else if (instantiateTurrent != null && reverse != true)
                     {
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z - distance);
+
+                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z - distanceTime * distance * transform.localScale.z);
+
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                         //Destroy(instantiateTurrent);
@@ -394,16 +395,19 @@ public class BoxDoorControl : MonoBehaviour {
                 case DoorDirection.zn:
                     if (instantiateTurrent == null && reverse == true)
                     {
+
                         instantiateTurrent = Instantiate(turrent, doorZn.transform.position, doorZn.transform.rotation, cube.transform);
                         //TurrentHS = instantiateTurrent.GetComponent<HealthSystem>();
-                        instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
-                        instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
-                        
+                        // instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
+                        // instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
+
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         GetTurrentComponent(instantiateTurrent);
 
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z - distance);
+
+                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z - distance * transform.localScale.z);
+
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                     }
@@ -413,14 +417,18 @@ public class BoxDoorControl : MonoBehaviour {
                         instantiateTurrent.transform.rotation = doorZn.transform.rotation;
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z - distance);
+
+                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z - distance * transform.localScale.z);
+
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                     }
                     else if (instantiateTurrent != null && reverse != true)
                     {
                         startPosition = instantiateTurrent.transform.position;
-                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z + distance);
+
+                        endPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z + distanceTime * distance * transform.localScale.z);
+
                         StartCoroutine(MoveFunction(instantiateTurrent, endPosition));
                         EnableComponents(reverse);
                         //Destroy(instantiateTurrent);
@@ -463,7 +471,7 @@ public class BoxDoorControl : MonoBehaviour {
     {
         animPlay(doorXpAnim, reverse);
         animPlay(doorXnAnim, reverse);
-        animPlay(doorYpAnim, reverse);  
+        animPlay(doorYpAnim, reverse);
         animPlay(doorYnAnim, reverse);
         animPlay(doorZpAnim, reverse);
         animPlay(doorZnAnim, reverse);
@@ -475,14 +483,14 @@ public class BoxDoorControl : MonoBehaviour {
         //Debug.Log(anim + " " + state.time + reverse);
         switch (reverse)
         {
-            
+
             case true:
                 foreach (AnimationState state in anim)
                 {
                     state.time = 0;
                     state.speed = 1f;
                     anim.Play();
-                    
+
                 }
                 break;
             case false:
@@ -490,7 +498,9 @@ public class BoxDoorControl : MonoBehaviour {
                 {
                     state.time = state.length;
                     state.speed = -1f;
-                     anim.Play();
+
+                    anim.Play();
+
                 }
                 break;
             default:
@@ -503,15 +513,18 @@ public class BoxDoorControl : MonoBehaviour {
         TurrentHS = turrent.GetComponent<HealthSystem>();
         TurrentRT = turrent.GetComponent<RotateTowards>();
         TurrentSS = turrent.GetComponent<ShootingSystem>();
-        Debug.Log(TurrentRT + " " + TurrentSS + "1");
+
     }
 
     void EnableComponents(bool reverseC)
     {
-        Debug.Log(TurrentRT + " "+reverseC + TurrentSS + "2" + reverseC);
-        TurrentRT.enabled = reverseC;
-        TurrentSS.enabled = reverseC;
-        Debug.Log(TurrentRT.enabled +" "+ TurrentSS.enabled);
+
+        if (TurrentRT && TurrentSS != null)
+        {
+            TurrentRT.enabled = reverseC;
+            TurrentSS.enabled = reverseC;
+        }
+
     }
 
 }

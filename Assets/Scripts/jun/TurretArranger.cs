@@ -300,11 +300,11 @@ public class TurretArranger : MonoBehaviour {
                 //childrenEle = turret.transform.GetComponentsInChildren<Transform>();
                 foreach (Transform i in turret.transform.GetComponentsInChildren<Transform>())
                 {
-                    if (DebugOn)
+                   // if (DebugOn)
                         Debug.Log(i.name);
                     if (i.tag=="TurretBox")
                     {
-                        
+                        Debug.Log("trigger the turret:" + i.name);
                         TurretControl tc = i.GetComponentInChildren<TurretControl>();
                         tc.ToggleRotate();
                         tc.ToggleShoot();

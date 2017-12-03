@@ -20,9 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4609897786438718}
   - component: {fileID: 65089827029634330}
+  - component: {fileID: 114603173005342010}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: TopPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +58,7 @@ GameObject:
   - component: {fileID: 114849507568764630}
   m_Layer: 0
   m_Name: fort_missile_single_simple
-  m_TagString: Untagged
+  m_TagString: TopPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,7 +90,7 @@ GameObject:
   - component: {fileID: 23809175646440616}
   m_Layer: 0
   m_Name: middle
-  m_TagString: Untagged
+  m_TagString: TopPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +107,7 @@ GameObject:
   - component: {fileID: 23888356506159400}
   m_Layer: 0
   m_Name: foundation
-  m_TagString: Untagged
+  m_TagString: TopPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,9 +189,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1493357076211832}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4133002050970430}
   m_Father: {fileID: 0}
@@ -400,6 +401,18 @@ MonoBehaviour:
   pitchSpeed: 30
   pitchLimit: 90
   isPitchSymmetric: 0
+--- !u!114 &114603173005342010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1032313662285208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d22c79aa4be437c4d81096a2719ecd71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hs: {fileID: 114919470939068086}
 --- !u!114 &114849507568764630
 MonoBehaviour:
   m_ObjectHideFlags: 1
