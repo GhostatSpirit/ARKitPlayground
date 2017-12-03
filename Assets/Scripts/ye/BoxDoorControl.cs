@@ -114,6 +114,7 @@ public class BoxDoorControl : MonoBehaviour
     {
         destroyed = true;
         StartCoroutine(TurrentAndDoor(ddir, false));
+        GetComponent<ActiveSetting>().removeTurret();
         Debug.Log("Destroyed!!!");
     }
 
