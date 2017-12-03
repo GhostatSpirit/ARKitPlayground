@@ -69,6 +69,7 @@ public class ShootingSystem : MonoBehaviour {
 				Vector3 newScale = new Vector3(oldScale.x * scaleFactor.x,
 					oldScale.y * scaleFactor.y, oldScale.z * scaleFactor.z);
 				proj.transform.localScale = newScale;
+                proj.transform.forward = projectileSpawns[i].transform.forward;
 
 				SmoothScale smoothScale = proj.GetComponent<SmoothScale> ();
 				if(smoothScale){

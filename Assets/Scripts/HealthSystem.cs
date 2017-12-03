@@ -65,59 +65,44 @@ public class HealthSystem : MonoBehaviour {
 	public int maxHealth = 100;
 
 	public int currentHealth { get; private set; }
-	public bool isDead {get; private set; }
-	public bool isImmune { get; private set; }
+	bool isDead = false;
 
 	public event EventHandler<ObjectDeadEventArgs> OnObjectDead;
 	public event EventHandler<ObjectHurtEventArgs> OnObjectHurt;
 	public event EventHandler<HealthChangedEventArgs> OnHealthChanged;
 
-//	public void DoDamage (int damage, GameObject attacker, Collision coll);
-//	public void DoDamage (int damage, GameObject attacker, Vector3 hitPoint);
-//	public void StartImmune ();
-//	public void EndImmune();
-//	public void DieInstantly (GameObject attacker, Collision coll);
-//	public void DieInstantly (GameObject attacker, Vector3 hitPoint);
-
 	public bool destoryOnDead = false;
 
-	public Text healthText;
+	//public Text healthText;
 
 	// Use this for initialization
 	void Start () {
 		currentHealth = maxHealth;
-		isDead = false;
-		isImmune = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (healthText) {
-			healthText.text = "Health: " + currentHealth.ToString ();
-		}
-	}
+		//if (healthText) {
+		//	healthText.text = "Health: " + currentHealth.ToString ();
+		//}
 
-	void HandleHealthChange(int deltaHealth){
-		if (!isImmune) {
-			currentHealth += deltaHealth;
-			if (currentHealth < 0)
-				currentHealth = 0;
-
-			if (OnHealthChanged != null) {
-				var args = new HealthChangedEventArgs (currentHealth, maxHealth);
-				OnHealthChanged (gameObject, args);
-			}
-		}
 	}
 
 	public void DoDamage(int damage, GameObject attacker, Collision coll){
-		HandleHealthChange (-damage);
+		currentHealth -= damage;
+      //  Debug.Log(currentHealth);
+        if (currentHealth < 0)
+			currentHealth = 0;
 
-		int realDamage = isImmune ? 0 : damage;
+		if (OnHealthChanged != null) {
+			var args = new HealthChangedEventArgs (currentHealth, maxHealth);
+			OnHealthChanged (gameObject, args);
+		}
 		if (OnObjectHurt != null) {
-			var args = new ObjectHurtEventArgs (attacker, realDamage, coll);
+			var args = new ObjectHurtEventArgs (attacker, damage, coll);
 			OnObjectHurt (gameObject, args);
 		}
+			
 
 		if(!isDead && currentHealth == 0){
 			isDead = true;
@@ -130,16 +115,22 @@ public class HealthSystem : MonoBehaviour {
 			}
 		}
 	}
-
 	public void DoDamage(int damage, GameObject attacker, Vector3 hitPoint){
-		HandleHealthChange (-damage);
+		currentHealth -= damage;
+   //     Debug.Log(currentHealth);
+		if (currentHealth < 0)
+			currentHealth = 0;
 
-		int realDamage = isImmune ? 0 : damage;
+		if (OnHealthChanged != null) {
+			var args = new HealthChangedEventArgs (currentHealth, maxHealth);
+			OnHealthChanged (gameObject, args);
+		}
 		if (OnObjectHurt != null) {
-			var args = new ObjectHurtEventArgs (attacker, realDamage, hitPoint);
+			var args = new ObjectHurtEventArgs (attacker, damage, hitPoint);
 			OnObjectHurt (gameObject, args);
 		}
-			
+
+
 		if(!isDead && currentHealth == 0){
 			isDead = true;
 			if(OnObjectDead != null){
@@ -152,30 +143,5 @@ public class HealthSystem : MonoBehaviour {
 		}
 	}
 
-	public void StartImmune (){
-		if(!isImmune){
-			isImmune = true;
-		}
-	}
-
-	public void EndImmune (){
-		if(isImmune){
-			isImmune = false;
-		}
-	}
-
-	public void DieInstantly (GameObject attacker, Collision coll, bool ignoreImmune = false){
-		if(ignoreImmune){
-			EndImmune ();
-		}
-		DoDamage (currentHealth, attacker, coll);
-	}
-
-	public void DieInstantly (GameObject attacker, Vector3 hitPoint, bool ignoreImmune = false){
-		if(ignoreImmune){
-			EndImmune ();
-		}
-		DoDamage (currentHealth, attacker, hitPoint);
-	}
-
+		
 }
