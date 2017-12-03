@@ -109,10 +109,10 @@ public class TurretArranger : MonoBehaviour {
     {
         foreach (Transform i in t)
         {
-            Debug.Log("child:"+i.name);
+            //Debug.Log("child:"+i.name);
             if (i.tag == "TurretBox")
             {
-                Debug.Log("here");
+                //Debug.Log("here");
                 boxes.Add(i.gameObject);
             }
             else {
@@ -296,13 +296,12 @@ public class TurretArranger : MonoBehaviour {
         {
             foreach (GameObject turret in boxes)
             {
-                Transform[] childrenEle;
-                childrenEle = turret.transform.GetComponentsInChildren<Transform>();
-                foreach (Transform i in childrenEle)
+                
+                foreach (Transform i in turret.transform)
                 {
                     if (DebugOn)
                         Debug.Log(i.name);
-                    if (i.name == "testTurrent(Clone)")
+                    if (i.tag=="TurretBox")
                     {
                         
                         TurretControl tc = i.GetComponentInChildren<TurretControl>();

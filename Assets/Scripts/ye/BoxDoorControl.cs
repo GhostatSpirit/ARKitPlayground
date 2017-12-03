@@ -61,9 +61,8 @@ public class BoxDoorControl : MonoBehaviour {
         doorZpAnim = doorZp.GetComponent<Animation>();
         doorZnAnim = doorZn.GetComponent<Animation>();
 
-        Transform[] childrenEle;
-        childrenEle = transform.GetComponentsInChildren<Transform>();
-        foreach (Transform i in childrenEle)
+        
+        foreach (Transform i in transform)
         {
             if (i.name == "cube")
             {
