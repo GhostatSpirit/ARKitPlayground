@@ -39,12 +39,35 @@ public class TurretArranger : MonoBehaviour {
     {
         Debug.Log("here destroy the cube");
         GameObject cube = args.attacked;
+        
         Transform parent = cube.transform.parent;
+        if (cube.tag == "TurretBox") { parent = cube.transform; }
+        //remove the shadowCollider
+        foreach (Transform i in parent.GetComponentsInChildren<Transform>()) {
+            //Debug.Log(i.name);
+            if (i.gameObject.name == "shadowCollider") {
+                //Debug.Log("no use?");
+                i.gameObject.SetActive(false);
+            }
+        }
+
+        
+        
         boxes.Remove(parent.gameObject);
         Destroy(parent.gameObject);
+        foreach (GameObject i in boxes)
+        {
+            if (i.GetComponent<ActiveSetting>().neededToActivate())
+            {
+                Debug.Log("need to activate" + i.name);
+                Vector3 direction = findDirection(i);
+                i.GetComponent<ActiveSetting>().setTurretPosi(direction);
+            }
+        }
+        
 
 
-        needupdate = true;
+        
     }
 
 
@@ -65,18 +88,8 @@ public class TurretArranger : MonoBehaviour {
         //config the pointed location
         ArrangeBoxMotion();
 
-        if (needupdate == true) {
-            foreach (GameObject i in boxes)
-            {
-                if (i.GetComponent<ActiveSetting>().neededToActivate())
-                {
-                    Debug.Log("need to activate" + i.name);
-                    Vector3 direction = findDirection(i);
-                    i.GetComponent<ActiveSetting>().setTurretPosi(direction);
-                }
-            }
-            needupdate = false;
-        }
+        
+
         //set the turret
         isSet = Input.GetKeyDown(KeyCode.P);
         if (isSet == true)
@@ -207,7 +220,16 @@ public class TurretArranger : MonoBehaviour {
             }
 
         }
+
+        shootRay.origin = objPosition+parentScalef*direction;
+        shootRay.direction = new Vector3(0, 1, 0);
+        shootHit = Physics.RaycastAll(shootRay, range, shadowMask);
+        if (shootHit.Length != 0)
+        {
+            flag = true;
+        }
         
+
         return flag;
     }
     
@@ -241,7 +263,6 @@ public class TurretArranger : MonoBehaviour {
         shootHit=Physics.RaycastAll(shootRay, range,shadowMask);
         if (shootHit.Length == 0) {
             return new Vector3(0, 1, 0);
-            
         }
        // Debug.Log(name + "something up"  );
 
