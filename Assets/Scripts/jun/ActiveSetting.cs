@@ -8,7 +8,7 @@ public class ActiveSetting : MonoBehaviour {
     private BoxDoorControl boxDoorControl;
     private int direction=4;
     private bool active=false;
-    private bool handicapped = false;
+   // private bool handicapped = false;
     private float halfSize ;
     private DoorDirection ddir;
     private Transform shadowCollider;
@@ -19,9 +19,8 @@ public class ActiveSetting : MonoBehaviour {
 
         
         //get shadowCollider
-        Transform[] childrenEle;
-        childrenEle = transform.GetComponentsInChildren<Transform>();
-        foreach (Transform i in childrenEle)
+        
+        foreach (Transform i in transform)
         {
             if (i.name == "shadowCollider")
             {
@@ -44,23 +43,7 @@ public class ActiveSetting : MonoBehaviour {
     public int getDirection() {
         return direction;
     }
-    public bool isTurretActive() {
-        return active&&(!handicapped);
-    }
-    public bool isHandicapped() {
-        return handicapped;
-    }
-
-    public void beHandicapped() {
-        
-        disableBase();
-        Debug.Log("turret handicapped");
-        handicapped = true;
-                
-        
-        
-    }
-
+   
     
 
     void disableBase()

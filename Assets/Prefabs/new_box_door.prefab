@@ -39,10 +39,9 @@ GameObject:
   - component: {fileID: 114254328416942860}
   - component: {fileID: 114452247791586462}
   - component: {fileID: 114999935399837798}
-  - component: {fileID: 114314052507362192}
   m_Layer: 0
   m_Name: new_box_door
-  m_TagString: Untagged
+  m_TagString: TurretBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2756,17 +2755,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7058778fe8d2204469732b50d4d2e3cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114314052507362192
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1023149098724048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb5ebe7c0b6555a4d88c35e55e1614fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114452247791586462

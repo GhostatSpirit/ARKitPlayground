@@ -9,6 +9,7 @@ TagManager:
   - Viewmodel
   - Navmesh
   - TopPart
+  - TurretBox
   layers:
   - Default
   - TransparentFX

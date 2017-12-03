@@ -6,6 +6,8 @@ using UnityEngine;
 
 
 public class TurretArranger : MonoBehaviour {
+    private bool DebugOn = false;
+
     public Transform arrangeCube;
     public List<GameObject> boxes;
     public List<GameObject> turretModels;
@@ -16,12 +18,14 @@ public class TurretArranger : MonoBehaviour {
     public GameObject boxModel;
     public int turretType=0;
 
-    //private BoxDoorControl boxDoorControl;
+    public Transform turretInitParent;
+
+    
+    
     private FileDumper fd;
     bool isSet;
     bool isUnset;
     int groundMask;
-    int cubeMask;
     int shadowMask;
     float yOffset = 0.5f;
     float blockGap = 1f;
@@ -34,18 +38,19 @@ public class TurretArranger : MonoBehaviour {
     // Use this for initialization
     void Start() {
         groundMask = LayerMask.GetMask("Ground");
-        cubeMask = LayerMask.GetMask("Cube");
         shadowMask = LayerMask.GetMask("ShadowCollider");
         parentScale = hitParent.GetComponent<ARScale>().unitVector;
         parentScalef = hitParent.GetComponent<ARScale>().unit;
         fd = GetComponent<FileDumper>();
+
+        turretInitialize(turretInitParent);
     }
 
     // Update is called once per frame
     void Update() {
         //config the pointed location
         ArrangeBoxMotion();
-       // bool willUpdate = false;
+       
         //set the turret
         isSet = Input.GetKeyDown(KeyCode.P);
         if (isSet == true)
@@ -55,11 +60,8 @@ public class TurretArranger : MonoBehaviour {
             tmp.GetComponent<BoxDoorControl>().turrent = turretModels[turretType];
             tmp.transform.parent = hitParent;
             tmp.GetComponent<BasicInfo>().initial(turretType, turretPostion);
-            //tmp.GetComponent<RotateTowards>().target = targetPlayer;
-            //tmp.transform.localScale = new Vector3(1, 1, 1);
             boxes.Add(tmp);
-           // willUpdate = true;
-            //updateOtherTurret();
+           
         }
 
         //unset the turret
@@ -69,7 +71,7 @@ public class TurretArranger : MonoBehaviour {
             if (topObj != null) {
                 Destroy(topObj);
                 boxes.Remove(topObj);
-               // willUpdate = true;
+               
             }
             
         }
@@ -88,37 +90,44 @@ public class TurretArranger : MonoBehaviour {
         bool load = Input.GetKeyDown(KeyCode.L);
         if (load == true)
         {
-           // fd.LoadFromFile();
+            List<int> types=new List<int>();
+            List<Vector3> positions=new List<Vector3>();
+            fd.LoadFromFile(ref types,ref positions);
+            for (int i = 0; i < positions.Count; i++) {
+                GameObject tmp = Instantiate(boxModel, positions[i], arrangeCube.rotation);
+                tmp.GetComponent<BoxDoorControl>().turrent = turretModels[types[i]];
+                tmp.transform.parent = hitParent;
+                tmp.GetComponent<BasicInfo>().initial(turretType, positions[i]);
+                boxes.Add(tmp);
+            }
         }
 
-        //if (willUpdate == true) {
-        //    updateOtherTurret();
-        //}
+        
     }
 
-    
-
-
-    void updateOtherTurret() {
-        foreach (GameObject i in boxes)
+    void turretInitialize(Transform t)
+    {
+        foreach (Transform i in t)
         {
-            if (!i.GetComponent<ActiveSetting>().isTurretActive()) {
-                Debug.Log("inactive!!");
-
-                Vector3 direction=findDirection(i);
-                i.GetComponent<ActiveSetting>().setTurretPosi(direction);
+            Debug.Log("child:"+i.name);
+            if (i.tag == "TurretBox")
+            {
+                Debug.Log("here");
+                boxes.Add(i.gameObject);
+            }
+            else {
+                turretInitialize(i);
             }
         }
     }
+
     void rearrangeAllTurret()
     {
         foreach (GameObject i in boxes)
         {
-            if (!i.GetComponent<ActiveSetting>().isHandicapped())
-            {
-                Vector3 direction = findDirection(i);
-                i.GetComponent<ActiveSetting>().setTurretPosi(direction);
-            }
+            Vector3 direction = findDirection(i);
+            i.GetComponent<ActiveSetting>().setTurretPosi(direction);
+            
         }
         
     }
@@ -135,7 +144,8 @@ public class TurretArranger : MonoBehaviour {
         {
             if (Mathf.Approximately((i.point - shootRay.origin).magnitude, blockGap*parentScalef/2))
             {
-                Debug.Log("something in direction" + i.point + shootRay.direction + (i.point - shootRay.origin).magnitude);
+                if (DebugOn)
+                    Debug.Log("something in direction" + i.point + shootRay.direction + (i.point - shootRay.origin).magnitude);
                 flag = true;
             }
 
@@ -173,9 +183,7 @@ public class TurretArranger : MonoBehaviour {
         shootRay.direction = new Vector3(0,1,0);
         shootHit=Physics.RaycastAll(shootRay, range,shadowMask);
         if (shootHit.Length == 0) {
-            
-                Debug.Log("up null");
-                return new Vector3(0, 1, 0);
+            return new Vector3(0, 1, 0);
             
         }
 
@@ -212,7 +220,6 @@ public class TurretArranger : MonoBehaviour {
         {
             if (posiEqual(i.transform.position.x, turretPostion.x) && posiEqual(i.transform.position.z, turretPostion.z))
             {
-                Debug.Log("find someone");
                 if (i.transform.position.y > topY)
                 {
                     topObj = i;
@@ -293,10 +300,11 @@ public class TurretArranger : MonoBehaviour {
                 childrenEle = turret.transform.GetComponentsInChildren<Transform>();
                 foreach (Transform i in childrenEle)
                 {
-                    Debug.Log(i.name);
+                    if (DebugOn)
+                        Debug.Log(i.name);
                     if (i.name == "testTurrent(Clone)")
                     {
-                        Debug.Log("here?????");
+                        
                         TurretControl tc = i.GetComponentInChildren<TurretControl>();
                         tc.ToggleRotate();
                         tc.ToggleShoot();

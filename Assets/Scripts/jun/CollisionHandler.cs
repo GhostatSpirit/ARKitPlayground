@@ -32,7 +32,13 @@ public class CollisionHandler : MonoBehaviour {
             //Debug.Log("this: " + this.gameObject.ToString());
             //Debug.Log(collision.gameObject);
         }
+
         if (turretGO.tag=="TopPart") {
+            
+            if (VelocityAlmostZero( collision.rigidbody.velocity ) && VelocityAlmostZero(this.GetComponent<Rigidbody>().velocity )) { 
+                //Debug.Log("collision2222 " + collision.gameObject.name);
+                return;
+            }
             Debug.Log("collision2222 " + collision.gameObject.name);
             HealthSystem hs = turretGO.GetComponent<HealthSystem>();
             if (hs)
@@ -42,5 +48,9 @@ public class CollisionHandler : MonoBehaviour {
         }
     }
 
-    
+    bool VelocityAlmostZero( Vector3 v) {
+        if (Mathf.Approximately(v.x, 0) && Mathf.Approximately(v.y, 0) && Mathf.Approximately(v.z, 0))
+            return true;
+        return false;
+    }
 }

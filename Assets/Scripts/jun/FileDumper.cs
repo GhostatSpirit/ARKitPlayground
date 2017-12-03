@@ -17,7 +17,7 @@ public class FileDumper : MonoBehaviour {
     void Start () {
         TA = GetComponent<TurretArranger>();
         boxes = TA.boxes;
-        path = @"MyTest.txt";
+        path = @"Turrets.txt";
     }
 	
 	// Update is called once per frame
@@ -44,8 +44,9 @@ public class FileDumper : MonoBehaviour {
 
     }
 
-    public int LoadFromFile(ref int turretType, ref Vector3 position) {
+    public int LoadFromFile(ref List<int> turretTypes, ref List<Vector3> positions) {
         FileStream fs = new FileStream(path, FileMode.Open);
+        Vector3 position;
         string str;
         string tmp;
         StreamReader sr = new StreamReader(fs);
@@ -56,13 +57,14 @@ public class FileDumper : MonoBehaviour {
             int i = 0;
             //for (int j = 0; j < 4; j++) {
             tmp = readWordFromString(str, ref i);
-            turretType = int.Parse(tmp);
+            turretTypes.Add( int.Parse(tmp));
             tmp = readWordFromString(str, ref i);
             position.x = float.Parse(tmp);
             tmp = readWordFromString(str, ref i);
             position.y = float.Parse(tmp);
             tmp = readWordFromString(str, ref i);
             position.z = float.Parse(tmp);
+            positions.Add(position);
             Debug.Log(tmp);
 
         }

@@ -222,7 +222,7 @@ public class BoxDoorControl : MonoBehaviour {
                         instantiateTurrent = Instantiate(turrent, doorXp.transform.position, doorXp.transform.rotation, cube.transform);
                         instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
                         instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
-                        instantiateTurrent.transform.parent = cube.transform;
+                        
                         //TurrentHS = instantiateTurrent.GetComponent<HealthSystem>();
                         instantiateTurrent.transform.Rotate(0, 0, 180);                       
                         GetTurrentComponent(instantiateTurrent);
@@ -258,7 +258,7 @@ public class BoxDoorControl : MonoBehaviour {
                         instantiateTurrent = Instantiate(turrent, doorXn.transform.position, doorXn.transform.rotation, cube.transform);
                         instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
                         instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
-                        instantiateTurrent.transform.parent = cube.transform;
+                        
                         //TurrentHS = instantiateTurrent.GetComponent<HealthSystem>();
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         GetTurrentComponent(instantiateTurrent);
@@ -294,7 +294,7 @@ public class BoxDoorControl : MonoBehaviour {
                         //TurrentHS = instantiateTurrent.GetComponent<HealthSystem>();
                         instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
                         instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
-                        instantiateTurrent.transform.parent = cube.transform;
+                        
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         GetTurrentComponent(instantiateTurrent);
 
@@ -329,7 +329,7 @@ public class BoxDoorControl : MonoBehaviour {
                         //TurrentHS = instantiateTurrent.GetComponent<HealthSystem>();
                         instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
                         instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
-                        instantiateTurrent.transform.parent = cube.transform;
+                       
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         GetTurrentComponent(instantiateTurrent);
 
@@ -399,7 +399,7 @@ public class BoxDoorControl : MonoBehaviour {
                         //TurrentHS = instantiateTurrent.GetComponent<HealthSystem>();
                         instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
                         instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
-                        instantiateTurrent.transform.parent = cube.transform;
+                        
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         GetTurrentComponent(instantiateTurrent);
 
