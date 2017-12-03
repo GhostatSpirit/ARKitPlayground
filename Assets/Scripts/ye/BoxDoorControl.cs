@@ -61,6 +61,7 @@ public class BoxDoorControl : MonoBehaviour
     public ShootingSystem TurrentSS;
 
     bool set = false;
+    private DoorDirection ddir=DoorDirection.yn;
 
     // Use this for initialization
     void Start()
@@ -109,6 +110,7 @@ public class BoxDoorControl : MonoBehaviour
     public void turrentDestroyed()
     {
         destroyed = true;
+        StartCoroutine(TurrentAndDoor(ddir, false));
         Debug.Log("Destroyed!!!");
     }
 
@@ -172,10 +174,13 @@ public class BoxDoorControl : MonoBehaviour
         }
     }
 
+
+
     public void turrentSingle(DoorDirection doorDirection, bool reverse)
     {
         if (destroyed == false)
         {
+            ddir = doorDirection;
             switch (doorDirection)
             {
                 case DoorDirection.xp:
@@ -186,7 +191,7 @@ public class BoxDoorControl : MonoBehaviour
                         instantiateTurrent = Instantiate(turrent, doorXp.transform.position, doorXp.transform.rotation, cube.transform);
                         // instantiateTurrent.GetComponent<RotateTowards>().target = targetPlayer;
                         //  instantiateTurrent.GetComponent<ShootingSystem>().target = targetPlayer;
-
+                        
                         instantiateTurrent.transform.Rotate(0, 0, 180);
                         GetTurrentComponent(instantiateTurrent);
 

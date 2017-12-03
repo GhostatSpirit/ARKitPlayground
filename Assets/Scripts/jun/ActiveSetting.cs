@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ActiveSetting : MonoBehaviour {
 
-
+ 
     private BoxDoorControl boxDoorControl;
     private int direction=4;
     private bool active=false;
@@ -12,13 +13,19 @@ public class ActiveSetting : MonoBehaviour {
     private float halfSize ;
     private DoorDirection ddir;
     private Transform shadowCollider;
+    private bool disordered=false;
+    
 
     // Use this for initialization
     void Start() {
-        boxDoorControl = GetComponent<BoxDoorControl>();
 
-        
+        boxDoorControl = GetComponent<BoxDoorControl>();
+        if (boxDoorControl == null)
+        {
+            disordered = true;
+        }
         //get shadowCollider
+      
         
         foreach (Transform i in transform)
         {
@@ -33,12 +40,18 @@ public class ActiveSetting : MonoBehaviour {
 
 
 
+
     // Update is called once per frame
     void Update() {
 
     }
 
-
+    public bool neededToActivate() {
+        if (active == false && disordered == false) {
+            return true;
+        }
+        return false;
+    }
 
     public int getDirection() {
         return direction;
@@ -46,13 +59,16 @@ public class ActiveSetting : MonoBehaviour {
    
     
 
-    void disableBase()
+    public void disableBase()
     {
+        if (disordered == true) { return; }
         shadowCollider.GetComponent<BoxCollider>().center = new Vector3(0,0,0);
-        shadowCollider.GetComponent<BoxCollider>().size = new Vector3(1,1,1);
+        shadowCollider.GetComponent<BoxCollider>().size = new Vector3(2 * halfSize, 2 * halfSize, 2 * halfSize);
         boxDoorControl.StartCoroutine(boxDoorControl.TurrentAndDoor(ddir, false));
         active = false;
     }
+
+  
 
     void enableBase(DoorDirection doorDirection, bool reverseXp, Vector3 center, Vector3 size)
     {
@@ -61,11 +77,13 @@ public class ActiveSetting : MonoBehaviour {
             
         ddir = doorDirection;
         boxDoorControl.StartCoroutine(boxDoorControl.TurrentAndDoor(doorDirection, reverseXp));
+        
         active = true;
     }
 
     
     public void setTurretPosi(int dir) {
+        if (disordered == true) { return; }
         direction = dir;
         switch (direction)
         {
@@ -97,6 +115,7 @@ public class ActiveSetting : MonoBehaviour {
 
     public void setTurretPosi(Vector3 directionV)
     {
+        if (disordered == true) { return; }
         direction = -1;
         if (directionV.y == 1) { direction = 4; }
         else if (directionV.x == 1) { direction = 1; }
