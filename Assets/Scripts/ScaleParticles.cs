@@ -14,7 +14,7 @@ public class ScaleParticles : MonoBehaviour
 		ParticleSystem[] particles = gameObject.GetComponentsInChildren<ParticleSystem>();
 		foreach (ParticleSystem particle in particles)
 		{
-			initialSizes.Add(particle.startSize);
+			initialSizes.Add(particle.main.startSize.constant);
 			ParticleSystemRenderer renderer = particle.GetComponent<ParticleSystemRenderer>();
 			if (renderer)
 			{
@@ -32,7 +32,9 @@ public class ScaleParticles : MonoBehaviour
 		ParticleSystem[] particles = gameObject.GetComponentsInChildren<ParticleSystem>();
 		foreach (ParticleSystem particle in particles)
 		{
-			particle.startSize = initialSizes[arrayIndex++] * gameObject.transform.localScale.magnitude;
+			float tempSize = initialSizes[arrayIndex++] * gameObject.transform.localScale.magnitude;
+			var main = particle.main;
+			main.startSize = tempSize;
 			ParticleSystemRenderer renderer = particle.GetComponent<ParticleSystemRenderer>();
 			if (renderer)
 			{
