@@ -78,6 +78,7 @@ public class BoxDoorControl : MonoBehaviour
         foreach (Transform i in transform)
         {
             if (i.name == "cube")
+                 
             {
                 cube = i.gameObject;
                 break;
@@ -111,6 +112,7 @@ public class BoxDoorControl : MonoBehaviour
     {
         destroyed = true;
         StartCoroutine(TurrentAndDoor(ddir, false));
+        GetComponent<ActiveSetting>().removeTurret();
         Debug.Log("Destroyed!!!");
     }
 

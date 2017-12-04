@@ -25,9 +25,8 @@ public class ActiveSetting : MonoBehaviour {
             disordered = true;
         }
         //get shadowCollider
-      
         
-        foreach (Transform i in transform)
+        foreach (Transform i in transform.GetComponentsInChildren<Transform>())
         {
             if (i.name == "shadowCollider")
             {
@@ -56,8 +55,12 @@ public class ActiveSetting : MonoBehaviour {
     public int getDirection() {
         return direction;
     }
-   
-    
+
+    public void removeTurret() {
+        shadowCollider.GetComponent<BoxCollider>().center = new Vector3(0, 0, 0);
+        shadowCollider.GetComponent<BoxCollider>().size = new Vector3(2 * halfSize, 2 * halfSize, 2 * halfSize);
+        disordered = true;
+    }
 
     public void disableBase()
     {
@@ -67,8 +70,6 @@ public class ActiveSetting : MonoBehaviour {
         boxDoorControl.StartCoroutine(boxDoorControl.TurrentAndDoor(ddir, false));
         active = false;
     }
-
-  
 
     void enableBase(DoorDirection doorDirection, bool reverseXp, Vector3 center, Vector3 size)
     {
