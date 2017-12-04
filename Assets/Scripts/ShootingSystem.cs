@@ -71,6 +71,13 @@ public class ShootingSystem : MonoBehaviour {
 				proj.transform.localScale = newScale;
                 proj.transform.forward = projectileSpawns[i].transform.forward;
 
+				SmoothScale smoothScale = proj.GetComponent<SmoothScale> ();
+				if(smoothScale){
+					smoothScale.SetTargetLocalScale (newScale);
+				}
+
+				proj.transform.forward = projectileSpawns [i].transform.forward;
+
 				proj.GetComponent<BaseProjectile> ()
 					.FireProjectile (projectileSpawns [i], target.gameObject,
 						             projectileSpawns[i].transform.forward, damage);
