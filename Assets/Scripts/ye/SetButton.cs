@@ -23,7 +23,7 @@ public class SetButton : MonoBehaviour {
     {
         ARHT.set = true;
 
-        ARHT.setted = false;
+        // ARHT.setted = false;
     }
 
 	void Update () {
