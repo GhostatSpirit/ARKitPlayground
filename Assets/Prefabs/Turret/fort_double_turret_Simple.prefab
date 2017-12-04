@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 114567829400342940}
   - component: {fileID: 114776122120736660}
   m_Layer: 0
-  m_Name: fort_double_turret_simple
+  m_Name: fort_double_turret_Simple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -388,6 +388,7 @@ MonoBehaviour:
   target: {fileID: 0}
   yawSegment: {fileID: 4358376919810640}
   pitchSegment: {fileID: 4815754877736054}
+  yawSelfRotate: 0
   yawSpeed: 30
   yawLimit: 360
   pitchSpeed: 30
