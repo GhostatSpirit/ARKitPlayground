@@ -74,6 +74,7 @@ public class ActiveSetting : MonoBehaviour {
     void enableBase(DoorDirection doorDirection, bool reverseXp, Vector3 center, Vector3 size)
     {
         shadowCollider.GetComponent<BoxCollider>().center = center;
+        shadowCollider.GetComponent<BoxCollider>().size= new Vector3(2 * halfSize, 2 * halfSize, 2 * halfSize);
         shadowCollider.GetComponent<BoxCollider>().size += 2 * halfSize * size;
             
         ddir = doorDirection;

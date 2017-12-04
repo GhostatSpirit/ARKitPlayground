@@ -39,9 +39,11 @@ public class TurretArranger : MonoBehaviour {
     {
         Debug.Log("here destroy the cube");
         GameObject cube = args.attacked;
+        
         Transform parent = cube.transform.parent;
+        if (cube.tag == "TurretBox") { parent = cube.transform; }
         //remove the shadowCollider
-        foreach (Transform i in cube.transform) {
+        foreach (Transform i in parent.GetComponentsInChildren<Transform>()) {
             //Debug.Log(i.name);
             if (i.gameObject.name == "shadowCollider") {
                 //Debug.Log("no use?");
@@ -82,7 +84,7 @@ public class TurretArranger : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
         //config the pointed location
         ArrangeBoxMotion();
 
@@ -204,9 +206,10 @@ public class TurretArranger : MonoBehaviour {
         RaycastHit[] shootHit;
         shootRay.origin = objPosition;       
         bool flag = false;
-        shootRay.direction = direction;
+
+        shootRay.direction = transform.TransformDirection( direction);
         shootHit = Physics.RaycastAll(shootRay, range, shadowMask);
-        if (shootHit.Length == 0) { return false; }
+        if (shootHit.Length == 0) { ; }
         foreach (RaycastHit i in shootHit)
         {
           //  Debug.Log(name + "things" + i.point + shootRay.direction + (i.point - shootRay.origin).magnitude+" "+ (blockGap * parentScalef / 2) +almostEqual((i.point - shootRay.origin).magnitude, blockGap * parentScalef / 2));
@@ -220,10 +223,12 @@ public class TurretArranger : MonoBehaviour {
         }
 
         shootRay.origin = objPosition+parentScalef*direction;
-        shootRay.direction = new Vector3(0, 1, 0);
+        Debug.Log("up detect");
+        shootRay.direction = transform.TransformDirection(new Vector3(0, 1, 0));
         shootHit = Physics.RaycastAll(shootRay, range, shadowMask);
         if (shootHit.Length != 0)
         {
+            Debug.Log("up not null");
             flag = true;
         }
         
@@ -256,9 +261,11 @@ public class TurretArranger : MonoBehaviour {
 
         //up
         flag = false;
-        shootRay.origin = objPosition ;
-        shootRay.direction = new Vector3(0,1,0);
-        shootHit=Physics.RaycastAll(shootRay, range,shadowMask);
+        shootRay.origin = objPosition;
+        Vector3 localDir = new Vector3(0, 1, 0);
+        shootRay.direction = transform.TransformDirection(localDir);
+
+        shootHit =Physics.RaycastAll(shootRay, range,shadowMask);
         if (shootHit.Length == 0) {
             return new Vector3(0, 1, 0);
         }
@@ -348,7 +355,7 @@ public class TurretArranger : MonoBehaviour {
         Ray shootRay = new Ray();
         RaycastHit shootHit;
         shootRay.origin = arrangeCamera.position;
-        shootRay.direction = arrangeCamera.forward;
+        shootRay.direction =transform.TransformDirection( arrangeCamera.forward);
        
         if (Physics.Raycast(shootRay, out shootHit, range, groundMask))
         {

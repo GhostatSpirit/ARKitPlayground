@@ -8,11 +8,13 @@ public class ARHitTestNew : MonoBehaviour
 {
 	public Transform m_HitTransform;
 
-    public bool canSet = true;
+    public bool canSet = false;
 
-    public bool set = true;
+    public bool set = false;
 
     public bool setted = false;
+
+    public GameObject startButton;
 
     Vector2 screenMiddlePoint = new Vector2(Screen.width / 2, Screen.height / 2);
 
@@ -39,9 +41,10 @@ public class ARHitTestNew : MonoBehaviour
 
 			if (setted == false && canSet == true && set == true)
 			{
-                
                 setted = true;
                 set = false;
+
+                startButton.SetActive(true);
 
 				var screenPosition = Camera.main.ScreenToViewportPoint(screenMiddlePoint);
 				ARPoint point = new ARPoint {
