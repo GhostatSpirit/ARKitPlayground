@@ -62,6 +62,8 @@ public class BoxDoorControl : MonoBehaviour
     public RotateTowards TurrentRT;
     [HideInInspector]
     public ShootingSystem TurrentSS;
+    [HideInInspector]
+    public LaserShootingSystem TurrentLSS;
 
     bool set = false;
 
@@ -632,16 +634,22 @@ public class BoxDoorControl : MonoBehaviour
         TurrentHS = turrent.GetComponent<HealthSystem>();
         TurrentRT = turrent.GetComponent<RotateTowards>();
         TurrentSS = turrent.GetComponent<ShootingSystem>();
+        TurrentLSS = turrent.GetComponent<LaserShootingSystem>();
 
     }
 
     void EnableComponents(bool reverseC)
     {
 
-        if (TurrentRT && TurrentSS != null)
+        if (TurrentSS != null)
         {
             TurrentRT.enabled = reverseC;
             TurrentSS.enabled = reverseC;
+        }
+        if (TurrentLSS != null)
+        {
+            TurrentRT.enabled = reverseC;
+            TurrentLSS.enabled = reverseC;
         }
 
     }

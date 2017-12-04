@@ -1,43 +1,11 @@
 fileFormatVersion: 2
-guid: 032bd913f711f2b4a98ba64d58643847
-timeCreated: 1512388015
+guid: 3ca4a339fd404bd4dacfaf4a279f4550
+timeCreated: 1512395339
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: laser_barrel
-    100004: laser_foundation
-    100006: laser_middle
-    400000: //RootNode
-    400002: laser_barrel
-    400004: laser_foundation
-    400006: laser_middle
-    2300000: laser_barrel
-    2300002: laser_foundation
-    2300004: laser_middle
-    3300000: laser_barrel
-    3300002: laser_foundation
-    3300004: laser_middle
-    4300000: laser_barrel
-    4300002: laser_middle
-    4300004: laser_foundation
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: laser_barrel
-    second: {fileID: 2100000, guid: 41b58b03892a4c04a9d533e0f575ea5e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: laser_foundation
-    second: {fileID: 2100000, guid: edbaa96e702519e43bf629395f297958, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: laser_middle
-    second: {fileID: 2100000, guid: cb1ba78bcc8d6484590e38370e938d4b, type: 2}
+  fileIDToRecycleName: {}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -109,7 +77,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
