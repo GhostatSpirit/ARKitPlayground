@@ -8,7 +8,7 @@ public class BoxDoorControl : MonoBehaviour
 {
 
     DoorDirection doorDirection;
-    //[HideInInspector]
+    [HideInInspector]
     public GameObject doorXp, doorXn, doorYp, doorYn, doorZp, doorZn;
 
     public GameObject turrent;
