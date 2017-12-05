@@ -461,6 +461,7 @@ GameObject:
   - component: {fileID: 65985616128485158}
   - component: {fileID: 114683112939260096}
   - component: {fileID: 114216624507012232}
+  - component: {fileID: 114519433836629464}
   m_Layer: 9
   m_Name: cube
   m_TagString: Untagged
@@ -838,7 +839,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1580859730703662}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.0857618, y: 0.0501291, z: -0.4755389}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4855918225297304}
@@ -1814,6 +1815,19 @@ MonoBehaviour:
   TurrentRT: {fileID: 0}
   TurrentSS: {fileID: 0}
   TurrentLSS: {fileID: 0}
+--- !u!114 &114519433836629464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1930949785892372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1140022466e480246abb111792c1ba76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 1626852455301806, guid: 7c4a93a0c734ca24eaa97f1f752fd390,
+    type: 2}
 --- !u!114 &114683112939260096
 MonoBehaviour:
   m_ObjectHideFlags: 1

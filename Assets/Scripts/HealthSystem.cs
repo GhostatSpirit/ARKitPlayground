@@ -63,8 +63,18 @@ public class HealthChangedEventArgs : EventArgs {
 public class HealthSystem : MonoBehaviour {
 
 	public int maxHealth = 100;
+	public int currentHealth {
+		get{
+			return _currentHealth;
+		}
+		set{
+			_currentHealth = value;
+		}
+	}
 
-	public int currentHealth { get; private set; }
+	[SerializeField]
+	private int _currentHealth;
+
 	bool isDead = false;
 
 	public event EventHandler<ObjectDeadEventArgs> OnObjectDead;

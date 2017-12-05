@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 65613363597012404}
   - component: {fileID: 114218360729008464}
   - component: {fileID: 114215042800825140}
+  - component: {fileID: 114701939201477572}
   m_Layer: 9
   m_Name: fort-core
   m_TagString: TurretBox
@@ -57,7 +58,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1080760487730844}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.4617, y: 0.0421, z: -0.46109998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4835663028863894}
@@ -203,3 +204,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ffa627de45d67540be74864b8f18ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114701939201477572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1080760487730844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1140022466e480246abb111792c1ba76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 1626852455301806, guid: 7c4a93a0c734ca24eaa97f1f752fd390,
+    type: 2}
