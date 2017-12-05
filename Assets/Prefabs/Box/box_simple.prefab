@@ -180,7 +180,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1220548823805380
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -320,10 +320,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4839064417530774}
-  - component: {fileID: 114220055728304678}
   - component: {fileID: 114620264243382422}
   - component: {fileID: 114830481125501850}
-  m_Layer: 0
+  - component: {fileID: 114688416463959696}
+  m_Layer: 9
   m_Name: box_simple
   m_TagString: TurretBox
   m_Icon: {fileID: 0}
@@ -912,8 +912,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4839064417530774}
-  m_RootOrder: 0
+  m_Father: {fileID: 4367523820181290}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4351624839883668
 Transform:
@@ -944,8 +944,9 @@ Transform:
   - {fileID: 4971300086858114}
   - {fileID: 4263636158276528}
   - {fileID: 4302525125640182}
+  - {fileID: 4332924021389468}
   m_Father: {fileID: 4839064417530774}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4381521397835748
 Transform:
@@ -1269,10 +1270,9 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1432811625717840}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.1, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4332924021389468}
   - {fileID: 4367523820181290}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -2569,9 +2569,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1604968566789660}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 10000
+  m_Drag: 100
+  m_AngularDrag: Infinity
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -2708,31 +2708,6 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &114220055728304678
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1432811625717840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e0a68b0846e0754a8938fd8cfe1a99a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorXp: {fileID: 1977194873921308}
-  doorXn: {fileID: 1918876053026792}
-  doorYp: {fileID: 1702277610456418}
-  doorYn: {fileID: 1697513080399430}
-  doorZp: {fileID: 1030860523320178}
-  doorZn: {fileID: 1387602059278000}
-  turrent: {fileID: 1493357076211832, guid: c173c6a2a9fbf7c499c1c15eeddd53cc, type: 2}
-  distance: 0.05
-  TurretWaitDoor: 1.9
-  DoorWaitTurret: 0
-  destroyed: 0
-  TurrentHS: {fileID: 0}
-  TurrentRT: {fileID: 0}
-  TurrentSS: {fileID: 0}
 --- !u!114 &114474333115126776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2768,6 +2743,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7058778fe8d2204469732b50d4d2e3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114688416463959696
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432811625717840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e0a68b0846e0754a8938fd8cfe1a99a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorXp: {fileID: 1977194873921308}
+  doorXn: {fileID: 1918876053026792}
+  doorYp: {fileID: 1702277610456418}
+  doorYn: {fileID: 1697513080399430}
+  doorZp: {fileID: 1030860523320178}
+  doorZn: {fileID: 1387602059278000}
+  turrent: {fileID: 1493357076211832, guid: c173c6a2a9fbf7c499c1c15eeddd53cc, type: 2}
+  distance: 0.05
+  TurretWaitDoor: 1.9
+  DoorWaitTurret: 0
+  destroyed: 0
+  TurrentHS: {fileID: 0}
+  TurrentRT: {fileID: 0}
+  TurrentSS: {fileID: 0}
 --- !u!114 &114830481125501850
 MonoBehaviour:
   m_ObjectHideFlags: 1

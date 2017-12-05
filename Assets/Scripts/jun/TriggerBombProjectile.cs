@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NormalProjectileBang : BaseProjectile {
+public class TriggerBombProjectile : BaseProjectile{
 
     public float m_speed = 5.0f;
     public float m_destroyDistance = 3.0f;
@@ -23,23 +23,24 @@ public class NormalProjectileBang : BaseProjectile {
     public int respawnNum;
 
     GameObject instantiateProjectile;
+
     GameObject player;
 
-    protected virtual void Start()
-    {
+    protected virtual void Start() {
         player = GameObject.Find("PlayerHitCube");
     }
+
     // Update is called once per frame
     protected virtual void Update()
     {
         if (m_fired)
         {
             transform.position += m_direction * m_speed * Time.deltaTime;
-            
-            
+
+
         }
 
-        if (isOutOfDistance()|| isTriggered())
+        if (isTriggered())
         {
             //Debug.Log("out of range");
 
@@ -96,20 +97,14 @@ public class NormalProjectileBang : BaseProjectile {
         Destroy(this.gameObject);
     }
 
-    protected bool isOutOfDistance()
-    {
-        return Vector3.Distance(m_initPos, transform.position) > m_destroyDistance;
-    }
-
-    bool isTriggered()
-    {
+    protected bool isTriggered() {
         //GameObject player=GameObject.Find("PlayerHitCube");
 
-        if (player!=null)
+        if (player)
         {
             Vector3 relativeDistance = player.transform.position - this.transform.position;
-            Debug.Log("relative angle:" + Vector3.Angle(relativeDistance, this.transform.forward));
-            if (Vector3.Angle(relativeDistance, this.transform.forward) >= 75)
+            //Debug.Log("relative angle:" + Vector3.Angle(relativeDistance, this.transform.forward));
+            if (Vector3.Angle(relativeDistance, this.transform.forward) >= 80)
             {
                 return true;
             }
@@ -118,11 +113,16 @@ public class NormalProjectileBang : BaseProjectile {
         return false;
     }
 
+    protected bool isOutOfDistance()
+    {
+        return Vector3.Distance(m_initPos, transform.position) > m_destroyDistance;
+    }
+
     void BreakToSmall(GameObject respawnProjectile, float num)
     {
-        
+
         //Debug.Log("break " + gameObject.transform);
-        for(int i = 0; i< num; i++)
+        for (int i = 0; i < num; i++)
         {
             //Debug.Log(i);
             instantiateProjectile = Instantiate(respawnProjectile, gameObject.transform.position, Quaternion.Euler(gameObject.transform.forward)) as GameObject;
@@ -138,14 +138,13 @@ public class NormalProjectileBang : BaseProjectile {
 
     Vector2 BreakVectorCircle(int i, float num)
     {
-        
+
         Vector2 breakVector = new Vector2();
         //Debug.Log(i * 360 / (float)(num) + " " + i * 360 / (float)(num));
-        breakVector.x = Mathf.Sin(i * Mathf.PI * 2 / num );
-        breakVector.y = Mathf.Cos(i * Mathf.PI * 2 / num );
+        breakVector.x = Mathf.Sin(i * Mathf.PI * 2 / num);
+        breakVector.y = Mathf.Cos(i * Mathf.PI * 2 / num);
         //Debug.Log(i + " " + breakVector);
         return breakVector;
     }
-
 
 }

@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 114360367514937724}
   - component: {fileID: 65611598141056148}
   - component: {fileID: 54647642350749892}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: box_normal
   m_TagString: TurretBox
   m_Icon: {fileID: 0}

@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 114567829400342940}
   - component: {fileID: 114776122120736660}
   m_Layer: 0
-  m_Name: fort_double_turret_simple
+  m_Name: fort_double_turret_Simple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
