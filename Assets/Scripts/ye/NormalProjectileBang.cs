@@ -108,7 +108,7 @@ public class NormalProjectileBang : BaseProjectile {
         if (player!=null)
         {
             Vector3 relativeDistance = player.transform.position - this.transform.position;
-            Debug.Log("relative angle:" + Vector3.Angle(relativeDistance, this.transform.forward));
+            //Debug.Log("relative angle:" + Vector3.Angle(relativeDistance, this.transform.forward));
             if (Vector3.Angle(relativeDistance, this.transform.forward) >= 75)
             {
                 return true;

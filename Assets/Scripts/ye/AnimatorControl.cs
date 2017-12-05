@@ -39,12 +39,12 @@ public class AnimatorControl : MonoBehaviour {
             
             if (currentState.normalizedTime > 1)
             {
-                Debug.Log("overheat!!");
+                //Debug.Log("overheat!!");
                 animator.SetBool("Overheat", true);
             }
             else if (currentState.normalizedTime < 0)
             {
-                Debug.Log("Go idle!!");
+                //Debug.Log("Go idle!!");
                 animator.SetBool("Idle", true);
                 
             }
@@ -54,7 +54,7 @@ public class AnimatorControl : MonoBehaviour {
             
             if (currentState.normalizedTime > overHeatTime)
             {
-                Debug.Log("overheat end!!");
+                //Debug.Log("overheat end!!");
                 animator.SetBool("Overheat", false);
             }
 
@@ -64,7 +64,7 @@ public class AnimatorControl : MonoBehaviour {
 
     public void PlayShoot()
     {
-        Debug.Log((float)1 / (float)overHeatTime);
+        //Debug.Log((float)1 / (float)overHeatTime);
         animator.SetFloat("ShootPlaySpeed", (float)2 / (float) overHeatTime);
         animator.SetBool("Idle", false);
         animator.SetBool("Shoot", true); 

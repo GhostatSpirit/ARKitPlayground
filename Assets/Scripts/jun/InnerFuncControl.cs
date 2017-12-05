@@ -21,7 +21,7 @@ public class InnerFuncControl : MonoBehaviour {
         ProtectRender signalSphere= GetComponentInChildren<ProtectRender>();
             
         Transform parentCube=null;
-        Debug.Log("barrier!!!!!!!!");
+        //Debug.Log("barrier!!!!!!!!");
         foreach (Transform i in transform) {
             if (i.name == "cube") {
                 parentCube = i;

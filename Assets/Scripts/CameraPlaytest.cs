@@ -26,6 +26,7 @@ public class CameraPlaytest : MonoBehaviour {
 				child.SetParent(arCamera);
 			}
 		}
+        Destroy(editorCamera.gameObject);
 #else
 		// when we are in editor...
 		editorCamera.gameObject.SetActive(true);
@@ -39,9 +40,10 @@ public class CameraPlaytest : MonoBehaviour {
 				child.SetParent(editorCamera);
 			}
 		}
+        Destroy(arCamera.gameObject);
 #endif
 
-	}
+    }
 	
 //	// Update is called once per frame
 //	void Update () {

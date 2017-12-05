@@ -95,10 +95,10 @@ public class BarrierDefendSystem : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("bullet vanished!？" +     other.gameObject.layer+ layerMask.value);
+        //Debug.Log("bullet vanished!？" +     other.gameObject.layer+ layerMask.value);
         bool layerHit = (layerMask.value >> other.gameObject.layer)==1;
         if (layerHit) {
-            Debug.Log("bullet vanished!");
+            //Debug.Log("bullet vanished!");
             Destroy(other.gameObject);
         }
     }
