@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class RestartButton : MonoBehaviour {
+public class ExitButton : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -15,9 +14,8 @@ public class RestartButton : MonoBehaviour {
 		
 	}
 
-    public void Restart(int sceneNum)
+    public void Exit()
     {
-        SceneManager.LoadScene(sceneNum, LoadSceneMode.Single);
+        Application.Quit();
     }
-
 }

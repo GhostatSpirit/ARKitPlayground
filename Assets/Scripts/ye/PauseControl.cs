@@ -24,6 +24,14 @@ public class PauseControl : MonoBehaviour {
 
     void setPauseMenu()
     {
+        //if(Time.timeScale == 1)
+        //{
+        //    Time.timeScale = 0;
+        //}
+        //else if (Time.timeScale == 0)
+        //{
+        //    Time.timeScale = 1;
+        //}
         pauseMenu.SetActive(active);
     }
 }

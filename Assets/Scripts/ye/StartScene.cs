@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class RestartButton : MonoBehaviour {
+public class StartScene : MonoBehaviour {
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -12,12 +13,9 @@ public class RestartButton : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+	    if(Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }	
 	}
-
-    public void Restart(int sceneNum)
-    {
-        SceneManager.LoadScene(sceneNum, LoadSceneMode.Single);
-    }
-
 }
