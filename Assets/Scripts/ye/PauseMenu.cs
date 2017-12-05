@@ -14,7 +14,7 @@ public class PauseMenu : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         // Debug.Log(Time.timeScale);
-		if(pauseMenu.activeInHierarchy == true)
+        if (pauseMenu.activeInHierarchy == true)
         {
             Time.timeScale = 0;
         }
@@ -22,5 +22,10 @@ public class PauseMenu : MonoBehaviour {
         {
             Time.timeScale = 1;
         }
-	}
+    }
+
+    public void setTimeScale(float timeScale)
+    {
+        Time.timeScale = timeScale;
+    }
 }
