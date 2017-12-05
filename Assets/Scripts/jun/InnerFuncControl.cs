@@ -18,8 +18,19 @@ public class InnerFuncControl : MonoBehaviour {
 	}
 
     public void BarrierActivate() {
+        ProtectRender signalSphere= GetComponentInChildren<ProtectRender>();
+            
+        Transform parentCube=null;
         Debug.Log("barrier!!!!!!!!");
-        instantiateBarrier = Instantiate(Barrier, this.transform.position, this.transform.rotation, transform);
+        foreach (Transform i in transform) {
+            if (i.name == "cube") {
+                parentCube = i;
+            }
+        }
+        if (parentCube != null) {
+            instantiateBarrier = Instantiate(Barrier, this.transform.position, this.transform.rotation, parentCube);
+            instantiateBarrier.GetComponent<BarrierDefendSystem>().prender = signalSphere;
+        }
     }
 
 

@@ -10,7 +10,8 @@ public class ProtectRender : MonoBehaviour {
 
     Color targetColor;
 
-    bool active = false;
+    [HideInInspector]
+    public bool active = false;
 
     Color originColor;
 

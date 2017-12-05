@@ -6,6 +6,9 @@ public class BarrierDefendSystem : MonoBehaviour {
     public float vanishTime;
     public int waitTime;
 
+    [HideInInspector]
+    public  ProtectRender prender;
+
     private int count;
     private float deltaScale;
     private bool end = false;
@@ -23,6 +26,7 @@ public class BarrierDefendSystem : MonoBehaviour {
         originScale = transform.localScale;
         transform.localScale =  Vector3.zero;
         playerProLayer = LayerMask.GetMask("PlayerProjectile");
+        prender.active = true;
 
 
     }
@@ -53,7 +57,7 @@ public class BarrierDefendSystem : MonoBehaviour {
 
     IEnumerator dilation()
     {
-
+        prender.active = true;
         // If the object has arrived, stop the coroutine
         while (transform.localScale.x < originScale.x)
         {
@@ -64,12 +68,14 @@ public class BarrierDefendSystem : MonoBehaviour {
         end = true;
         // Otherwise, continue next frame
         //transform.localScale = originScale;
+        prender.active = false;
         yield break;
 
     }
 
     IEnumerator delay()
     {
+        
         int count = 0;
         // If the object has arrived, stop the coroutine
         while (count<waitTime)
@@ -82,6 +88,7 @@ public class BarrierDefendSystem : MonoBehaviour {
         start = true;
         // Otherwise, continue next frame
         //transform.localScale = originScale;
+        
         yield break;
 
     }
