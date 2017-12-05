@@ -9,15 +9,22 @@ public class TrackingProjectile : NormalProjectile {
 	GameObject m_target;
 
 	// Update is called once per frame
-	protected override void Update () {
+	protected override void FixedUpdate () {
 		if(m_fired){
 			if(m_target){
 				Vector3 toTarget = m_target.transform.position - transform.position;
-				Vector3 dir = Vector3.RotateTowards (transform.forward, toTarget, rotateSpeed, 0.0f);
-				transform.forward = dir;
+				float rotateDelta = rotateSpeed * Time.fixedDeltaTime;
+				Vector3 dir = Vector3.RotateTowards (transform.forward, toTarget, rotateDelta, 0.0f);
+
+				Quaternion newRot = new Quaternion ();
+				newRot.SetFromToRotation (Vector3.up, dir);
+				rigidbody.MoveRotation (newRot);
+
+				// transform.forward = dir;
 				m_direction = dir;
 			}
-			transform.position += m_direction * m_speed * Time.deltaTime;
+			Vector3 targetPos = transform.position + m_direction * m_speed * Time.fixedDeltaTime;
+			rigidbody.MovePosition (targetPos);
 		}
 
 		if(isOutOfDistance()){

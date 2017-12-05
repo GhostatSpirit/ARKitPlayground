@@ -6,6 +6,7 @@ public class NormalProjectile : BaseProjectile {
 
 	public float m_speed = 5.0f;
 	public float m_destroyDistance = 3.0f;
+	public bool destoryOnHit = false;
 
 	protected Vector3 m_direction;
 	protected bool m_fired;
@@ -14,16 +15,33 @@ public class NormalProjectile : BaseProjectile {
 
 	protected Vector3 m_initPos;
 
+	protected Rigidbody rigidbody;
+
+	protected virtual void Start(){
+		rigidbody = GetComponent<Rigidbody> ();
+	}
+
 	// Update is called once per frame
-	protected virtual void Update () {
+//	protected virtual void Update () {
+//		if(m_fired){
+//			transform.position += m_direction * m_speed * Time.deltaTime;
+//		}
+//			
+//		if(isOutOfDistance()){
+//			Destroy (this.gameObject);
+//		}
+//
+//	}
+
+	protected virtual void FixedUpdate(){
 		if(m_fired){
-			transform.position += m_direction * m_speed * Time.deltaTime;
+			Vector3 targetPos = transform.position + m_direction * m_speed * Time.fixedDeltaTime;
+			rigidbody.MovePosition (targetPos);
 		}
-			
+
 		if(isOutOfDistance()){
 			Destroy (this.gameObject);
 		}
-
 	}
 
 	public override void FireProjectile(GameObject launcher, GameObject target, Vector3 direction, int damage){
@@ -61,7 +79,7 @@ public class NormalProjectile : BaseProjectile {
 		if(hs){
 			hs.DoDamage (m_damage, gameObject, coll);
 		}
-		Destroy (this.gameObject);
+		if(destoryOnHit) Destroy (this.gameObject);
 	}
 
 	protected bool isOutOfDistance(){
