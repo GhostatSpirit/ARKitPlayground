@@ -6,6 +6,8 @@ public class TrackingProjectile : NormalProjectile {
 
 	public float rotateSpeed = 5.0f;
 
+	public float suicideDistance = 0.05f;
+
 	GameObject m_target;
 
 	// Update is called once per frame
@@ -27,9 +29,11 @@ public class TrackingProjectile : NormalProjectile {
 			rigidbody.MovePosition (targetPos);
 		}
 
-		if(isOutOfDistance()){
+		if(isOutOfDistance() || isInSuicideDistance()){
 			Destroy (this.gameObject);
 		}
+
+
 	}
 
 	public override void FireProjectile(GameObject launcher, GameObject target, Vector3 direction, int damage){
@@ -54,5 +58,9 @@ public class TrackingProjectile : NormalProjectile {
 		}
 
 		m_initPos = transform.position;
+	}
+
+	bool isInSuicideDistance(){
+		return Vector3.Distance (m_target.transform.position, transform.position) <= suicideDistance;
 	}
 }

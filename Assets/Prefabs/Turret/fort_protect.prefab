@@ -163,7 +163,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1123607850142682}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.36145464, y: -9.805331e-18, z: 1.4415929}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 4243712424775788}
@@ -385,6 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  _currentHealth: 0
   destoryOnDead: 1
 --- !u!114 &114279231054288786
 MonoBehaviour:
@@ -401,7 +402,7 @@ MonoBehaviour:
   damage: 0
   fieldOfView: 10
   pitchSegment: {fileID: 4941150367030426}
-  projectile: {fileID: 1381240854426604, guid: 9099aba90b155bb49aaa10805290c629, type: 2}
+  projectile: {fileID: 1993125132736648, guid: 2b488ec3c9953b8439f84684d5db19d4, type: 2}
   target: {fileID: 0}
   projectileSpawns:
   - {fileID: 1366333210257512}
@@ -429,7 +430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewRadius: Infinity
-  viewAngle: 180
+  viewAngle: 120
   targetMask:
     serializedVersion: 2
     m_Bits: 256

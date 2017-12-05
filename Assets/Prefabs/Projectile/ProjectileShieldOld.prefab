@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 114738714726721728}
   - component: {fileID: 114598002783510330}
   m_Layer: 12
-  m_Name: ProjectileShield
+  m_Name: ProjectileShieldOld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,8 +131,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1381240854426604}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08, y: 0.349, z: 0.696}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.08, y: 0.349, z: 1.696}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4378662431007570}
@@ -399,4 +399,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_damage: 1000
   m_speed: 0.5
-  m_destroyDistance: 3
+  m_destroyDistance: 2
+  destoryOnHit: 0

@@ -33,10 +33,25 @@ public class NormalProjectile : BaseProjectile {
 //
 //	}
 
-	protected virtual void FixedUpdate(){
+	protected virtual void MoveRigidbody(){
 		if(m_fired){
 			Vector3 targetPos = transform.position + m_direction * m_speed * Time.fixedDeltaTime;
 			rigidbody.MovePosition (targetPos);
+		}
+	}
+
+	protected virtual void MoveTransform(){
+		if(m_fired){
+			transform.position += m_direction * m_speed * Time.deltaTime;
+		}
+	}
+
+
+	protected virtual void FixedUpdate(){
+		if(rigidbody != null){
+			MoveRigidbody ();
+		} else {
+			MoveTransform ();
 		}
 
 		if(isOutOfDistance()){
