@@ -7,4 +7,6 @@ public abstract class BaseProjectile : MonoBehaviour {
 
 	public abstract void FireProjectile(GameObject launcher, GameObject target, Vector3 direction, int damage);
 
+    public abstract void FireProjectileNoDirection(GameObject launcher, Vector3 direction, int damage);
+
 }

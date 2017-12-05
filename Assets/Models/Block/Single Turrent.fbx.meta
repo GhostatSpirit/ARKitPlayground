@@ -1,0 +1,156 @@
+fileFormatVersion: 2
+guid: dddb233b46b5d814c9559a58ca15ba0b
+timeCreated: 1512203964
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: "\u4E2D\u95F4"
+    100004: "\u5706\u67F1"
+    100006: "\u5706\u67F1_1"
+    100008: "\u5706\u67F1_1_2"
+    100010: "\u5706\u67F1_2"
+    100012: "\u5BF9\u79F0"
+    100014: "\u5E03\u5C14"
+    100016: "\u5E95\u5EA7"
+    100018: "\u70AE\u7BA1"
+    100020: "\u7ACB\u65B9\u4F53"
+    100022: "\u7ACB\u65B9\u4F53_1"
+    100024: "\u7ACB\u65B9\u4F53_1_2"
+    100026: "\u7ACB\u65B9\u4F53_2"
+    100028: "\u7ACB\u65B9\u4F53_3"
+    400000: //RootNode
+    400002: "\u4E2D\u95F4"
+    400004: "\u5706\u67F1"
+    400006: "\u5706\u67F1_1"
+    400008: "\u5706\u67F1_1_2"
+    400010: "\u5706\u67F1_2"
+    400012: "\u5BF9\u79F0"
+    400014: "\u5E03\u5C14"
+    400016: "\u5E95\u5EA7"
+    400018: "\u70AE\u7BA1"
+    400020: "\u7ACB\u65B9\u4F53"
+    400022: "\u7ACB\u65B9\u4F53_1"
+    400024: "\u7ACB\u65B9\u4F53_1_2"
+    400026: "\u7ACB\u65B9\u4F53_2"
+    400028: "\u7ACB\u65B9\u4F53_3"
+    2300000: "\u5706\u67F1"
+    2300002: "\u5706\u67F1_1"
+    2300004: "\u5706\u67F1_1_2"
+    2300006: "\u5706\u67F1_2"
+    2300008: "\u5E95\u5EA7"
+    2300010: "\u7ACB\u65B9\u4F53"
+    2300012: "\u7ACB\u65B9\u4F53_1"
+    2300014: "\u7ACB\u65B9\u4F53_1_2"
+    2300016: "\u7ACB\u65B9\u4F53_2"
+    2300018: "\u7ACB\u65B9\u4F53_3"
+    3300000: "\u5706\u67F1"
+    3300002: "\u5706\u67F1_1"
+    3300004: "\u5706\u67F1_1_2"
+    3300006: "\u5706\u67F1_2"
+    3300008: "\u5E95\u5EA7"
+    3300010: "\u7ACB\u65B9\u4F53"
+    3300012: "\u7ACB\u65B9\u4F53_1"
+    3300014: "\u7ACB\u65B9\u4F53_1_2"
+    3300016: "\u7ACB\u65B9\u4F53_2"
+    3300018: "\u7ACB\u65B9\u4F53_3"
+    4300000: "\u5706\u67F1"
+    4300002: "\u7ACB\u65B9\u4F53"
+    4300004: "\u7ACB\u65B9\u4F53_3"
+    4300006: "\u7ACB\u65B9\u4F53_2"
+    4300008: "\u7ACB\u65B9\u4F53_1"
+    4300010: "\u7ACB\u65B9\u4F53_1_2"
+    4300012: "\u5706\u67F1_1"
+    4300014: "\u5706\u67F1_1_2"
+    4300016: "\u5706\u67F1_2"
+    4300018: "\u5E95\u5EA7"
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Concrete - Smooth
+    second: {fileID: 2100000, guid: fd521b977476f614388e7722eecff7bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 02ff41a682160c544ab9899887497112, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

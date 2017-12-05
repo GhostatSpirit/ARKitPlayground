@@ -6,6 +6,7 @@ using UnityEngine.XR.iOS;
 public class ARScreenRaycast : MonoBehaviour {
 
 	public float defaultDistance = 1.0f;
+	public float minDistance = 0.2f;
 	// public Collider playerCollider;
 	public LayerMask layerMask;
 
@@ -17,7 +18,7 @@ public class ARScreenRaycast : MonoBehaviour {
 		Ray ray = Camera.main.ViewportPointToRay (new Vector3 (0.5f, 0.5f, 0));
 		RaycastHit hit;
 		if(Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask)){
-			hitPoint = hit.point;
+			hitPoint = ClampHitPointDistance (hit.point);
 //			Debug.Log ("ARScreenRaycast: Got Unity hit");
 //			Debug.Log (string.Format ("x:{0:0.######} y:{1:0.######} z:{2:0.######}", 
 //				hitPoint.x, hitPoint.y, hitPoint.z));
@@ -44,7 +45,7 @@ public class ARScreenRaycast : MonoBehaviour {
 			Vector3 arHitPoint;
 			if (HitTestWithResultType (point, resultType, out arHitPoint))
 			{
-				hitPoint = arHitPoint;
+				hitPoint = ClampHitPointDistance(arHitPoint);
 				return;
 			}
 		}
@@ -67,5 +68,18 @@ public class ARScreenRaycast : MonoBehaviour {
 			}
 		}
 		return false;
+	}
+
+	Vector3 ClampHitPointDistance(Vector3 original){
+		if(Vector3.Distance(Camera.main.transform.position, original) >= minDistance){
+			return original;
+		} else {
+			return Camera.main.ViewportToWorldPoint (new Vector3 (0.5f, 0.5f, minDistance));
+		}
+	}
+
+	void OnDrawGizmos(){
+		Gizmos.color = Color.blue;
+		Gizmos.DrawLine (Camera.main.transform.position, hitPoint);
 	}
 }
