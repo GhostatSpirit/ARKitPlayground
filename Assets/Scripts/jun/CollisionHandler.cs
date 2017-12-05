@@ -39,7 +39,7 @@ public class CollisionHandler : MonoBehaviour {
                 //Debug.Log("collision2222 " + collision.gameObject.name);
                 return;
             }
-            Debug.Log("collision2222 " + collision.gameObject.name);
+            Debug.Log("collision2222 " + collision.gameObject.name+collision.transform.parent.name);
             HealthSystem hs = turretGO.GetComponent<HealthSystem>();
             if (!hs) {
                 hs = turretGO.GetComponent<ParentInfo>().hs;
