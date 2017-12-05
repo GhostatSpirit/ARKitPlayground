@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: ZFS_Flat_Pro_Fog
+  m_Name: FlatShield
   m_Shader: {fileID: 4800000, guid: 6bc377897a3d6bf4a8d7252c6db72211, type: 3}
   m_ShaderKeywords: _EDGE_DETECTION_ON _GRADIENT_OR_SOLID_COLOR_ON _LIGHTMAPPING_REALTIME
     _MAKE_SAME_AS_MASK_ON _MASK_ON _SOFT_TEXTURE_ON
