@@ -1680,7 +1680,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1604968566789660}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -2768,6 +2768,7 @@ MonoBehaviour:
   TurrentHS: {fileID: 0}
   TurrentRT: {fileID: 0}
   TurrentSS: {fileID: 0}
+  TurrentLSS: {fileID: 0}
 --- !u!114 &114830481125501850
 MonoBehaviour:
   m_ObjectHideFlags: 1

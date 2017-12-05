@@ -661,7 +661,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1527794138664036}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -1108,6 +1108,7 @@ MonoBehaviour:
   target: {fileID: 0}
   yawSegment: {fileID: 4382331338556302}
   pitchSegment: {fileID: 4228759699305676}
+  yawSelfRotate: 0
   yawSpeed: 30
   yawLimit: 360
   pitchSpeed: 30

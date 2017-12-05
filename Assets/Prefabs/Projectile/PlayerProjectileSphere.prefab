@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_damage: 5
-  m_speed: 5
+  m_speed: 2
   m_destroyDistance: 3
 --- !u!135 &135006188533868210
 SphereCollider:
