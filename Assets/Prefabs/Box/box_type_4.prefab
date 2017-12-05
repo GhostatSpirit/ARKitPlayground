@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 114072776435306918}
   - component: {fileID: 114885928782736238}
   - component: {fileID: 114618784657207268}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: box_type_4
   m_TagString: TurretBox
   m_Icon: {fileID: 0}
@@ -1431,7 +1431,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1050131267556378}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -1778,6 +1778,7 @@ MonoBehaviour:
   TurrentHS: {fileID: 0}
   TurrentRT: {fileID: 0}
   TurrentSS: {fileID: 0}
+  TurrentLSS: {fileID: 0}
 --- !u!114 &114108509972404516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1789,7 +1790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4b2f0abae7b409585aeb910a8d939b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 150
   destoryOnDead: 1
 --- !u!114 &114618784657207268
 MonoBehaviour:

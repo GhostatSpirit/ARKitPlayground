@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/UnityARKitScene.unity
     guid: 4ecc807a3f5804ce4aa9de869d29e394
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UnityARKitScene_ye.unity
     guid: b55827d27c5330847a2511345ee91150
+  - enabled: 1
+    path: Assets/Scenes/ye.unity
+    guid: 0ce31f575e01a6841a4fb98dc48de82b
