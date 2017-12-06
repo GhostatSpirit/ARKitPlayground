@@ -663,11 +663,11 @@ MonoBehaviour:
   target: {fileID: 0}
   yawSegment: {fileID: 4142842367149684}
   pitchSegment: {fileID: 4333724549947630}
-  yawSelfRotate: 0
-  yawSpeed: 0
+  yawSelfRotate: 1
+  yawSpeed: 30
   yawLimit: 360
-  pitchSpeed: 60
-  pitchLimit: 90
+  pitchSpeed: 25
+  pitchLimit: 30
   isPitchSymmetric: 1
 --- !u!114 &114565416248466964
 MonoBehaviour:

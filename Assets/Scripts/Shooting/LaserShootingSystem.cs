@@ -40,7 +40,11 @@ public class LaserShootingSystem : MonoBehaviour {
 			yield return new WaitForSeconds (shootDuration);
 
 			// rt.enabled = true;
-			DisableProjectiles ();
+			if (aimDuration != 0f) {
+				DisableProjectiles ();
+			}
+
+
 		}
 	}
 
