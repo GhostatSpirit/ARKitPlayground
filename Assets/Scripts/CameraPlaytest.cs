@@ -42,6 +42,7 @@ public class CameraPlaytest : MonoBehaviour {
 #endif
 
 		Camera.main.depthTextureMode = DepthTextureMode.Depth;
+
 	}
 	
 //	// Update is called once per frame
