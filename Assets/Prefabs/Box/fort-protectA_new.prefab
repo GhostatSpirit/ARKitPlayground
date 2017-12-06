@@ -461,6 +461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  _currentHealth: 0
   destoryOnDead: 1
 --- !u!114 &114973305232663658
 MonoBehaviour:
