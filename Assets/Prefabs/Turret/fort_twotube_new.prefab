@@ -385,6 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  _currentHealth: 0
   destoryOnDead: 1
 --- !u!114 &114654735901494976
 MonoBehaviour:
@@ -450,11 +451,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6581dc62138104943babe18ea104354e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 1
+  fireInterval: 1.25
   damage: 5
   fieldOfView: 10
   pitchSegment: {fileID: 4907597638518768}
-  projectile: {fileID: 1314121851068298, guid: 681344fa4286406449626d14e5d7317b, type: 2}
+  projectile: {fileID: 1314121851068298, guid: 50108244a43413847b4d8f3d34b3c4de, type: 2}
   target: {fileID: 0}
   projectileSpawns:
   - {fileID: 1335720646312190}
