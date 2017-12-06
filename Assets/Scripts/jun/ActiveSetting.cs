@@ -7,6 +7,7 @@ public class ActiveSetting : MonoBehaviour {
 
  
     private BoxDoorControl boxDoorControl;
+    private InnerFuncControl innerFuncControl;
     private int direction=4;
     private bool active=false;
    // private bool handicapped = false;
@@ -20,7 +21,8 @@ public class ActiveSetting : MonoBehaviour {
     void Start() {
 
         boxDoorControl = GetComponent<BoxDoorControl>();
-        if (boxDoorControl == null)
+        innerFuncControl = GetComponent<InnerFuncControl>();
+        if (boxDoorControl == null && innerFuncControl==null)
         {
             disordered = true;
         }
@@ -36,6 +38,8 @@ public class ActiveSetting : MonoBehaviour {
         }
         halfSize = shadowCollider.GetComponent<BoxCollider>().size.x / 2;
     }
+
+
 
 
 
@@ -56,6 +60,11 @@ public class ActiveSetting : MonoBehaviour {
         return direction;
     }
 
+    private bool hasFunction() {
+        if (boxDoorControl != null || innerFuncControl !=null) { return true; }
+        return false;
+    }
+
     public void removeTurret() {
         shadowCollider.GetComponent<BoxCollider>().center = new Vector3(0, 0, 0);
         shadowCollider.GetComponent<BoxCollider>().size = new Vector3(2 * halfSize, 2 * halfSize, 2 * halfSize);
@@ -65,6 +74,7 @@ public class ActiveSetting : MonoBehaviour {
     public void disableBase()
     {
         if (disordered == true) { return; }
+        if (!hasFunction()) { return; }
         shadowCollider.GetComponent<BoxCollider>().center = new Vector3(0,0,0);
         shadowCollider.GetComponent<BoxCollider>().size = new Vector3(2 * halfSize, 2 * halfSize, 2 * halfSize);
         boxDoorControl.StartCoroutine(boxDoorControl.TurrentAndDoor(ddir, false));
@@ -73,18 +83,29 @@ public class ActiveSetting : MonoBehaviour {
 
     void enableBase(DoorDirection doorDirection, bool reverseXp, Vector3 center, Vector3 size)
     {
-        shadowCollider.GetComponent<BoxCollider>().center = center;
-        shadowCollider.GetComponent<BoxCollider>().size += 2 * halfSize * size;
-            
-        ddir = doorDirection;
-        boxDoorControl.StartCoroutine(boxDoorControl.TurrentAndDoor(doorDirection, reverseXp));
+        if (!hasFunction()) { return; }
         
+        
+        if (boxDoorControl != null)
+        {
+            shadowCollider.GetComponent<BoxCollider>().center = center;
+            shadowCollider.GetComponent<BoxCollider>().size = new Vector3(2 * halfSize, 2 * halfSize, 2 * halfSize);
+            shadowCollider.GetComponent<BoxCollider>().size += 2 * halfSize * size;
+            ddir = doorDirection;
+            boxDoorControl.StartCoroutine(boxDoorControl.TurrentAndDoor(doorDirection, reverseXp));
+
+        }
+        if (innerFuncControl != null) {
+            innerFuncControl.BarrierActivate();
+        }
+
         active = true;
     }
 
     
     public void setTurretPosi(int dir) {
         if (disordered == true) { return; }
+        if (!hasFunction()) { return; }
         direction = dir;
         switch (direction)
         {
@@ -117,6 +138,7 @@ public class ActiveSetting : MonoBehaviour {
     public void setTurretPosi(Vector3 directionV)
     {
         if (disordered == true) { return; }
+        if (!hasFunction()) { return; }
         direction = -1;
         if (directionV.y == 1) { direction = 4; }
         else if (directionV.x == 1) { direction = 1; }

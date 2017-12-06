@@ -21,6 +21,6 @@ public class SimpleMove : MonoBehaviour {
 
 		Vector3 deltaMove = transform.forward * scaledInput.y + transform.right * scaledInput.x;
 
-		transform.parent.position += deltaMove;
+		transform.position += deltaMove;
 	}
 }

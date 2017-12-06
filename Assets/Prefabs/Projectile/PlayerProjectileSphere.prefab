@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23786338443226288}
   - component: {fileID: 114712669480414592}
   - component: {fileID: 54553712553233950}
+  - component: {fileID: 114913488298066570}
   m_Layer: 11
   m_Name: PlayerProjectileSphere
   m_TagString: Untagged
@@ -92,12 +93,12 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1314121851068298}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
 --- !u!114 &114712669480414592
@@ -112,8 +113,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_damage: 5
-  m_speed: 5
+  m_speed: 1.5
   m_destroyDistance: 3
+  destoryOnHit: 1
+--- !u!114 &114913488298066570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1314121851068298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f45171fa0ec034389fbcb17aa0d0d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prints:
+  - {fileID: 114506629442017404, guid: 4780d0c07c80018458d79836dcdd10d0, type: 2}
+  printLayers:
+  - serializedVersion: 2
+    m_Bits: 0
+  printTags:
+  - 
+  printMethod: 0
+  poolID: 0
+  parent: 1
+  printBehaviours: 1
+  destroyOnPrint: 1
+  frequencyTime: 0
+  frequencyDistance: 0
+  overlaps:
+  - poolId: 0
+    intersectionStrength: 0.5
+  rotationSource: 0
+  condition: 0
+  conditionTime: 0
+  layers:
+    serializedVersion: 2
+    m_Bits: 82433
 --- !u!135 &135006188533868210
 SphereCollider:
   m_ObjectHideFlags: 1

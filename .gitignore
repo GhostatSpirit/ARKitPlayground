@@ -41,5 +41,9 @@ sysinfo.txt
 /Assets/Standard Assets
 /Assets/Standard Assets.meta
 /Assets/RDL*
-/Assets/Plugins*
-/Assets/External*
+/Assets/Plugins/*
+/Assets/Plugins.meta
+/Assets/External/*
+/Assets/External.meta
+
+

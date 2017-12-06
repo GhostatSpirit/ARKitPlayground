@@ -23,7 +23,12 @@ public class NormalProjectileBang : BaseProjectile {
     public int respawnNum;
 
     GameObject instantiateProjectile;
+    GameObject player;
 
+    protected virtual void Start()
+    {
+        player = GameObject.Find("PlayerHitCube");
+    }
     // Update is called once per frame
     protected virtual void Update()
     {
@@ -34,7 +39,7 @@ public class NormalProjectileBang : BaseProjectile {
             
         }
 
-        if (isOutOfDistance())
+        if (isOutOfDistance()|| isTriggered())
         {
             //Debug.Log("out of range");
 
@@ -94,6 +99,23 @@ public class NormalProjectileBang : BaseProjectile {
     protected bool isOutOfDistance()
     {
         return Vector3.Distance(m_initPos, transform.position) > m_destroyDistance;
+    }
+
+    bool isTriggered()
+    {
+        //GameObject player=GameObject.Find("PlayerHitCube");
+
+        if (player!=null)
+        {
+            Vector3 relativeDistance = player.transform.position - this.transform.position;
+            //Debug.Log("relative angle:" + Vector3.Angle(relativeDistance, this.transform.forward));
+            if (Vector3.Angle(relativeDistance, this.transform.forward) >= 75)
+            {
+                return true;
+            }
+        }
+        else { Debug.Log("not found object!!!"); }
+        return false;
     }
 
     void BreakToSmall(GameObject respawnProjectile, float num)

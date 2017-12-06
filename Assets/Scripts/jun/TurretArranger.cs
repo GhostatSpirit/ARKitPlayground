@@ -12,8 +12,8 @@ public class TurretArranger : MonoBehaviour {
     public List<GameObject> boxes;
     public List<GameObject> turretModels;
    
-    public Transform arrangeCamera;
-    public Transform targetPlayer;
+    //public Transform arrangeCamera;
+    //public Transform targetPlayer;
     public Transform hitParent;
     public GameObject boxModel;
     public int turretType=0;
@@ -37,7 +37,7 @@ public class TurretArranger : MonoBehaviour {
    
     public void cubeDestroyed(object source, ObjectDeadEventArgs args)
     {
-        Debug.Log("here destroy the cube");
+        //Debug.Log("here destroy the cube");
         GameObject cube = args.attacked;
         
         Transform parent = cube.transform.parent;
@@ -59,7 +59,7 @@ public class TurretArranger : MonoBehaviour {
         {
             if (i.GetComponent<ActiveSetting>().neededToActivate())
             {
-                Debug.Log("need to activate" + i.name);
+                //Debug.Log("need to activate" + i.name);
                 Vector3 direction = findDirection(i);
                 i.GetComponent<ActiveSetting>().setTurretPosi(direction);
             }
@@ -84,7 +84,7 @@ public class TurretArranger : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
         //config the pointed location
         ArrangeBoxMotion();
 
@@ -206,26 +206,29 @@ public class TurretArranger : MonoBehaviour {
         RaycastHit[] shootHit;
         shootRay.origin = objPosition;       
         bool flag = false;
-        shootRay.direction = direction;
+
+        shootRay.direction = transform.TransformDirection( direction);
         shootHit = Physics.RaycastAll(shootRay, range, shadowMask);
-        if (shootHit.Length == 0) { return false; }
+        if (shootHit.Length == 0) { ; }
         foreach (RaycastHit i in shootHit)
         {
           //  Debug.Log(name + "things" + i.point + shootRay.direction + (i.point - shootRay.origin).magnitude+" "+ (blockGap * parentScalef / 2) +almostEqual((i.point - shootRay.origin).magnitude, blockGap * parentScalef / 2));
             if (almostEqual((i.point - shootRay.origin).magnitude, (blockGap * parentScalef / 2)))
             {
                 //if (DebugOn)
-                    Debug.Log(name+"something in direction" + i.point + shootRay.direction + (i.point - shootRay.origin).magnitude);
+                    //Debug.Log(name+"something in direction" + i.point + shootRay.direction + (i.point - shootRay.origin).magnitude);
                 flag = true;
             }
 
         }
 
         shootRay.origin = objPosition+parentScalef*direction;
-        shootRay.direction = new Vector3(0, 1, 0);
+        //Debug.Log("up detect");
+        shootRay.direction = transform.TransformDirection(new Vector3(0, 1, 0));
         shootHit = Physics.RaycastAll(shootRay, range, shadowMask);
         if (shootHit.Length != 0)
         {
+            //Debug.Log("up not null");
             flag = true;
         }
         
@@ -258,9 +261,11 @@ public class TurretArranger : MonoBehaviour {
 
         //up
         flag = false;
-        shootRay.origin = objPosition ;
-        shootRay.direction = new Vector3(0,1,0);
-        shootHit=Physics.RaycastAll(shootRay, range,shadowMask);
+        shootRay.origin = objPosition;
+        Vector3 localDir = new Vector3(0, 1, 0);
+        shootRay.direction = transform.TransformDirection(localDir);
+
+        shootHit =Physics.RaycastAll(shootRay, range,shadowMask);
         if (shootHit.Length == 0) {
             return new Vector3(0, 1, 0);
         }
@@ -349,8 +354,8 @@ public class TurretArranger : MonoBehaviour {
     void ArrangeBoxMotion() {
         Ray shootRay = new Ray();
         RaycastHit shootHit;
-        shootRay.origin = arrangeCamera.position;
-        shootRay.direction = arrangeCamera.forward;
+        shootRay.origin = Camera.main.transform.position;
+        shootRay.direction =transform.TransformDirection(Camera.main.transform.forward);
        
         if (Physics.Raycast(shootRay, out shootHit, range, groundMask))
         {
@@ -389,10 +394,10 @@ public class TurretArranger : MonoBehaviour {
                 foreach (Transform i in turret.transform.GetComponentsInChildren<Transform>())
                 {
                    // if (DebugOn)
-                        Debug.Log(i.name);
+                        //Debug.Log(i.name);
                     if (i.tag=="TurretBox")
                     {
-                        Debug.Log("trigger the turret:" + i.name);
+                        //Debug.Log("trigger the turret:" + i.name);
                         TurretControl tc = i.GetComponentInChildren<TurretControl>();
                         tc.ToggleRotate();
                         tc.ToggleShoot();

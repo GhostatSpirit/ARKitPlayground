@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 114971527504116978}
   - component: {fileID: 114582396415431750}
   - component: {fileID: 114770534537103590}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: box_type_2
   m_TagString: TurretBox
   m_Icon: {fileID: 0}
@@ -461,6 +461,7 @@ GameObject:
   - component: {fileID: 65383279693367430}
   - component: {fileID: 114235748898625110}
   - component: {fileID: 114170682829425578}
+  - component: {fileID: 114604850106094712}
   m_Layer: 9
   m_Name: cube
   m_TagString: Untagged
@@ -611,7 +612,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1952718170888454}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.7495457, y: 0.0501291, z: -0.47735673}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4910146389370444}
@@ -1159,7 +1160,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1974059008752148}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -1764,7 +1765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4b2f0abae7b409585aeb910a8d939b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 150
   destoryOnDead: 1
 --- !u!114 &114235748898625110
 MonoBehaviour:
@@ -1788,6 +1789,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ffa627de45d67540be74864b8f18ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114604850106094712
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1974059008752148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1140022466e480246abb111792c1ba76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 1626852455301806, guid: 7c4a93a0c734ca24eaa97f1f752fd390,
+    type: 2}
 --- !u!114 &114770534537103590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1824,3 +1838,4 @@ MonoBehaviour:
   TurrentHS: {fileID: 0}
   TurrentRT: {fileID: 0}
   TurrentSS: {fileID: 0}
+  TurrentLSS: {fileID: 0}
