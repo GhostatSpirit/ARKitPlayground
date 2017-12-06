@@ -2130,6 +2130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
+  _currentHealth: 0
   destoryOnDead: 1
 --- !u!23 &422788588
 MeshRenderer:
@@ -2479,6 +2480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  _currentHealth: 0
   destoryOnDead: 1
 --- !u!23 &475950572
 MeshRenderer:
@@ -4779,6 +4781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  _currentHealth: 0
   destoryOnDead: 0
 --- !u!114 &856800786
 MonoBehaviour:
@@ -5669,6 +5672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  _currentHealth: 0
   destoryOnDead: 1
 --- !u!114 &1055791545
 MonoBehaviour:
@@ -6354,6 +6358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  _currentHealth: 0
   destoryOnDead: 1
 --- !u!23 &1157452369
 MeshRenderer:
@@ -7304,6 +7309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  _currentHealth: 0
   destoryOnDead: 1
 --- !u!23 &1322878993
 MeshRenderer:
@@ -7794,6 +7800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
+  _currentHealth: 0
   destoryOnDead: 1
 --- !u!43 &1400675536
 Mesh:
@@ -8393,6 +8400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  _currentHealth: 0
   destoryOnDead: 1
 --- !u!23 &1517308355
 MeshRenderer:
@@ -8485,6 +8493,26 @@ Prefab:
     - target: {fileID: 4199837734218458, guid: 2b488ec3c9953b8439f84684d5db19d4, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23810119096665426, guid: 2b488ec3c9953b8439f84684d5db19d4,
+        type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23393535764562486, guid: 2b488ec3c9953b8439f84684d5db19d4,
+        type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23810119096665426, guid: 2b488ec3c9953b8439f84684d5db19d4,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23393535764562486, guid: 2b488ec3c9953b8439f84684d5db19d4,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b488ec3c9953b8439f84684d5db19d4, type: 2}
@@ -10512,6 +10540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  _currentHealth: 0
   destoryOnDead: 1
 --- !u!23 &1861201871
 MeshRenderer:

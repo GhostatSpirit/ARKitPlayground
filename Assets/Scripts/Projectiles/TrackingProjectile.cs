@@ -11,22 +11,21 @@ public class TrackingProjectile : NormalProjectile {
 	GameObject m_target;
 
 	// Update is called once per frame
-	protected void Update () {
+	protected override void FixedUpdate () {
 		if(m_fired){
 			if(m_target){
 				Vector3 toTarget = m_target.transform.position - transform.position;
-				float rotateDelta = rotateSpeed * Time.deltaTime;
+				float rotateDelta = rotateSpeed * Time.fixedDeltaTime;
 				Vector3 dir = Vector3.RotateTowards (transform.forward, toTarget, rotateDelta, 0.0f);
 
-				transform.forward = dir;
+//				transform.forward = dir;
 				m_direction = dir;
 
 				Quaternion newRot = Quaternion.LookRotation (dir);
 				rigidbody.MoveRotation (newRot);
 
-
 			}
-			Vector3 targetPos = transform.position + m_direction * m_speed * Time.deltaTime;
+			Vector3 targetPos = transform.position + m_direction * m_speed * Time.fixedDeltaTime;
 			rigidbody.MovePosition (targetPos);
 		}
 
@@ -42,6 +41,8 @@ public class TrackingProjectile : NormalProjectile {
 
 		m_launcher = launcher;
 		m_target = target;
+
+		Debug.Log (m_target);
 
 		if(launcher){
 			m_launcher = launcher;

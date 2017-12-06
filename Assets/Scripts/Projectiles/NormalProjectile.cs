@@ -6,7 +6,7 @@ public class NormalProjectile : BaseProjectile {
 
 	public float m_speed = 5.0f;
 	public float m_destroyDistance = 3.0f;
-	public bool destoryOnHit = false;
+	public bool destoryOnHit = true;
 
 	protected Vector3 m_direction;
 	protected bool m_fired;

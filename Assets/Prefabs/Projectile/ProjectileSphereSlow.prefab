@@ -114,7 +114,7 @@ MonoBehaviour:
   m_damage: 10
   m_speed: 0.5
   m_destroyDistance: 3
-  destoryOnHit: 0
+  destoryOnHit: 1
 --- !u!135 &135006188533868210
 SphereCollider:
   m_ObjectHideFlags: 1
