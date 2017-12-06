@@ -190,7 +190,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1493357076211832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.22865437, y: 5.5269524e-18, z: 0.7510882}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 4133002050970430}
@@ -437,11 +437,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6581dc62138104943babe18ea104354e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 1
+  fireRate: 2
   damage: 5
   fieldOfView: 10
   pitchSegment: {fileID: 4609897786438718}
-  projectile: {fileID: 1314121851068298, guid: 681344fa4286406449626d14e5d7317b, type: 2}
+  projectile: {fileID: 1487747128075256, guid: 4e5acdc13be48a7439ce7aa4a0b656b1, type: 2}
   target: {fileID: 0}
   projectileSpawns:
   - {fileID: 1713645118423568}
@@ -457,4 +457,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  _currentHealth: 0
   destoryOnDead: 1

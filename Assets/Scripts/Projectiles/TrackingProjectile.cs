@@ -11,21 +11,22 @@ public class TrackingProjectile : NormalProjectile {
 	GameObject m_target;
 
 	// Update is called once per frame
-	protected override void FixedUpdate () {
+	protected void Update () {
 		if(m_fired){
 			if(m_target){
 				Vector3 toTarget = m_target.transform.position - transform.position;
-				float rotateDelta = rotateSpeed * Time.fixedDeltaTime;
+				float rotateDelta = rotateSpeed * Time.deltaTime;
 				Vector3 dir = Vector3.RotateTowards (transform.forward, toTarget, rotateDelta, 0.0f);
 
-				Quaternion newRot = new Quaternion ();
-				newRot.SetFromToRotation (Vector3.up, dir);
+				transform.forward = dir;
+				m_direction = dir;
+
+				Quaternion newRot = Quaternion.LookRotation (dir);
 				rigidbody.MoveRotation (newRot);
 
-				// transform.forward = dir;
-				m_direction = dir;
+
 			}
-			Vector3 targetPos = transform.position + m_direction * m_speed * Time.fixedDeltaTime;
+			Vector3 targetPos = transform.position + m_direction * m_speed * Time.deltaTime;
 			rigidbody.MovePosition (targetPos);
 		}
 
@@ -61,6 +62,9 @@ public class TrackingProjectile : NormalProjectile {
 	}
 
 	bool isInSuicideDistance(){
+		if(m_target == null){
+			return false;
+		}
 		return Vector3.Distance (m_target.transform.position, transform.position) <= suicideDistance;
 	}
 }
