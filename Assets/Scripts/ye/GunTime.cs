@@ -9,6 +9,7 @@ public class GunTime : MonoBehaviour {
     public float shootTime = 0f;
 
     public float OverheatTime = 2f;
+	public float coolDownTime = 2f;
 
     PlayerShootingNew PSN;
 
@@ -29,8 +30,9 @@ public class GunTime : MonoBehaviour {
             case true:
                 switch (PSN.Overheat)
                 {
-                    case true:
-                        shootTime -= Time.deltaTime;
+					case true:
+				float coolRate = OverheatTime / coolDownTime;
+                        shootTime -= Time.deltaTime * coolRate;
                         if (shootTime <= 0)
                         {
                             shootTime = 0;

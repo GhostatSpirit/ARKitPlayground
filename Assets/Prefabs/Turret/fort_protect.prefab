@@ -398,7 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6581dc62138104943babe18ea104354e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 10
+  fireInterval: 7
   damage: 0
   fieldOfView: 10
   pitchSegment: {fileID: 4941150367030426}
@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewRadius: Infinity
-  viewAngle: 120
+  viewAngle: 160
   targetMask:
     serializedVersion: 2
     m_Bits: 256

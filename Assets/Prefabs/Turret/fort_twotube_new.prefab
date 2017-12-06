@@ -451,8 +451,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6581dc62138104943babe18ea104354e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireInterval: 1.25
-  damage: 5
+  fireInterval: 2
+  damage: 9
   fieldOfView: 10
   pitchSegment: {fileID: 4907597638518768}
   projectile: {fileID: 1314121851068298, guid: 50108244a43413847b4d8f3d34b3c4de, type: 2}

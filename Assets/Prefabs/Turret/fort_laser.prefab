@@ -663,8 +663,8 @@ MonoBehaviour:
   target: {fileID: 0}
   yawSegment: {fileID: 4142842367149684}
   pitchSegment: {fileID: 4333724549947630}
-  yawSelfRotate: 1
-  yawSpeed: 30
+  yawSelfRotate: 0
+  yawSpeed: 0
   yawLimit: 360
   pitchSpeed: 25
   pitchLimit: 30

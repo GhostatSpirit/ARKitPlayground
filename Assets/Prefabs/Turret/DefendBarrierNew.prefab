@@ -171,9 +171,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Scale: 0.5
-  ShrinkTime: 10
-  DilateTime: 3
-  DelayTimeMin: 2
+  ShrinkTime: 3
+  DilateTime: 1.5
+  DelayTimeMin: 3
   DelayTimeMax: 1
   prender: {fileID: 0}
   layerMask:
