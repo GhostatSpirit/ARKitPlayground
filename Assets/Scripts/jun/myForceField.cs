@@ -73,8 +73,12 @@ public class myForceField : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-       
-                OnHit(other.transform.position);
+        bool layerHit = (layerMask.value >> other.gameObject.layer) == 1;
+        if (layerHit)
+        {
+            OnHit(other.transform.position);
+        }
+        
     }
 
 

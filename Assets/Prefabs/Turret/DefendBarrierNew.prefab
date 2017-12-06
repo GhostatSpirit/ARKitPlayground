@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23685750295311982}
   - component: {fileID: 114827152115415892}
   - component: {fileID: 114938027827098906}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 135533599631790668}
   - component: {fileID: 23338131978188074}
   - component: {fileID: 114010202662841134}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: DefendBarrierNew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 35ef3705587d4c94a879ace9511a7fc0, type: 2}
+  - {fileID: 2100000, guid: 8c7f1ac14be4392408c2646d92a73a35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -170,8 +170,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7994907ece4b24689a67d1ec8bcea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vanishTime: 10
-  waitTime: 100
+  Scale: 0.5
+  ShrinkTime: 10
+  DilateTime: 3
+  DelayTimeMin: 2
+  DelayTimeMax: 1
   prender: {fileID: 0}
   layerMask:
     serializedVersion: 2
@@ -203,6 +206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece30514d9a55c04eb6bc9faac31cff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 2048
   shield: {fileID: 1431995299137380}
   CollisionEnter: 1
   DecaySpeed: 2
