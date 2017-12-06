@@ -73,7 +73,7 @@ public class RotateTowards : MonoBehaviour {
 			if (angle <= -180f)
 				angle = -180f + angle;
 
-			Debug.Log (angle);
+//			Debug.Log (angle);
 
 			if(!isPitchSymmetric){
 				if(Vector3.Dot(pitchSegment.forward, yawSegment.forward) < 0f && angle < 0f){
