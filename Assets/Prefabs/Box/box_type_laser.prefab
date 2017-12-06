@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 114885928782736238}
   - component: {fileID: 114618784657207268}
   m_Layer: 9
-  m_Name: box_type_4
+  m_Name: box_type_laser
   m_TagString: TurretBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -570,7 +570,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1497629615836256}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9210818, y: 0.0501291, z: -0.47675776}
+  m_LocalPosition: {x: 0.42268783, y: 1.0595174e-17, z: 0.5228358}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4873751187255112}
@@ -1771,7 +1771,7 @@ MonoBehaviour:
   doorYn: {fileID: 1800534830016474}
   doorZp: {fileID: 1865792486539392}
   doorZn: {fileID: 1309272080768746}
-  turrent: {fileID: 1493357076211832, guid: c173c6a2a9fbf7c499c1c15eeddd53cc, type: 2}
+  turrent: {fileID: 1812078204228556, guid: 1b4e03cb8e615f544b5d32bc08468c39, type: 2}
   distance: 0.05
   TurretWaitDoor: 1.9
   DoorWaitTurret: 0
@@ -1792,6 +1792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 150
+  _currentHealth: 0
   destoryOnDead: 1
 --- !u!114 &114374644604624768
 MonoBehaviour:

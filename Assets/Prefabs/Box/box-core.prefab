@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 114215042800825140}
   - component: {fileID: 114701939201477572}
   m_Layer: 9
-  m_Name: fort-core
+  m_Name: box-core
   m_TagString: TurretBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,7 +58,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1080760487730844}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.4617, y: 0.0421, z: -0.46109998}
+  m_LocalPosition: {x: 1.0843649, y: 1.05992765e-17, z: 0.522651}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4835663028863894}
@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  _currentHealth: 0
   destoryOnDead: 1
 --- !u!114 &114218360729008464
 MonoBehaviour:
