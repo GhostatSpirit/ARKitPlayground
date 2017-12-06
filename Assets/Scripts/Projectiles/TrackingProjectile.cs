@@ -45,7 +45,7 @@ public class TrackingProjectile : NormalProjectile {
 		m_launcher = launcher;
 		m_target = target;
 
-		Debug.Log (m_target);
+//		Debug.Log (m_target);
 
 		if(launcher){
 			m_launcher = launcher;
@@ -72,11 +72,7 @@ public class TrackingProjectile : NormalProjectile {
 		Quaternion deltaRot = Quaternion.FromToRotation (normal, velocity);
 		float angle = Quaternion.Angle (deltaRot, Quaternion.identity);
 
-		if(angle > 90f){
-			angle -= 90f;
-		}
-
-		Debug.Log ("tracking projectile hit, angle: " + angle.ToString ());
+		// Debug.Log ("tracking projectile hit, angle: " + angle.ToString ());
 
 		base.OnCollisionEnter (coll);
 	}
