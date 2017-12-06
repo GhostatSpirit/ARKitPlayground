@@ -921,10 +921,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 1420186166096272, guid: 346f86479d41a484a876690dddb3b11f, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 346f86479d41a484a876690dddb3b11f, type: 2}
   m_IsPrefabParent: 0
@@ -2768,6 +2764,14 @@ Prefab:
     - target: {fileID: 1876553757471410, guid: 0e697bc0bfd40e84884ea3f7127edcd7, type: 2}
       propertyPath: m_Name
       value: MissleTrack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615824600773242, guid: 0e697bc0bfd40e84884ea3f7127edcd7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876553757471410, guid: 0e697bc0bfd40e84884ea3f7127edcd7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e697bc0bfd40e84884ea3f7127edcd7, type: 2}
