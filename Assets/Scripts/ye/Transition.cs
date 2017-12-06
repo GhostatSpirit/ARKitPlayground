@@ -25,7 +25,7 @@ public class Transition : MonoBehaviour {
         if(async != null)
         {
             //image.fillAmount = Mathf.Lerp(image.fillAmount, async.progress, Time.deltaTime);
-            image.fillAmount = async.progress;
+            image.fillAmount = async.progress / (float) 0.9;
             if (async.progress >= 0.85)
             {
                 ActivatedScene();
