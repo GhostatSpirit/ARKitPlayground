@@ -63,8 +63,18 @@ public class HealthChangedEventArgs : EventArgs {
 public class HealthSystem : MonoBehaviour {
 
 	public int maxHealth = 100;
+	public int currentHealth {
+		get{
+			return _currentHealth;
+		}
+		set{
+			_currentHealth = value;
+		}
+	}
 
-	public int currentHealth { get; private set; }
+	[SerializeField]
+	private int _currentHealth;
+
 	bool isDead = false;
 
 	public event EventHandler<ObjectDeadEventArgs> OnObjectDead;
@@ -90,7 +100,7 @@ public class HealthSystem : MonoBehaviour {
 
 	public void DoDamage(int damage, GameObject attacker, Collision coll){
 		currentHealth -= damage;
-        //Debug.Log("health of " + transform.name + ":" + currentHealth);
+//        Debug.Log("health of " + transform.name + ":" + currentHealth);
         //  Debug.Log(currentHealth);
         if (currentHealth < 0)
 			currentHealth = 0;

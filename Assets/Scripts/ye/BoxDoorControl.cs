@@ -103,7 +103,7 @@ public class BoxDoorControl : MonoBehaviour
         {
             TurrentHS.OnObjectDead += turrentDestroyed;
             set = true;
-            Debug.Log("set");
+//            Debug.Log("set");
         }
 
 

@@ -56,7 +56,7 @@ public class FieldOfView : MonoBehaviour {
 				RaycastHit hit;
 				if (!Physics.Raycast (pivot.position, dirToTarget, out hit, dstToTarget, obstacleMask)) {
 					//Debug.Log (target);
-					visibleTargets.Add (target);
+					visibleTargets.Add (target.parent);
 				} 
 			}
 		}
