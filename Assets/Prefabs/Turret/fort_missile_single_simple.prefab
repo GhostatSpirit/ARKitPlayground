@@ -397,9 +397,9 @@ MonoBehaviour:
   yawSegment: {fileID: 4317523545439578}
   pitchSegment: {fileID: 4609897786438718}
   yawSelfRotate: 0
-  yawSpeed: 90
+  yawSpeed: 45
   yawLimit: 360
-  pitchSpeed: 30
+  pitchSpeed: 60
   pitchLimit: 90
   isPitchSymmetric: 0
 --- !u!114 &114603173005342010
@@ -437,7 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6581dc62138104943babe18ea104354e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 2
+  fireRate: 4
   damage: 5
   fieldOfView: 10
   pitchSegment: {fileID: 4609897786438718}

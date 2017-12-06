@@ -66,8 +66,8 @@ MonoBehaviour:
     color: {r: 0, g: 0, b: 0, a: 1}
     value: 1
     enabled: 0
-  tiling: {x: 0.5, y: 0.5}
-  offset: {x: 0.5, y: 0.5}
+  tiling: {x: 1, y: 1}
+  offset: {x: 0, y: 0}
   maskMethod: 1
   masks: 01000000
   _TilingOffset: 376

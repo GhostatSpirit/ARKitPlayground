@@ -1831,7 +1831,7 @@ MonoBehaviour:
   doorYn: {fileID: 1024063670164336}
   doorZp: {fileID: 1903141943013958}
   doorZn: {fileID: 1029922447941224}
-  turrent: {fileID: 1733411782416262, guid: 45dd12c4b8e3ec3458e3935102481983, type: 2}
+  turrent: {fileID: 1760992938758168, guid: cdd62863c32e6e74eb6b8d288dfa157b, type: 2}
   distance: 0.05
   TurretWaitDoor: 1.9
   DoorWaitTurret: 0

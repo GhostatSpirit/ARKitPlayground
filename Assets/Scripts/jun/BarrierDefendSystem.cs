@@ -41,7 +41,7 @@ public class BarrierDefendSystem : MonoBehaviour {
 
     IEnumerator Shrink()
     {
-        
+
         // If the object has arrived, stop the coroutine
         while (transform.localScale.x > 0) { 
             transform.localScale -= deltaScale * new Vector3(1, 1, 1);
@@ -51,7 +51,7 @@ public class BarrierDefendSystem : MonoBehaviour {
         // Otherwise, continue next frame
         // transform.localScale = originScale;
         yield break;
-        
+
         
     }
 

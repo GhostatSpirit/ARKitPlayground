@@ -173,7 +173,7 @@ MonoBehaviour:
   m_speed: 0.25
   m_destroyDistance: 3
   destoryOnHit: 1
-  rotateSpeed: 0.4
+  rotateSpeed: 1
   suicideDistance: 0.05
 --- !u!136 &136159316053627002
 CapsuleCollider:

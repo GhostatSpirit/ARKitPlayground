@@ -25,8 +25,11 @@ public class TrackingProjectile : NormalProjectile {
 				rigidbody.MoveRotation (newRot);
 
 			}
-			Vector3 targetPos = transform.position + m_direction * m_speed * Time.fixedDeltaTime;
-			rigidbody.MovePosition (targetPos);
+
+			rigidbody.velocity = m_direction * m_speed;
+
+//			Vector3 targetPos = transform.position + m_direction * m_speed * Time.fixedDeltaTime;
+//			rigidbody.MovePosition (targetPos);
 		}
 
 		if(isOutOfDistance() || isInSuicideDistance()){
@@ -60,6 +63,12 @@ public class TrackingProjectile : NormalProjectile {
 		}
 
 		m_initPos = transform.position;
+	}
+
+	protected virtual void OnCollisionEnter(Collision coll){
+
+
+		base.OnCollisionEnter (coll);
 	}
 
 	bool isInSuicideDistance(){
