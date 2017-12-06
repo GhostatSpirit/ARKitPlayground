@@ -65,8 +65,18 @@ public class TrackingProjectile : NormalProjectile {
 		m_initPos = transform.position;
 	}
 
-	protected virtual void OnCollisionEnter(Collision coll){
+	protected override void OnCollisionEnter(Collision coll){
+		Vector3 normal = - coll.collider.transform.forward;
+		Vector3 velocity = rigidbody.velocity;
 
+		Quaternion deltaRot = Quaternion.FromToRotation (normal, velocity);
+		float angle = Quaternion.Angle (deltaRot, Quaternion.identity);
+
+		if(angle > 90f){
+			angle -= 90f;
+		}
+
+		Debug.Log ("tracking projectile hit, angle: " + angle.ToString ());
 
 		base.OnCollisionEnter (coll);
 	}

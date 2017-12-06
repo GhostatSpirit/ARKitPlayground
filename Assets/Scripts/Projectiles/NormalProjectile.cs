@@ -15,7 +15,7 @@ public class NormalProjectile : BaseProjectile {
 
 	protected Vector3 m_initPos;
 
-	protected Rigidbody rigidbody;
+	protected new Rigidbody rigidbody;
 
 	protected virtual void Start(){
 		rigidbody = GetComponent<Rigidbody> ();
