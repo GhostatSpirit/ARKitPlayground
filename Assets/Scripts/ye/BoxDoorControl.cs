@@ -65,6 +65,8 @@ public class BoxDoorControl : MonoBehaviour
     [HideInInspector]
     public LaserShootingSystem TurrentLSS;
 
+    private HealthSystem ParentHS;
+
     bool set = false;
 
     // Use this for initialization
@@ -92,6 +94,8 @@ public class BoxDoorControl : MonoBehaviour
             }
         }
 
+        ParentHS = cube.GetComponent<HealthSystem>();
+
     }
 
     // Update is called once per frame
@@ -118,8 +122,11 @@ public class BoxDoorControl : MonoBehaviour
     public void turrentDestroyed()
     {
         destroyed = true;
+        ParentHS.DoDamage(TurrentHS.maxHealth, this.gameObject, this.transform.position);
+        Debug.Log("parent hurt: " + ParentHS.transform.name);
         StartCoroutine(TurrentAndDoor(ddir, false));
         GetComponent<ActiveSetting>().removeTurret();
+        
         Debug.Log("Destroyed!!!");
     }
 
