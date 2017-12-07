@@ -8,12 +8,15 @@ public class PlayerBulletHole : MonoBehaviour {
 	public float duration = 1f;
 	public float size = 2f;
 
+    AudioSource audioSource;
+
 	public DecalEmitter emitter;
 
 	HealthSystem playerHealth;
 
 	// Use this for initialization
 	void Start () {
+        audioSource = GetComponent<AudioSource>();
 		playerHealth = GetComponent<HealthSystem> ();
 		playerHealth.OnObjectHurt += showBulletHole;
 		CameraPlay.CurrentCamera = Camera.main;
@@ -27,6 +30,11 @@ public class PlayerBulletHole : MonoBehaviour {
 //			Vector3 viewportPos = Camera.main.ScreenToViewportPoint (screenPos);
 //
 //			CameraPlay.BulletHole (viewportPos.x, viewportPos.y, duration, size);
+            
+            //if(audioSource != null)
+            //{
+            //    audioSource.Play();
+            //}
 
 			emitter.EmitDecal (coll.contacts [0].point);
 		}
