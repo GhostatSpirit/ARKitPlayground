@@ -254,7 +254,7 @@ MonoBehaviour:
   Scale: 0.5
   ShrinkTime: 3
   DilateTime: 1.5
-  DelayTimeMin: 3
+  DelayTimeMin: 4
   DelayTimeMax: 1
   prender: {fileID: 0}
   layerMask:

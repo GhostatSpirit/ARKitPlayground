@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 199698155443689730}
   - component: {fileID: 114020995494138294}
   - component: {fileID: 114822484612871514}
+  - component: {fileID: 114532722532074174}
   m_Layer: 0
   m_Name: BulletImpactMetalEffect
   m_TagString: Untagged
@@ -158,6 +159,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 3
+--- !u!114 &114532722532074174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1832157691358970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560eac31bf36b104f98e9fb7f568235c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decal: {fileID: 1243533393467218}
 --- !u!114 &114822484612871514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -229,7 +242,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -544667782
+  randomSeed: -749681641
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3447,7 +3460,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: 1558327963
+  randomSeed: -1552564038
   InitialModule:
     serializedVersion: 3
     enabled: 1
