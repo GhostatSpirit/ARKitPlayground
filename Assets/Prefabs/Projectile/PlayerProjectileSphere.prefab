@@ -262,7 +262,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1314121851068298}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03f45171fa0ec034389fbcb17aa0d0d7, type: 3}
   m_Name: 
@@ -289,7 +289,7 @@ MonoBehaviour:
   conditionTime: 0
   layers:
     serializedVersion: 2
-    m_Bits: 16896
+    m_Bits: 0
   useTransformForward: 0
 --- !u!135 &135006188533868210
 SphereCollider:

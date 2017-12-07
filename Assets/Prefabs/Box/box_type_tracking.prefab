@@ -602,7 +602,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1065128320228674}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5655429, y: 0.0501291, z: -0.47284484}
+  m_LocalPosition: {x: -0.49999997, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4926524722734674}
@@ -1831,7 +1831,7 @@ MonoBehaviour:
   doorYn: {fileID: 1324352980374766}
   doorZp: {fileID: 1959536759518850}
   doorZn: {fileID: 1125877628753710}
-  turrent: {fileID: 1493357076211832, guid: c173c6a2a9fbf7c499c1c15eeddd53cc, type: 2}
+  turrent: {fileID: 1622430020425276, guid: 64390da82e0fb6b41bae12113f5a223f, type: 2}
   distance: 0.05
   TurretWaitDoor: 1.9
   DoorWaitTurret: 0
