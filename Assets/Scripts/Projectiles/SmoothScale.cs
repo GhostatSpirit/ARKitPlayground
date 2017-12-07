@@ -15,13 +15,13 @@ public class SmoothScale : MonoBehaviour {
 	}
 
 	public void SetTargetLocalScale(Vector3 targetScale){
-		Debug.Log (targetScale);
+//		Debug.Log (targetScale);
 		this.targetScale = targetScale;
 		Debug.Log (this.targetScale);
 		transform.localScale = new Vector3 (targetScale.x * initialFactor.x, 
 			targetScale.y * initialFactor.y,
 			targetScale.z * initialFactor.z);
-		Debug.Log (transform.localScale);
+//		Debug.Log (transform.localScale);
 	}
 	
 	// Update is called once per frame

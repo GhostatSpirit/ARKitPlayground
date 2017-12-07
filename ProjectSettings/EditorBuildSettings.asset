@@ -8,9 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: 76efc224edb07c74dbbc68d05886d660
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ye.unity
     guid: 0ce31f575e01a6841a4fb98dc48de82b
   - enabled: 1
+    path: Assets/Scenes/Level01.unity
+    guid: 61eb5c58eed0bfe4aaea9a18b75984f0
+  - enabled: 1
     path: Assets/Scenes/Loading.unity
     guid: 41f465ecbf9c6834eb52a696df202890
+  - enabled: 0
+    path: Assets/Scenes/Final.unity
+    guid: 6ad9df3b5ad002a45a85fe1e37f67140

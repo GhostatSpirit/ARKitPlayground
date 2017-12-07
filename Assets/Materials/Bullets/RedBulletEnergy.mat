@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: ForceField_ReactorCore_Static 3
+  m_Name: RedBulletEnergy
   m_Shader: {fileID: 4800000, guid: d675da6240592ae459f1120ba87b7583, type: 3}
   m_ShaderKeywords: _EDGE_DETECTION_FAKE_ON _FRESNEL_ON _GRADIENT_OR_SOLID_COLOR_ON
     _SOFT_TEXTURE_ON
@@ -96,8 +96,8 @@ Material:
     - _FieldTint: {r: 1, g: 0.83823526, b: 0.83823526, a: 1}
     - _FieldTint_A: {r: 0.49264705, g: 0.8110548, b: 1, a: 1}
     - _FieldTint_B: {r: 0.8206897, g: 1, b: 0, a: 1}
-    - _InnerTint: {r: 0.5955882, g: 0.5983773, b: 1, a: 1}
-    - _OuterTint: {r: 0, g: 0.33793116, b: 1, a: 0.572}
+    - _InnerTint: {r: 1, g: 0.8014706, b: 0.8014706, a: 1}
+    - _OuterTint: {r: 1, g: 0, b: 0, a: 0.572}
     - _OutterTint: {r: 0, g: 0.46206856, b: 1, a: 0.22745098}
     - _Pos_0: {r: 0, g: 0, b: 0, a: 0}
     - _Pos_1: {r: 0, g: 0, b: 0, a: 0}
