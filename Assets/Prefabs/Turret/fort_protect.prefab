@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 114717046246333854}
   - component: {fileID: 114279231054288786}
   - component: {fileID: 114585675371668630}
+  - component: {fileID: 114746313709899772}
   m_Layer: 16
   m_Name: fort_protect
   m_TagString: TopPart
@@ -459,3 +460,16 @@ MonoBehaviour:
   pitchSpeed: 30
   pitchLimit: 90
   isPitchSymmetric: 0
+--- !u!114 &114746313709899772
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1123607850142682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1140022466e480246abb111792c1ba76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 1385710422980166, guid: 571923124f22b0741aafe761e2e53535,
+    type: 2}

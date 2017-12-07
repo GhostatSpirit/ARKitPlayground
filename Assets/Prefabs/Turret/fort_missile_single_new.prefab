@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 114460984501187010}
   - component: {fileID: 114087648098458420}
   - component: {fileID: 114432112934628942}
+  - component: {fileID: 114106718672164418}
   m_Layer: 0
   m_Name: fort_missile_single_new
   m_TagString: TopPart
@@ -382,6 +383,19 @@ MonoBehaviour:
     m_Bits: 512
   _pivot: {fileID: 4268097449636690}
   visibleTargets: []
+--- !u!114 &114106718672164418
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1622430020425276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1140022466e480246abb111792c1ba76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 1385710422980166, guid: 571923124f22b0741aafe761e2e53535,
+    type: 2}
 --- !u!114 &114389351032554750
 MonoBehaviour:
   m_ObjectHideFlags: 1

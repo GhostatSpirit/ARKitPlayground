@@ -181,8 +181,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1420186166096272}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.019391892, y: 0.14655015, z: 1.342}
-  m_LocalScale: {x: 0.21533684, y: 0.16548964, z: 0.16548964}
+  m_LocalPosition: {x: 0.54395366, y: 0.309, z: 0.9817733}
+  m_LocalScale: {x: 0.16907112, y: 0.12993373, z: 0.12993373}
   m_Children:
   - {fileID: 4346336875880782}
   - {fileID: 4595292687600728}
@@ -497,7 +497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_damage: 1000
-  m_speed: 0.5
+  m_speed: 0.4
   m_destroyDistance: 2
   destoryOnHit: 1
 --- !u!114 &114722647266135866

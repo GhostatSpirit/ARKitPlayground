@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 114964520393468168}
   - component: {fileID: 114913370857065906}
   - component: {fileID: 114929026760916582}
+  - component: {fileID: 114434085152279334}
   m_Layer: 16
   m_Name: fort_four_turret
   m_TagString: TopPart
@@ -192,7 +193,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1229823953285450}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5557295, y: -4.076382e-18, z: 1.183584}
+  m_LocalPosition: {x: 0.078006856, y: 1.4691553e-17, z: 0.33835125}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 4339721017081172}
@@ -431,6 +432,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hs: {fileID: 114964520393468168}
+--- !u!114 &114434085152279334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1229823953285450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1140022466e480246abb111792c1ba76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 1385710422980166, guid: 571923124f22b0741aafe761e2e53535,
+    type: 2}
 --- !u!114 &114886833464016268
 MonoBehaviour:
   m_ObjectHideFlags: 1

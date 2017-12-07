@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 114406045298538562}
   - component: {fileID: 114382922380303034}
   - component: {fileID: 114169262204861600}
+  - component: {fileID: 114551236720477372}
   m_Layer: 16
   m_Name: fort_fanbullet
   m_TagString: TopPart
@@ -612,6 +613,19 @@ MonoBehaviour:
   pitchSpeed: 30
   pitchLimit: 30
   isPitchSymmetric: 1
+--- !u!114 &114551236720477372
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1812078204228556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1140022466e480246abb111792c1ba76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 1385710422980166, guid: 571923124f22b0741aafe761e2e53535,
+    type: 2}
 --- !u!114 &114911661397899194
 MonoBehaviour:
   m_ObjectHideFlags: 1
