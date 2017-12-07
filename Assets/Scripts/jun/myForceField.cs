@@ -67,19 +67,28 @@ public class myForceField : MonoBehaviour
     //void OnCollisionEnter(Collision collisionInfo)
     //{
     //    if (CollisionEnter)
-    //        foreach (ContactPoint contact in collisionInfo.contacts)
-    //            OnHit(contact.point);
+    //    {
+    //        bool layerHit = (layerMask.value >> collisionInfo.gameObject.layer) == 1;
+    //        if (layerHit)
+    //        {
+    //            foreach (ContactPoint contact in collisionInfo.contacts)
+    //                OnHit(contact.point);
+    //        }
+    //    }
     //}
 
     private void OnTriggerEnter(Collider other)
     {
         bool layerHit = (layerMask.value >> other.gameObject.layer) == 1;
+        //Debug.Log("trigger enter");
         if (layerHit)
         {
             OnHit(other.transform.position);
         }
         
     }
+
+   
 
 
 

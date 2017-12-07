@@ -8,6 +8,8 @@ using UnityEngine;
 public class TurretArranger : MonoBehaviour {
     private bool DebugOn = false;
 
+    public float removalDelay;
+
     public Transform arrangeCube;
     public List<GameObject> boxes;
     public List<GameObject> turretModels;
@@ -18,7 +20,7 @@ public class TurretArranger : MonoBehaviour {
     public int turretType=0;
 
     public Transform turretInitParent;
-
+    public GameObject sub;
     public bool cubeLoc;
     
     
@@ -41,20 +43,50 @@ public class TurretArranger : MonoBehaviour {
         GameObject cube = args.attacked;
         
         Transform parent = cube.transform.parent;
+        GameObject substituteCollider=null;
         if (cube.tag == "TurretBox") { parent = cube.transform; }
-        //remove the shadowCollider
-        foreach (Transform i in parent.GetComponentsInChildren<Transform>()) {
+        foreach (Transform i in parent.GetComponentsInChildren<Transform>())
+        {
             //Debug.Log(i.name);
-            if (i.gameObject.name == "shadowCollider") {
-                //Debug.Log("no use?");
+            if (i.gameObject.name == "shadowCollider")
+            {
+                
+                substituteCollider=Instantiate(sub, parent.transform.position, parent.transform.rotation, hitParent);
+                
+                //foreach (MeshRenderer j in substituteCollider.GetComponentsInChildren<MeshRenderer>()) {
+                //    j.GetComponent<MeshRenderer>().enabled = false;
+                //}
+                
                 i.gameObject.SetActive(false);
             }
         }
 
-        
-        
         boxes.Remove(parent.gameObject);
         Destroy(parent.gameObject);
+        //foreach (GameObject i in boxes)
+        //{
+        //    if (i.GetComponent<ActiveSetting>().neededToActivate())
+        //    {
+        //        //Debug.Log("need to activate" + i.name);
+        //        Vector3 direction = findDirection(i);
+        //        i.GetComponent<ActiveSetting>().setTurretPosi(direction);
+        //    }
+        //}
+
+        StartCoroutine(destorySubAndUpdate(parent,substituteCollider));
+
+
+
+
+    }
+
+    IEnumerator destorySubAndUpdate(Transform parent,GameObject sub)
+    {
+        
+            
+        yield return new WaitForSeconds(removalDelay);
+        sub.SetActive(false);
+        Destroy(sub);
         foreach (GameObject i in boxes)
         {
             if (i.GetComponent<ActiveSetting>().neededToActivate())
@@ -67,13 +99,13 @@ public class TurretArranger : MonoBehaviour {
         
 
 
-        
+
     }
 
 
 
-    // Use this for initialization
-    void Start() {
+        // Use this for initialization
+        void Start() {
         groundMask = LayerMask.GetMask("Ground");
         shadowMask = LayerMask.GetMask("ShadowCollider");
         parentScale = hitParent.GetComponent<ARScale>().unitVector;
