@@ -15,9 +15,10 @@ public class RestartButton : MonoBehaviour {
 		
 	}
 
-    public void Restart(int sceneNum)
+    public void Restart(/*int sceneNum*/)
     {
-        SceneManager.LoadScene(sceneNum, LoadSceneMode.Single);
+        //SceneManager.LoadScene(sceneNum, LoadSceneMode.Single);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
     }
 
 }

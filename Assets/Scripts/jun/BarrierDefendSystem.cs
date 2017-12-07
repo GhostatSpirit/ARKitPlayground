@@ -20,6 +20,7 @@ public class BarrierDefendSystem : MonoBehaviour {
     private bool wait = false;
     private Vector3 originScale;
     private int playerProLayer;
+    AudioSource hitSound;
 
     public LayerMask layerMask;
 
@@ -33,7 +34,7 @@ public class BarrierDefendSystem : MonoBehaviour {
         originScale = transform.localScale;
         transform.localScale =  Vector3.zero;
         prender.active = true;
-
+        hitSound = GetComponent<AudioSource>();
         StartCoroutine(Activate());
 
 
@@ -141,6 +142,7 @@ public class BarrierDefendSystem : MonoBehaviour {
         bool layerHit = (layerMask.value >> other.gameObject.layer)==1;
         if (layerHit) {
             //Debug.Log("bullet vanished!");
+            hitSound.Play();
             Destroy(other.gameObject);
         }
     }

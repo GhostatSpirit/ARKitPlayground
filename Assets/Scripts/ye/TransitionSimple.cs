@@ -10,6 +10,4 @@ public class TransitionSimple : MonoBehaviour {
     {
         SceneManager.LoadScene(sceneNum, LoadSceneMode.Single);
     }
-
-
 }

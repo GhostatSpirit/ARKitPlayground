@@ -35,7 +35,7 @@ public class TurretArranger : MonoBehaviour {
     public float range = 100f;
     Vector3 parentScale;
     float parentScalef;
-
+    private bool started= true;
    
     public void cubeDestroyed(object source, ObjectDeadEventArgs args)
     {
@@ -87,6 +87,7 @@ public class TurretArranger : MonoBehaviour {
         yield return new WaitForSeconds(removalDelay);
         sub.SetActive(false);
         Destroy(sub);
+        yield return new WaitForSeconds(0.5f);
         foreach (GameObject i in boxes)
         {
             if (i.GetComponent<ActiveSetting>().neededToActivate())
@@ -111,7 +112,7 @@ public class TurretArranger : MonoBehaviour {
         parentScale = hitParent.GetComponent<ARScale>().unitVector;
         parentScalef = hitParent.GetComponent<ARScale>().unit;
         fd = GetComponent<FileDumper>();
-
+        
         turretInitialize(turretInitParent);
     }
 
@@ -157,11 +158,13 @@ public class TurretArranger : MonoBehaviour {
             }
         }
 
-        bool rearrange = Input.GetKeyDown(KeyCode.I);
-        if (rearrange == true)
+        
+        if (Input.GetKeyDown(KeyCode.I)&&started)
         {
             rearrangeAllTurret();
+            started=false;
         }
+
         bool withdraw = Input.GetKeyDown(KeyCode.R);
         if (withdraw == true)
         {
@@ -218,6 +221,7 @@ public class TurretArranger : MonoBehaviour {
 
     public void rearrangeAllTurret()
     {
+        
         foreach (GameObject i in boxes)
         {
             Vector3 direction = findDirection(i);

@@ -10,13 +10,14 @@ public class Transition : MonoBehaviour {
 
     AsyncOperation async;
 
-    public int NextSceneNum;
+    int NextSceneNum;
 
     Image image;
 
     // Use this for initialization
     void Start () {
         image = GetComponent<Image>();
+        NextSceneNum = SceneManager.GetActiveScene().buildIndex + 1;
         StartCoroutine(SceneLoad());
     }
 	
