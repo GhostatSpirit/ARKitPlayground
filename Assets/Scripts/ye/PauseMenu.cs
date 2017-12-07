@@ -39,14 +39,15 @@ public class PauseMenu : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         
-        if (pauseMenu.activeInHierarchy == true || failMenu.activeInHierarchy == true)
-        {
-            Time.timeScale = 0;
-        }
-        else
-        {
-            Time.timeScale = 1;
-        }
+//        if (pauseMenu.activeInHierarchy == true || failMenu.activeInHierarchy == true)
+//        {
+//            Time.timeScale = 0;
+//        }
+//        else
+//        {
+//			Debug.Log ("reset timeScale in PauseMenu");
+//            Time.timeScale = 1;
+//        }
 
         if (show == true)
         {

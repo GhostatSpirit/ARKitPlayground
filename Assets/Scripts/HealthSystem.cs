@@ -83,11 +83,20 @@ public class HealthSystem : MonoBehaviour {
 
 	public bool destoryOnDead = false;
 
+	public bool godModeInEditor = false;
+
 	//public Text healthText;
 
 	// Use this for initialization
 	void Start () {
 		currentHealth = maxHealth;
+
+		#if UNITY_EDITOR
+		if(godModeInEditor){
+			currentHealth = maxHealth = 1000000;
+		}
+		#endif
+
 	}
 	
 	// Update is called once per frame

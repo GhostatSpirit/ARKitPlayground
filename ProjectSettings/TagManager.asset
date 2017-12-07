@@ -10,6 +10,7 @@ TagManager:
   - Navmesh
   - TopPart
   - TurretBox
+  - CongratMenu
   layers:
   - Default
   - TransparentFX

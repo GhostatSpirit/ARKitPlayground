@@ -35,12 +35,13 @@ public class BulletImpact : MonoBehaviour {
 				if(spawnHoleMask == (spawnHoleMask | (1 <<coll.collider.gameObject.layer))){
 					sds.TurnOn ();
 				} else {
-					sds.TurnOff ();				}
+					sds.TurnOff ();				
+				}
 			}
 
 			DestoryWhenDead dwd = spawnedDecal.GetComponent<DestoryWhenDead> ();
 			if(hs && dwd){
-				Debug.Log ("added!");
+//				Debug.Log ("added!");
 				dwd.SetHealthSystem (hs);
 			}
 		}
