@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class SimpleShoot : MonoBehaviour {
 
-    public PlayerShootingNew PSN1;
-    public PlayerShootingNew PSN2;
+#if UNITY_EDITOR
 
+	public PlayerShootingNew PSN1;
+	public PlayerShootingNew PSN2;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetMouseButtonDown(0))
@@ -33,4 +29,6 @@ public class SimpleShoot : MonoBehaviour {
         }
 
     }
+
+#endif
 }

@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: FastEnemyBullet
+  m_Name: RedEnemyBullet
   m_Shader: {fileID: 4800000, guid: a59817086bacdba4c9f4ec52b621ccc0, type: 3}
   m_ShaderKeywords: _EMISSION _GLOSSYREFLECTIONS_OFF
   m_LightmapFlags: 2
@@ -77,6 +77,6 @@ Material:
     - _ZWrite: 1
     - __dirty: 1
     m_Colors:
-    - _Color: {r: 0.5216263, g: 0.88936275, b: 0.9852941, a: 1}
+    - _Color: {r: 0.99264705, g: 0.4045087, b: 0.32115054, a: 1}
     - _EmissionColor: {r: 0.41297793, g: 0.580169, b: 1.195, a: 1}
     - _TintColor: {r: 1, g: 0.4044118, b: 0.4044118, a: 0.5}
