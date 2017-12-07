@@ -16,7 +16,6 @@ public class ARHitTestNew : MonoBehaviour
 
     public GameObject startButton;
 
-    Vector2 screenMiddlePoint = new Vector2(Screen.width / 2, Screen.height / 2);
 
     bool HitTestWithResultType (ARPoint point, ARHitTestResultType resultTypes)
 	{
@@ -46,10 +45,9 @@ public class ARHitTestNew : MonoBehaviour
 
                 startButton.SetActive(true);
 
-				var screenPosition = Camera.main.ScreenToViewportPoint(screenMiddlePoint);
 				ARPoint point = new ARPoint {
-					x = screenPosition.x,
-					y = screenPosition.y
+					x = 0.5f,
+					y = 0.5f
 				};
 
 				// prioritize reults types
