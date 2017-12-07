@@ -10,6 +10,8 @@ public class PlayerShootingNew : MonoBehaviour {
 	public GameObject projectile;
 	public List<GameObject> projectileSpawns;
 
+    AudioSource audioSource;
+
     // public float OverheatTime = 2f;
 
     [HideInInspector]
@@ -38,6 +40,7 @@ public class PlayerShootingNew : MonoBehaviour {
 	void Start () {
         PSN = GetComponent<PlayerShootingNew>();
         GT = GetComponent<GunTime>();
+        audioSource = GetComponent<AudioSource>();
     }
 
 	// Update is called once per frame
@@ -50,6 +53,7 @@ public class PlayerShootingNew : MonoBehaviour {
 
             if (m_fireTimer >= fireRate)
             {
+                audioSource.Play();
                 SpawnProjectiles();
                 m_fireTimer = 0f;
             }
