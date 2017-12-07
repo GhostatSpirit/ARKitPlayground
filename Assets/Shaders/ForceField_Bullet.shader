@@ -80,9 +80,10 @@ Shader "Custom/Bullet Force Field"
 					v2f o;
 
 					v.vertex.xyz += v.normal * _Offset;
+					v.vertex.xyz += v.normal;
 					o.vertex = UnityObjectToClipPos(v.vertex);				
 					o.oPos = v.vertex;
-					o.normal = v.normal;
+					o.normal = fixed4(UnityObjectToWorldNormal(v.normal), 0.0);
 					o.uv = TRANSFORM_TEX ( v.texcoord, _FieldTex );					
 					o.oPosWorld = mul(unity_ObjectToWorld, v.vertex);
 
@@ -113,6 +114,10 @@ Shader "Custom/Bullet Force Field"
 					viewDot = clamp(viewDot, 0, 1);
 
 					return fixed4(final * viewDot, 1.0);
+//					fixed4 tempColor = float4(0.0, 0.0, 0.0, 0.0);
+//					tempColor.xyz = i.normal * 0.5 + 0.5;
+//           			tempColor.w = 1.0;
+//           			return tempColor;
 				}
 
 				ENDCG 

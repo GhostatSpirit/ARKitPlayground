@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class ResolutionScaler : MonoBehaviour {
 
-	void OnAwake(){
+	void Start(){
 		var screenPixels = Screen.width * Screen.height;
+		Debug.Log ("screenPixels: " + screenPixels.ToString ());
+		Debug.Log (Screen.width);
+		Debug.Log (Screen.height);
 		if(screenPixels > 2074000){
-			Screen.SetResolution (Screen.width / 2, Screen.height / 2, true, 0);
+			Debug.Log ("setting resolution");
+			Screen.SetResolution (Screen.width / 2, Screen.height / 2, true);
 		}
 	}
 	

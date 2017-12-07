@@ -56,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1314121851068298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.008, z: 0.11}
+  m_LocalPosition: {x: 0.035, y: 0.005, z: 0.057}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 4673131219714344}
@@ -116,7 +116,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1314121851068298}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 9d64996171c9cfc40b7bc5e02b4e7be5, type: 3}
 --- !u!54 &54553712553233950
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -139,7 +139,7 @@ TrailRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1836263279999378}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 0
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1314121851068298}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03f45171fa0ec034389fbcb17aa0d0d7, type: 3}
   m_Name: 
@@ -289,7 +289,7 @@ MonoBehaviour:
   conditionTime: 0
   layers:
     serializedVersion: 2
-    m_Bits: 82433
+    m_Bits: 0
   useTransformForward: 0
 --- !u!135 &135006188533868210
 SphereCollider:

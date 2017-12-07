@@ -50,8 +50,8 @@ Material:
     m_Floats:
     - _Brightness: 1
     - _Decay: 0.3
-    - _EdgeFalloffExp: 5.82
-    - _EdgeFalloffPow: 11.5
+    - _EdgeFalloffExp: 6
+    - _EdgeFalloffPow: 0.96
     - _Edge_Detection_Fake: 0.2901961
     - _FieldBG: 55.52
     - _FieldBGPow: 1.6910715
