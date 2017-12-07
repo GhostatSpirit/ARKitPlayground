@@ -238,7 +238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_damage: 3
   m_speed: 2
-  m_destroyDistance: 3
+  m_destroyDistance: 1.5
   destoryOnHit: 1
 --- !u!114 &114729446077287454
 MonoBehaviour:

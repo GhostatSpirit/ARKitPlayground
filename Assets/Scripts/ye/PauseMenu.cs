@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour {
 
@@ -11,10 +12,16 @@ public class PauseMenu : MonoBehaviour {
 
     public HealthSystem playerHS;
 
+    bool show = false;
+
+    Image image;
+    Color targetColor = new Color(1, 1, 1, 1);
+
 	// Use this for initialization
-	void Start () {
-        playerHS.OnObjectDead += ShowFail;
-        
+	void Start () {     
+        image = failMenu.GetComponent<Image>();
+        //targetColor = image.color;
+        playerHS.OnObjectDead += ShowFail;  
 	}
 
     void ShowFail(object hurtObj, EventArgs args)
@@ -25,6 +32,7 @@ public class PauseMenu : MonoBehaviour {
     void ShowFailMenu()
     {
         failMenu.SetActive(true);
+        show = true;
     }
 
 
@@ -39,6 +47,16 @@ public class PauseMenu : MonoBehaviour {
         {
             Time.timeScale = 1;
         }
+
+        if (show == true)
+        {
+            image.color = Color.Lerp(image.color, targetColor, 0.03f);
+            //show = false;
+        }
+        //if((targetColor.a - image.color.a  < 0.05))
+        //{
+        //    Time.timeScale = 0;
+        //}
     }
 
     public void setTimeScale(float timeScale)

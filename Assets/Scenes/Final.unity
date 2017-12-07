@@ -194,8 +194,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 248484487}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 348, y: 196, z: 0}
-  m_LocalScale: {x: 0.87, y: 0.87, z: 0.87}
+  m_LocalPosition: {x: 260.5, y: 146.5, z: 0}
+  m_LocalScale: {x: 0.65125, y: 0.65125, z: 0.65125}
   m_Children:
   - {fileID: 599443115}
   m_Father: {fileID: 0}
@@ -478,7 +478,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 684491360}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -123.28735, z: 0}
+  m_LocalPosition: {x: 0, y: -122.95201, z: 0}
   m_LocalScale: {x: 0.8000041, y: 0.8000041, z: 1}
   m_Children: []
   m_Father: {fileID: 599443115}
@@ -527,7 +527,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: f6a8b4d2daffeb44ebe385537fc008d3, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: b6c27a99aad841f4091479b9c81f09f8, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -571,7 +571,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a0f867728894510489d59a86333de335, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ccd2ef85956941c48b74cde19f18275a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -676,7 +676,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 821269387}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -62.287354, z: 0}
+  m_LocalPosition: {x: 0, y: -61.95201, z: 0}
   m_LocalScale: {x: 0.8000041, y: 0.8000041, z: 1}
   m_Children: []
   m_Father: {fileID: 599443115}

@@ -11,23 +11,15 @@ public class ResolutionSet : MonoBehaviour {
 
     float currentResolution;
 
-    // Use this for initialization
-    void Start () {
+ //   // Use this for initialization
+ //   void Start () {
 		
-	}
+	//}
 	
 	// Update is called once per frame
-	void Update () {
-        //Resolution[] resolutions = Screen.resolutions;
-        //foreach (Resolution res in resolutions)
-        //{
-        //    print(res.width + "x" + res.height);
-        //}
-        //Debug.Log(Screen.currentResolution.width + "x" + Screen.currentResolution.height);
+	void Start () {
 
         currentResolution = (float)Screen.currentResolution.width / (float)Screen.currentResolution.height;
-
-        //Debug.Log((float)16 / 9);
 
         if (currentResolution >= (float)(16 / 9))
         {
