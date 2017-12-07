@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShootingSystem : MonoBehaviour {
-	public float fireRate = 1f;
+	public float fireInterval = 1f;
 	public int damage = 5;
 
 	public float fieldOfView = 10f;
@@ -20,7 +20,7 @@ public class ShootingSystem : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		m_fireTimer = fireInterval;
 	}
 	
 	// Update is called once per frame
@@ -31,7 +31,7 @@ public class ShootingSystem : MonoBehaviour {
 			return;
 		}
 
-		if(m_fireTimer >= fireRate){
+		if(m_fireTimer >= fireInterval){
 //			float angle = Quaternion.Angle
 //				(transform.rotation, Quaternion.LookRotation (target.transform.position - transform.position));
 			Quaternion tempQuaternion = Quaternion.FromToRotation (pitchSegment.forward, 
