@@ -2818,7 +2818,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &481742512
 Transform:
   m_ObjectHideFlags: 0
@@ -4234,7 +4234,7 @@ Prefab:
         type: 3}
     - target: {fileID: 1547790195023844, guid: 97a1dad3acf28c642837e878179f98cc, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114845525891724510, guid: 97a1dad3acf28c642837e878179f98cc,
         type: 2}
@@ -4772,7 +4772,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.14202817, y: 0.10652112, z: 0.005}
+  m_Size: {x: 0.14196411, y: 0.10652112, z: 0.005}
   m_Center: {x: 0, y: 0, z: 0.0025}
 --- !u!33 &856800784
 MeshFilter:
@@ -10819,7 +10819,7 @@ Prefab:
         type: 3}
     - target: {fileID: 1191444159971926, guid: 5a66cb440cde7fc43bdbe229bd299ae2, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114971339719207990, guid: 5a66cb440cde7fc43bdbe229bd299ae2,
         type: 2}
