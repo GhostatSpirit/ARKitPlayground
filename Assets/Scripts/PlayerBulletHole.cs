@@ -14,6 +14,8 @@ public class PlayerBulletHole : MonoBehaviour {
 
 	HealthSystem playerHealth;
 
+    
+
 	// Use this for initialization
 	void Start () {
         audioSource = GetComponent<AudioSource>();
@@ -26,17 +28,17 @@ public class PlayerBulletHole : MonoBehaviour {
 		ObjectHurtEventArgs hargs = (ObjectHurtEventArgs)args;
 		Collision coll = hargs.collision;
 		if (coll != null && emitter != null) {
-//			Vector3 screenPos = Camera.main.WorldToScreenPoint (coll.contacts [0].point);
-//			Vector3 viewportPos = Camera.main.ScreenToViewportPoint (screenPos);
-//
-//			CameraPlay.BulletHole (viewportPos.x, viewportPos.y, duration, size);
-            
-            //if(audioSource != null)
-            //{
-            //    audioSource.Play();
-            //}
+            //			Vector3 screenPos = Camera.main.WorldToScreenPoint (coll.contacts [0].point);
+            //			Vector3 viewportPos = Camera.main.ScreenToViewportPoint (screenPos);
+            //
+            //			CameraPlay.BulletHole (viewportPos.x, viewportPos.y, duration, size);
 
-			emitter.EmitDecal (coll.contacts [0].point);
+            if (audioSource != null)
+            {
+                audioSource.Play();
+            }
+
+            emitter.EmitDecal (coll.contacts [0].point);
 		}
 	}
 
