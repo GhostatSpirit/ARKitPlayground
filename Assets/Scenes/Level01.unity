@@ -4839,7 +4839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4b2f0abae7b409585aeb910a8d939b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000000
+  maxHealth: 60
   _currentHealth: 0
   destoryOnDead: 0
 --- !u!114 &856800786
@@ -5134,7 +5134,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 1036868625}
   scalingMode: 2
-  randomSeed: 1905762878
+  randomSeed: -33692197
   InitialModule:
     serializedVersion: 3
     enabled: 1

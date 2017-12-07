@@ -559,7 +559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireInterval: 1
-  damage: 5
+  damage: 7
   fieldOfView: 180
   pitchSegment: {fileID: 4333724549947630}
   projectile: {fileID: 1314121851068298, guid: 4d00b97e4ae259a4a94d3327b0a245f1, type: 2}
