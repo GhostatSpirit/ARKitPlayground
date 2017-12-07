@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 54588099174522900}
   - component: {fileID: 114745047867946444}
   m_Layer: 12
-  m_Name: ProjectileSphereFour
+  m_Name: ProjectileSphereFan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1314121851068298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04882964, y: 1.7056736e-17, z: 0.23183292}
+  m_LocalPosition: {x: 0.09189121, y: 1.7236737e-17, z: 0.22372639}
   m_LocalScale: {x: 0.015, y: 0.015, z: 0.015}
   m_Children:
   - {fileID: 4374550236122546}
@@ -90,7 +90,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 86cc3e1e68fece24ca9499ffa18a6c77, type: 2}
+  - {fileID: 2100000, guid: d27072b56cf1b6a4389de25500a19b45, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,7 +124,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7ad4d7edb62775149827299dee44d8f7, type: 2}
+  - {fileID: 2100000, guid: a5c346b7f6b4c534aaff6b31fd2443ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

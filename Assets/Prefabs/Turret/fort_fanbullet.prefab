@@ -178,7 +178,6 @@ GameObject:
   - component: {fileID: 114911661397899194}
   - component: {fileID: 114140901365036036}
   - component: {fileID: 114406045298538562}
-  - component: {fileID: 114815342720663292}
   - component: {fileID: 114382922380303034}
   - component: {fileID: 114169262204861600}
   m_Layer: 16
@@ -562,7 +561,7 @@ MonoBehaviour:
   damage: 5
   fieldOfView: 180
   pitchSegment: {fileID: 4333724549947630}
-  projectile: {fileID: 1314121851068298, guid: 681344fa4286406449626d14e5d7317b, type: 2}
+  projectile: {fileID: 1314121851068298, guid: 4d00b97e4ae259a4a94d3327b0a245f1, type: 2}
   target: {fileID: 0}
   projectileSpawns:
   - {fileID: 1339163783574836}
@@ -613,32 +612,6 @@ MonoBehaviour:
   pitchSpeed: 30
   pitchLimit: 30
   isPitchSymmetric: 1
---- !u!114 &114815342720663292
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1812078204228556}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b3b4c314429b4e02ba8b0dba7396968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aimDuration: 0
-  shootDuration: 2
-  damage: 3
-  fieldOfView: 180
-  needAim: 1
-  pitchSegment: {fileID: 4333724549947630}
-  target: {fileID: 0}
-  projectileSpawns:
-  - {fileID: 1339163783574836}
-  - {fileID: 1843946001449264}
-  - {fileID: 1112300469036292}
-  - {fileID: 1211442222349732}
-  - {fileID: 1009615476156326}
-  - {fileID: 1335812972425016}
-  - {fileID: 1148776314412382}
 --- !u!114 &114911661397899194
 MonoBehaviour:
   m_ObjectHideFlags: 1
