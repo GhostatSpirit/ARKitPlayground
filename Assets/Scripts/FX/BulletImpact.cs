@@ -15,13 +15,19 @@ public class BulletImpact : MonoBehaviour {
 
 	void SpawnDecal(Collision coll, GameObject prefab)
 	{
-		var contact = coll.contacts [0];
-
-		GameObject spawnedDecal = GameObject.Instantiate(prefab, contact.point, Quaternion.LookRotation(contact.normal));
-		spawnedDecal.transform.SetParent(coll.collider.transform);
-
+		
 		if(coll.rigidbody){
 			HealthSystem hs = coll.rigidbody.GetComponent<HealthSystem> ();
+
+			if (hs == null) {
+				return;
+			}
+
+			var contact = coll.contacts [0];
+
+			GameObject spawnedDecal = GameObject.Instantiate(prefab, contact.point, Quaternion.LookRotation(contact.normal));
+			spawnedDecal.transform.SetParent(coll.collider.transform);
+
 			DestoryWhenDead dwd = spawnedDecal.GetComponent<DestoryWhenDead> ();
 			if(hs && dwd){
 				Debug.Log ("added!");
