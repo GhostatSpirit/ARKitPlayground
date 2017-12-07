@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: YellowBullet
-  m_Shader: {fileID: 4800000, guid: a59817086bacdba4c9f4ec52b621ccc0, type: 3}
+  m_Shader: {fileID: 4800000, guid: aea675bad2f735f4aacfc7223c296a75, type: 3}
   m_ShaderKeywords: _EMISSION _GLOSSYREFLECTIONS_OFF
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
@@ -18,6 +18,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -55,11 +59,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - PixelSnap: 0
     - _BumpScale: 1
     - _ColorStrength: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _EnableExternalAlpha: 0
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -79,4 +85,6 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 0.7363083, b: 0.2647059, a: 1}
     - _EmissionColor: {r: 0.41297793, g: 0.580169, b: 1.195, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _TintColor: {r: 1, g: 0.4044118, b: 0.4044118, a: 0.5}

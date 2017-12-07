@@ -19,6 +19,15 @@ public class BulletImpact : MonoBehaviour {
 
 		GameObject spawnedDecal = GameObject.Instantiate(prefab, contact.point, Quaternion.LookRotation(contact.normal));
 		spawnedDecal.transform.SetParent(coll.collider.transform);
+
+		if(coll.rigidbody){
+			HealthSystem hs = coll.rigidbody.GetComponent<HealthSystem> ();
+			DestoryWhenDead dwd = spawnedDecal.GetComponent<DestoryWhenDead> ();
+			if(hs && dwd){
+				Debug.Log ("added!");
+				dwd.SetHealthSystem (hs);
+			}
+		}
 	}
 
 }

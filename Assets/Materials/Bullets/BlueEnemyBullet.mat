@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: BlueEnemyBullet
-  m_Shader: {fileID: 4800000, guid: a59817086bacdba4c9f4ec52b621ccc0, type: 3}
+  m_Shader: {fileID: 4800000, guid: aea675bad2f735f4aacfc7223c296a75, type: 3}
   m_ShaderKeywords: _EMISSION _GLOSSYREFLECTIONS_OFF
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0

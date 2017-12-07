@@ -36,8 +36,14 @@ public class CoreBehavior : MonoBehaviour {
 
     void CoreDie()
     {
-        StartCoroutine(congShow());
+//        StartCoroutine(congShow());
         //SceneManager.LoadScene(FinalSceneNum);
+		Time.timeScale = 0;
+
+		playerCollider.enabled = false;
+		cleanerCollider.enabled = false;
+		congMenu.SetActive(true);
+
     }
 
     IEnumerator congShow()
