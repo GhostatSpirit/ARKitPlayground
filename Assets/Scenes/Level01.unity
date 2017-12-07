@@ -4044,7 +4044,7 @@ Prefab:
     - target: {fileID: 224509478334644520, guid: 97a1dad3acf28c642837e878179f98cc,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: -201.2
+      value: -253
       objectReference: {fileID: 0}
     - target: {fileID: 224509478334644520, guid: 97a1dad3acf28c642837e878179f98cc,
         type: 2}
@@ -4084,7 +4084,7 @@ Prefab:
     - target: {fileID: 224509478334644520, guid: 97a1dad3acf28c642837e878179f98cc,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 173.8
+      value: 122
       objectReference: {fileID: 0}
     - target: {fileID: 224509478334644520, guid: 97a1dad3acf28c642837e878179f98cc,
         type: 2}
@@ -4234,7 +4234,7 @@ Prefab:
         type: 3}
     - target: {fileID: 1547790195023844, guid: 97a1dad3acf28c642837e878179f98cc, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114845525891724510, guid: 97a1dad3acf28c642837e878179f98cc,
         type: 2}
@@ -8898,7 +8898,7 @@ Prefab:
     - target: {fileID: 224154604194778068, guid: b5886585d1cfdc74ca40d3d45191a95e,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 243.12314
+      value: 152.88564
       objectReference: {fileID: 0}
     - target: {fileID: 224154604194778068, guid: b5886585d1cfdc74ca40d3d45191a95e,
         type: 2}
@@ -10639,7 +10639,7 @@ Prefab:
     - target: {fileID: 224860330007971460, guid: 5a66cb440cde7fc43bdbe229bd299ae2,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 201.2
+      value: 253
       objectReference: {fileID: 0}
     - target: {fileID: 224860330007971460, guid: 5a66cb440cde7fc43bdbe229bd299ae2,
         type: 2}
@@ -10679,7 +10679,7 @@ Prefab:
     - target: {fileID: 224860330007971460, guid: 5a66cb440cde7fc43bdbe229bd299ae2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -173.8
+      value: -122
       objectReference: {fileID: 0}
     - target: {fileID: 224860330007971460, guid: 5a66cb440cde7fc43bdbe229bd299ae2,
         type: 2}
@@ -10819,7 +10819,7 @@ Prefab:
         type: 3}
     - target: {fileID: 1191444159971926, guid: 5a66cb440cde7fc43bdbe229bd299ae2, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114971339719207990, guid: 5a66cb440cde7fc43bdbe229bd299ae2,
         type: 2}
