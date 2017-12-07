@@ -64,19 +64,32 @@ public class RotateTowards : MonoBehaviour {
 		}
 		
 		if (pitchSegment && pitchLimit != 0f) {
+
+
 			targetRelative = pitchSegment.InverseTransformPoint (target.position);
 			angle = -Mathf.Atan2 (targetRelative.y, targetRelative.z) * Mathf.Rad2Deg;
 			if (angle >= 180f)
 				angle = 180f - angle;	
 			if (angle <= -180f)
 				angle = -180f + angle;
+
+//			Debug.Log (angle);
+
+			if(!isPitchSymmetric){
+				if(Vector3.Dot(pitchSegment.forward, yawSegment.forward) < 0f && angle < 0f){
+					return;
+				}
+			}
+
 			targetRotation = pitchSegment.rotation *
 			Quaternion.Euler (Mathf.Clamp (angle, -pitchSpeed * Time.deltaTime, pitchSpeed * Time.deltaTime), 0f, 0f);
+
 			if (pitchLimit < 360f && pitchLimit > 0f)
 				pitchSegment.rotation = 
 				Quaternion.RotateTowards (pitchSegment.parent.rotation * pitchSegmentStartRotation, targetRotation, pitchLimit);
 			else
 				pitchSegment.rotation = targetRotation;
+
 		}
 
 	}

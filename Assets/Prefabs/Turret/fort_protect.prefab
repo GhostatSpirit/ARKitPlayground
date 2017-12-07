@@ -398,11 +398,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6581dc62138104943babe18ea104354e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 10
+  fireInterval: 7
   damage: 0
   fieldOfView: 10
   pitchSegment: {fileID: 4941150367030426}
-  projectile: {fileID: 1993125132736648, guid: 2b488ec3c9953b8439f84684d5db19d4, type: 2}
+  projectile: {fileID: 1420186166096272, guid: 346f86479d41a484a876690dddb3b11f, type: 2}
   target: {fileID: 0}
   projectileSpawns:
   - {fileID: 1366333210257512}
@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewRadius: Infinity
-  viewAngle: 120
+  viewAngle: 160
   targetMask:
     serializedVersion: 2
     m_Bits: 256
@@ -458,4 +458,4 @@ MonoBehaviour:
   yawLimit: 360
   pitchSpeed: 30
   pitchLimit: 90
-  isPitchSymmetric: 1
+  isPitchSymmetric: 0

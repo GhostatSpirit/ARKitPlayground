@@ -15,7 +15,7 @@ public class NormalProjectile : BaseProjectile {
 
 	protected Vector3 m_initPos;
 
-	protected Rigidbody rigidbody;
+	protected new Rigidbody rigidbody;
 
 	protected virtual void Start(){
 		rigidbody = GetComponent<Rigidbody> ();
@@ -35,8 +35,8 @@ public class NormalProjectile : BaseProjectile {
 
 	protected virtual void MoveRigidbody(){
 		if(m_fired){
-			Vector3 targetPos = transform.position + m_direction * m_speed * Time.fixedDeltaTime;
-			rigidbody.MovePosition (targetPos);
+			// Vector3 targetPos = transform.position + m_direction * m_speed * Time.fixedDeltaTime;
+			rigidbody.velocity = m_direction * m_speed;
 		}
 	}
 

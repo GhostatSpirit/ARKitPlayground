@@ -25,8 +25,11 @@ public class TrackingProjectile : NormalProjectile {
 				rigidbody.MoveRotation (newRot);
 
 			}
-			Vector3 targetPos = transform.position + m_direction * m_speed * Time.fixedDeltaTime;
-			rigidbody.MovePosition (targetPos);
+
+			rigidbody.velocity = m_direction * m_speed;
+
+//			Vector3 targetPos = transform.position + m_direction * m_speed * Time.fixedDeltaTime;
+//			rigidbody.MovePosition (targetPos);
 		}
 
 		if(isOutOfDistance() || isInSuicideDistance()){
@@ -42,7 +45,7 @@ public class TrackingProjectile : NormalProjectile {
 		m_launcher = launcher;
 		m_target = target;
 
-		Debug.Log (m_target);
+//		Debug.Log (m_target);
 
 		if(launcher){
 			m_launcher = launcher;
@@ -60,6 +63,18 @@ public class TrackingProjectile : NormalProjectile {
 		}
 
 		m_initPos = transform.position;
+	}
+
+	protected override void OnCollisionEnter(Collision coll){
+		Vector3 normal = - coll.collider.transform.forward;
+		Vector3 velocity = rigidbody.velocity;
+
+		Quaternion deltaRot = Quaternion.FromToRotation (normal, velocity);
+		float angle = Quaternion.Angle (deltaRot, Quaternion.identity);
+
+		// Debug.Log ("tracking projectile hit, angle: " + angle.ToString ());
+
+		base.OnCollisionEnter (coll);
 	}
 
 	bool isInSuicideDistance(){

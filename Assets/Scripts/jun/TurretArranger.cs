@@ -12,14 +12,14 @@ public class TurretArranger : MonoBehaviour {
     public List<GameObject> boxes;
     public List<GameObject> turretModels;
    
-    //public Transform arrangeCamera;
-    //public Transform targetPlayer;
+
     public Transform hitParent;
     public GameObject boxModel;
     public int turretType=0;
 
     public Transform turretInitParent;
 
+    public bool cubeLoc;
     
     
     private FileDumper fd;
@@ -86,38 +86,43 @@ public class TurretArranger : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate() {
         //config the pointed location
-        ArrangeBoxMotion();
-
-        
-
-        //set the turret
-        isSet = Input.GetKeyDown(KeyCode.P);
-        if (isSet == true)
+        if (cubeLoc == true)
         {
-            Vector3 turretPostion = setTurretPostion();
-            GameObject tmp = Instantiate(boxModel, turretPostion, arrangeCube.rotation);
-            if (tmp.GetComponent<BoxDoorControl>())
-            {
-                tmp.GetComponent<BoxDoorControl>().turrent = turretModels[turretType];
-            }
-            
-            tmp.transform.parent = hitParent;
-            tmp.GetComponent<BasicInfo>().initial(turretType, turretPostion);
-            tmp.GetComponent<HealthSystem>().OnObjectDead += cubeDestroyed;
-            boxes.Add(tmp);
-           
-        }
+            ArrangeBoxMotion();
 
-        //unset the turret
-        isUnset = Input.GetKeyDown(KeyCode.O);
-        if (isUnset == true) {
-            GameObject topObj= unsetTurret();
-            if (topObj != null) {
-                Destroy(topObj);
-                boxes.Remove(topObj);
-               
+
+
+            //set the turret
+            isSet = Input.GetKeyDown(KeyCode.P);
+            if (isSet == true)
+            {
+                Vector3 turretPostion = setTurretPostion();
+                GameObject tmp = Instantiate(boxModel, turretPostion, arrangeCube.rotation);
+                if (tmp.GetComponent<BoxDoorControl>())
+                {
+                    tmp.GetComponent<BoxDoorControl>().turrent = turretModels[turretType];
+                }
+
+                tmp.transform.parent = hitParent;
+                tmp.GetComponent<BasicInfo>().initial(turretType, turretPostion);
+                tmp.GetComponent<HealthSystem>().OnObjectDead += cubeDestroyed;
+                boxes.Add(tmp);
+
             }
-            
+
+            //unset the turret
+            isUnset = Input.GetKeyDown(KeyCode.O);
+            if (isUnset == true)
+            {
+                GameObject topObj = unsetTurret();
+                if (topObj != null)
+                {
+                    Destroy(topObj);
+                    boxes.Remove(topObj);
+
+                }
+
+            }
         }
 
         bool rearrange = Input.GetKeyDown(KeyCode.I);

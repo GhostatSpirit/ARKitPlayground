@@ -1765,7 +1765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4b2f0abae7b409585aeb910a8d939b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 150
+  maxHealth: 110
   _currentHealth: 0
   destoryOnDead: 1
 --- !u!114 &114235748898625110
@@ -1831,7 +1831,7 @@ MonoBehaviour:
   doorYn: {fileID: 1024063670164336}
   doorZp: {fileID: 1903141943013958}
   doorZn: {fileID: 1029922447941224}
-  turrent: {fileID: 1733411782416262, guid: 45dd12c4b8e3ec3458e3935102481983, type: 2}
+  turrent: {fileID: 1760992938758168, guid: cdd62863c32e6e74eb6b8d288dfa157b, type: 2}
   distance: 0.05
   TurretWaitDoor: 1.9
   DoorWaitTurret: 0
