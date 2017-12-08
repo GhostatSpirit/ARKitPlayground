@@ -11,6 +11,7 @@ TagManager:
   - TopPart
   - TurretBox
   - CongratMenu
+  - Resolution
   layers:
   - Default
   - TransparentFX

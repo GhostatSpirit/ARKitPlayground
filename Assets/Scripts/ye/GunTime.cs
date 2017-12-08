@@ -22,7 +22,7 @@ public class GunTime : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		float coolRate = OverheatTime / coolDownTime;
         overheatRate = shootTime / OverheatTime * 100;
 
         switch (PSN.enabled)
@@ -31,7 +31,7 @@ public class GunTime : MonoBehaviour {
                 switch (PSN.Overheat)
                 {
 					case true:
-				float coolRate = OverheatTime / coolDownTime;
+				
                         shootTime -= Time.deltaTime * coolRate;
                         if (shootTime <= 0)
                         {
@@ -56,7 +56,7 @@ public class GunTime : MonoBehaviour {
                 switch (PSN.Overheat)
                 {
                     case true:
-                        shootTime -= Time.deltaTime;
+						shootTime -= Time.deltaTime  * coolRate;
                         if (shootTime <= 0)
                         {
                             shootTime = 0;
@@ -64,7 +64,7 @@ public class GunTime : MonoBehaviour {
                         }
                         break;
                     case false:
-                        shootTime -= Time.deltaTime;
+						shootTime -= Time.deltaTime  * coolRate;
                         if (shootTime <= 0)
                         {
                             shootTime = 0;

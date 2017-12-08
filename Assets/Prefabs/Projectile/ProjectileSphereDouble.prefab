@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23786338443226288}
   - component: {fileID: 114712669480414592}
   - component: {fileID: 54588099174522900}
+  - component: {fileID: 114916853170969956}
   m_Layer: 12
   m_Name: ProjectileSphereDouble
   m_TagString: Untagged
@@ -187,6 +188,17 @@ MonoBehaviour:
   m_speed: 1.2
   m_destroyDistance: 2.5
   destoryOnHit: 1
+--- !u!114 &114916853170969956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1314121851068298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3493ba32c91d5634ca201bbb7c5fe21a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135006188533868210
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -21,6 +21,7 @@ public class CongMenu : MonoBehaviour {
 		if(coreHealthSystem != null){
 			coreHealthSystem.OnObjectDead += StartCongrat;
 		}
+		Time.timeScale = 1f;
 	}
 
 	void StartCongrat(object sender, ObjectDeadEventArgs args){
