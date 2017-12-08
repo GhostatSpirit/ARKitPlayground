@@ -12,6 +12,11 @@ public class ResolutionScaler : MonoBehaviour {
 		if(screenPixels > 2074000){
 			Debug.Log ("setting resolution");
 			Screen.SetResolution (Screen.width / 2, Screen.height / 2, true);
+			Camera.main.depthTextureMode = DepthTextureMode.Depth;
+		} else {
+			int newWidth = Screen.width / 4 * 3;
+			int newHeight = Screen.height / 4 * 3;
+			Screen.SetResolution (newWidth, newHeight, true);
 		}
 	}
 	

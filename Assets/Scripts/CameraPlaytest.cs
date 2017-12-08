@@ -41,7 +41,7 @@ public class CameraPlaytest : MonoBehaviour {
 		}
 #endif
 
-		Camera.main.depthTextureMode = DepthTextureMode.Depth;
+		// Camera.main.depthTextureMode = DepthTextureMode.Depth;
 
 	}
 	
