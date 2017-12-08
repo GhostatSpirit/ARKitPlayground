@@ -16,6 +16,7 @@ public class ARHitTestNew : MonoBehaviour
 
     public GameObject startButton;
 
+	public GameObject turretInitial;
 
     bool HitTestWithResultType (ARPoint point, ARHitTestResultType resultTypes)
 	{
@@ -26,6 +27,11 @@ public class ARHitTestNew : MonoBehaviour
 				m_HitTransform.position = UnityARMatrixOps.GetPosition (hitResult.worldTransform);
 				m_HitTransform.rotation = UnityARMatrixOps.GetRotation (hitResult.worldTransform);
 				//Debug.Log (string.Format ("x:{0:0.######} y:{1:0.######} z:{2:0.######}", m_HitTransform.position.x, m_HitTransform.position.y, m_HitTransform.position.z));
+
+				if(turretInitial){
+					turretInitial.SetActive (true);
+				}
+
 				return true;
 			}
 		}

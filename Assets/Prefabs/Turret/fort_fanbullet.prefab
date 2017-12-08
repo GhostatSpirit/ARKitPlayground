@@ -476,7 +476,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1481062023527010}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -640,3 +640,4 @@ MonoBehaviour:
   maxHealth: 50
   _currentHealth: 0
   destoryOnDead: 1
+  godModeInEditor: 0

@@ -113,7 +113,7 @@ public class TurretArranger : MonoBehaviour {
         parentScalef = hitParent.GetComponent<ARScale>().unit;
         fd = GetComponent<FileDumper>();
         
-        turretInitialize(turretInitParent);
+        
     }
 
     // Update is called once per frame
@@ -221,7 +221,7 @@ public class TurretArranger : MonoBehaviour {
 
     public void rearrangeAllTurret()
     {
-        
+		turretInitialize(turretInitParent);
         foreach (GameObject i in boxes)
         {
             Vector3 direction = findDirection(i);
