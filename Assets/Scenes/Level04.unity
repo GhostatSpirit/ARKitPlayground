@@ -1571,7 +1571,7 @@ MeshRenderer:
   m_GameObject: {fileID: 248016468}
   m_Enabled: 0
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -5365,7 +5365,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 1036868625}
   scalingMode: 2
-  randomSeed: -1351540543
+  randomSeed: 276354992
   InitialModule:
     serializedVersion: 3
     enabled: 1

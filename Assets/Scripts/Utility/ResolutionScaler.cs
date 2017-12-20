@@ -11,7 +11,7 @@ public class ResolutionScaler : MonoBehaviour {
 
 	void Start(){
 
-		#if !UNITY_EDITOR
+		//#if !UNITY_EDITOR
 
 		GameObject saverGO = GameObject.FindGameObjectWithTag ("Resolution");
 		if (saverGO == null)
@@ -43,12 +43,19 @@ public class ResolutionScaler : MonoBehaviour {
 			break;
 		case DeviceGeneration.iPhone6S:
 			if(scaleInScene){
-				Screen.SetResolution (originalWidth / 4 * 3, originalHeight / 4 * 3, true);
+				Screen.SetResolution (originalWidth / 3 * 2, originalHeight / 3 * 2, true);
 			} else {
 				Screen.SetResolution (originalWidth , originalHeight, true);
 			}
 			break;
 		case DeviceGeneration.iPhone6SPlus:
+			if (scaleInScene) {
+				Screen.SetResolution (originalWidth / 3 * 2, originalHeight / 3 * 2, true);
+			} else {
+				Screen.SetResolution (originalWidth, originalHeight, true);
+			}
+			break;
+		case DeviceGeneration.iPadPro10Inch1Gen:
 			if(scaleInScene){
 				Screen.SetResolution (originalWidth / 4 * 3, originalHeight / 4 * 3, true);
 			} else {
@@ -61,7 +68,7 @@ public class ResolutionScaler : MonoBehaviour {
 		Debug.Log("newWidth: " + Screen.currentResolution.width.ToString());
 		Debug.Log("newHeight: " +Screen.currentResolution.height.ToString());
 
-		#endif
+		//#endif
 
 		Camera.main.depthTextureMode = DepthTextureMode.Depth;
 	}
