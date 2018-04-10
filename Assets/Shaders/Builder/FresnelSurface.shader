@@ -3,7 +3,7 @@
 		_InnerColor ("Inner Color", Color) = (1,1,1,1)
 		_RimColor ("Rim Color", Color) = (0.26, 0.19, 0.16, 0.0)
 		_RimPower ("Rim Power", Range(0.5, 8.0)) = 3.0
-		_BackFaceFactor("Backface Factor", Range(0.0, 1.0)) = 0.5
+		_AmbientFactor("Ambient Factor", Range(0.0, 1.0)) = 0.5
 	}
 	SubShader {
 		Tags 
@@ -35,11 +35,11 @@
 		float4 _InnerColor;
 		float4 _RimColor;
 		float _RimPower;
-		float _BackFaceFactor;
+		float _AmbientFactor;
 		
 		
 		void surf (Input IN, inout SurfaceOutput o) {
-			//o.Albedo = _InnerColor;
+			o.Albedo = _InnerColor;
 
 			//half viewDotNorm = dot(normalize(IN.viewDir), o.Normal);
 
@@ -54,11 +54,16 @@
 			
 			//o.Emission = _RimColor.rgb * power;
 			
+			//half rim = 1.0 - abs(dot(normalize(IN.viewDir), o.Normal));
+			//rim = _AmbientFactor + (1 - _AmbientFactor) * rim;
+
+			//half power = pow(rim, _RimPower);
+			//power = clamp(power, 0.1, 1.0);
 			half rim = 1.0 - abs(dot(normalize(IN.viewDir), o.Normal));
-			rim = 0.5 * rim + 0.5;
+			// rim = _AmbientFactor + (1 - _AmbientFactor) * rim;
 
 			half power = pow(rim, _RimPower);
-			power = clamp(power, 0.1, 1.0);
+			power = _AmbientFactor + (1 - _AmbientFactor) * power;
 
 			o.Emission = _RimColor.rgb * power;
 		}
