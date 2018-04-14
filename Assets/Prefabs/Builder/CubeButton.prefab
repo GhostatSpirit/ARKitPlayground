@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114086937302300900}
   - component: {fileID: 114669551306690356}
   - component: {fileID: 114474418996899956}
+  - component: {fileID: 114236589177865256}
   m_Layer: 5
   m_Name: CubeButton
   m_TagString: Untagged
@@ -90,6 +91,18 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114236589177865256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816120578933770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d544b51b67c65a4989ddc26770a534d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 0}
 --- !u!114 &114301785073567616
 MonoBehaviour:
   m_ObjectHideFlags: 1

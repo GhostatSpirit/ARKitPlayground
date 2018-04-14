@@ -221,7 +221,7 @@ public class CubePlacer : MonoBehaviour {
             {
                 newAnchor.position = _anchor.position;
                 newAnchor.rotation = _anchor.rotation;
-                Destroy(_anchor);
+                Destroy(_anchor.gameObject);
             }
 
             TurretCube tcube = activeCube as TurretCube;

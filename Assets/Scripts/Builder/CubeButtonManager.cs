@@ -14,12 +14,12 @@ public class CubeButtonManager : MonoBehaviour {
     public CubePlacer cubePlacer;
     public List<BaseCube> cubes;
 
-    Dictionary<Button, BaseCube> button2Cube;
+    //Dictionary<Button, BaseCube> button2Cube;
+    [SerializeField]
     Button activeButton;
 
     public void GenerateButtons()
     {
-        button2Cube = new Dictionary<Button, BaseCube>();
 
         if (cubes == null)
             cubes = new List<BaseCube>();
@@ -31,6 +31,11 @@ public class CubeButtonManager : MonoBehaviour {
             GameObject cbuttonGO = Instantiate(button, buttonParent);
             cbuttonGO.name = cube.displayName + "CubeButton";
 
+            // attach cube data
+            CubeData cd = cbuttonGO.GetComponent<CubeData>();
+            cd.data = cube;
+
+
             Button cbutton = cbuttonGO.GetComponent<Button>();
             var spriteState = cbutton.spriteState;
             spriteState.disabledSprite = cube.builderSprite.normal;
@@ -38,7 +43,7 @@ public class CubeButtonManager : MonoBehaviour {
             spriteState.pressedSprite = cube.builderSprite.pressed;
 
             // add to dict
-            button2Cube.Add(cbutton, cube);
+            //button2Cube.Add(cbutton, cube);
 
             // add a button release callback
             ButtonInterface bri = cbuttonGO.GetComponent<ButtonInterface>();
@@ -73,18 +78,18 @@ public class CubeButtonManager : MonoBehaviour {
 
     void SetSelectedSprites(Button button)
     {
-        Sprite pressed = button2Cube[button].builderSprite.pressed;
+        Sprite selected = button.GetComponent<CubeData>().data.builderSprite.selected;
 
         var spriteState = button.spriteState;
-        spriteState.highlightedSprite = pressed;
+        spriteState.highlightedSprite = selected;
         button.spriteState = spriteState;
         
-        button.GetComponent<Image>().sprite = pressed;
+        button.GetComponent<Image>().sprite = selected;
     }
 
     void ResetNormalSprites(Button button)
     {
-        Sprite normal = button2Cube[button].builderSprite.normal;
+        Sprite normal = button.GetComponent<CubeData>().data.builderSprite.normal;
 
         var spriteState = button.spriteState;
         spriteState.highlightedSprite = normal;
@@ -95,13 +100,13 @@ public class CubeButtonManager : MonoBehaviour {
 
     void SetActiveCube(Button button)
     {
-        BaseCube newActive = button2Cube[button];
+        BaseCube newActive = button.GetComponent<CubeData>().data;
         if(newActive)
         {
             cubePlacer.activeCube = newActive;
         }
-
-        ResetNormalSprites(activeButton);
+        if(activeButton)
+            ResetNormalSprites(activeButton);
         activeButton = button;
     }
 	
