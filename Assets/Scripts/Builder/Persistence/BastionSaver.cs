@@ -84,7 +84,7 @@ public class BastionSaver : MonoBehaviour {
                 Vector3 worldPos = cubeParent.TransformPoint(sd.position);
 
                 BaseCube data = TryGetCubeData(sd.cubeId);
-                if (data == null) continue;
+                if (data == null) continue;   
 
                 GameObject cubeGO =
                     Instantiate(data.cube, worldPos, parentRot, cubeParent);
