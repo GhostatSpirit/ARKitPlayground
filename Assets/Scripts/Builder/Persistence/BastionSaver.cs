@@ -7,7 +7,7 @@ using System.IO;
 [System.Serializable]
 public struct CubeSaveData
 {
-    public BaseCube cube;
+    public int cubeId;
     public Vector3 position;
 }
 
@@ -22,6 +22,17 @@ public class BastionSaver : MonoBehaviour {
     public Transform cubeParent;
     public string fileName = "bastion00.json";
 
+    public List<BaseCube> cubeDataList;
+    Dictionary<BaseCube, int> cubeIdDict;
+
+    public void Start()
+    {
+        cubeIdDict = new Dictionary<BaseCube, int>();
+        for(int id = 0; id < cubeDataList.Count; ++id)
+        {
+            cubeIdDict.Add(cubeDataList[id], id);
+        }
+    }
 
     public void Save()
     {
@@ -38,7 +49,7 @@ public class BastionSaver : MonoBehaviour {
         foreach(var cd in cubeDatas)
         {
             CubeSaveData sd;
-            sd.cube = cd.data;
+            sd.cubeId = cubeIdDict[cd.data];
             sd.position = cubeParent.transform.InverseTransformPoint(cd.transform.position);
             cubeSaves.Add(sd);
         }
@@ -59,6 +70,42 @@ public class BastionSaver : MonoBehaviour {
 
     public void Load()
     {
+        string filePath = Path.Combine(Application.persistentDataPath, fileName);
+        if(File.Exists(filePath))
+        {
+            string dataAsJson = File.ReadAllText(filePath);
+            BastionSaveData bastion = JsonUtility.FromJson<BastionSaveData>(dataAsJson);
 
+            List<Rigidbody> bodys = new List<Rigidbody>(bastion.cubes.Count);
+            Quaternion parentRot = cubeParent.rotation;
+
+            foreach(CubeSaveData sd in bastion.cubes)
+            {
+                Vector3 worldPos = cubeParent.TransformPoint(sd.position);
+
+                BaseCube data = TryGetCubeData(sd.cubeId);
+                if (data == null) continue;
+
+                GameObject cubeGO =
+                    Instantiate(data.cube, worldPos, parentRot, cubeParent);
+                Rigidbody body = cubeGO.GetComponent<Rigidbody>();
+                if(body)
+                {
+                    body.isKinematic = true;
+                    bodys.Add(body);
+                }
+            }
+
+            foreach (var body in bodys)
+                body.isKinematic = false;
+        }
+    }
+
+    BaseCube TryGetCubeData(int id)
+    {
+        if (id < 0 || id >= cubeDataList.Count)
+            return null;
+        else
+            return cubeDataList[id];
     }
 }

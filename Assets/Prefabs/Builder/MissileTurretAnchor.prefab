@@ -19,12 +19,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4519902662029624}
-  - component: {fileID: 114821681185296312}
-  - component: {fileID: 114745287786552446}
-  - component: {fileID: 114364029820039504}
-  - component: {fileID: 114091009722119676}
-  - component: {fileID: 114733291926086058}
-  - component: {fileID: 114530679274296084}
   m_Layer: 0
   m_Name: MissileTurretAnchor
   m_TagString: TopPart
@@ -362,86 +356,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.02480983, y: 0.016915744, z: 0.054727674}
   m_Center: {x: 0.00015123002, y: -0.013001304, z: 0.010172073}
---- !u!114 &114091009722119676
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1016409863715554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cef36afd1f4469f499e2fcedaab4bea7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  viewRadius: Infinity
-  viewAngle: 180
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 256
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 512
-  _pivot: {fileID: 4518221222440074}
-  visibleTargets: []
---- !u!114 &114364029820039504
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1016409863715554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d4b2f0abae7b409585aeb910a8d939b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 50
-  _currentHealth: 0
-  destoryOnDead: 1
-  godModeInEditor: 0
---- !u!114 &114530679274296084
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1016409863715554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1140022466e480246abb111792c1ba76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionPrefab: {fileID: 1385710422980166, guid: 571923124f22b0741aafe761e2e53535,
-    type: 2}
---- !u!114 &114733291926086058
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1016409863715554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ece7f6b21b0984c0ab405c022e254947, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scaleInterval: 1
---- !u!114 &114745287786552446
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1016409863715554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6581dc62138104943babe18ea104354e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireInterval: 6
-  damage: 12
-  fieldOfView: 10
-  pitchSegment: {fileID: 4395887659051290}
-  projectile: {fileID: 1487747128075256, guid: 4e5acdc13be48a7439ce7aa4a0b656b1, type: 2}
-  target: {fileID: 0}
-  projectileSpawns:
-  - {fileID: 1210027928127746}
 --- !u!114 &114771116155386752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -453,24 +367,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d22c79aa4be437c4d81096a2719ecd71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hs: {fileID: 114364029820039504}
---- !u!114 &114821681185296312
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1016409863715554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70ee832cbe748457fbf7511f76790ddd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  yawSegment: {fileID: 4586854814948090}
-  pitchSegment: {fileID: 4395887659051290}
-  yawSelfRotate: 0
-  yawSpeed: 45
-  yawLimit: 360
-  pitchSpeed: 60
-  pitchLimit: 90
-  isPitchSymmetric: 0
+  hs: {fileID: 0}
