@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 /* Attach this script to a transform at position (0, 0, 0)
  * under AR anchor.
@@ -78,7 +79,8 @@ public class CubePlacer : MonoBehaviour {
                 if(isNeighborToCube)
                 {
                     // can respawn cube here
-                    if(Input.GetMouseButtonDown(0))
+                    if(Input.GetMouseButtonDown(0) && 
+                       !EventSystem.current.IsPointerOverGameObject())
                     {
                         Instantiate(activeCube.cube, anchor.position, 
                                     anchor.rotation, transform);

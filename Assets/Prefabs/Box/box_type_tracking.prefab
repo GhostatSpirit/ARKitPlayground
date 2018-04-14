@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 114705165603274730}
   - component: {fileID: 114482405888083918}
   - component: {fileID: 114670327818226996}
+  - component: {fileID: 114920461306087486}
   m_Layer: 9
   m_Name: box_type_tracking
   m_TagString: TurretBox
@@ -602,7 +603,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1065128320228674}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.05, z: -0.19999999}
+  m_LocalPosition: {x: -0.49999997, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4926524722734674}
@@ -1841,3 +1842,15 @@ MonoBehaviour:
   TurrentRT: {fileID: 0}
   TurrentSS: {fileID: 0}
   TurrentLSS: {fileID: 0}
+--- !u!114 &114920461306087486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1065128320228674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d544b51b67c65a4989ddc26770a534d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: f7429c8b4363d4645becd019f1e05fdf, type: 2}
