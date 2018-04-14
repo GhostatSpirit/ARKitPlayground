@@ -11,13 +11,26 @@ public struct ARRaycastHit
     public Vector3 normal;
     public Transform transform;
     public HitType type;
+    public RaycastHit hit;
 
-    public ARRaycastHit(Vector3 _point, Vector3 _normal, Transform _transform, HitType _type)
+    public ARRaycastHit
+        (Vector3 _point, Vector3 _normal, Transform _transform, HitType _type)
     {
         point = _point;
         normal = _normal;
         transform = _transform;
         type = _type;
+        hit = new RaycastHit();
+    }
+
+    public ARRaycastHit
+        (Vector3 _point, Vector3 _normal, Transform _transform, HitType _type, RaycastHit _hit)
+    {
+        point = _point;
+        normal = _normal;
+        transform = _transform;
+        type = _type;
+        hit = _hit;
     }
 
     public ARRaycastHit(Vector3 _point)
@@ -26,6 +39,7 @@ public struct ARRaycastHit
         normal = Vector3.up;
         transform = null;
         type = HitType.NoHit;
+        hit = new RaycastHit();
     }
 }
 
@@ -50,7 +64,7 @@ public class ARScreenRaycast : MonoBehaviour {
 			hitPoint = ClampHitPointDistance (hit.point);
 
             arhit = new ARRaycastHit(hitPoint, hit.normal, hit.transform, 
-                                     ARRaycastHit.HitType.UnityHit);
+                                     ARRaycastHit.HitType.UnityHit, hit);
 
 //			Debug.Log ("ARScreenRaycast: Got Unity hit");
 //			Debug.Log (string.Format ("x:{0:0.######} y:{1:0.######} z:{2:0.######}", 

@@ -96,6 +96,22 @@ public class CubePlacer : MonoBehaviour {
 
 	}
 
+    public void TryDeleteCube()
+    {
+        ARRaycastHit arhit = sr.arhit;
+        if(arhit.type == ARRaycastHit.HitType.UnityHit)
+        {
+//            Debug.Log(arhit.hit);
+            CubeData cd = arhit.hit.transform.GetComponent<CubeData>();
+
+            if (!cd) return;
+            else
+            {
+                Destroy(cd.gameObject);
+            }
+        }
+    }
+
     Vector3 GetWorldTargetPos(ARRaycastHit arhit)
     {
         Vector3 localPos = transform.InverseTransformPoint(arhit.point);

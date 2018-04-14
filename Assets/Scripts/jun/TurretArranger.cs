@@ -105,8 +105,8 @@ public class TurretArranger : MonoBehaviour {
 
 
 
-        // Use this for initialization
-        void Start() {
+   // Use this for initialization
+   void Start() {
         groundMask = LayerMask.GetMask("Ground");
         shadowMask = LayerMask.GetMask("ShadowCollider");
         parentScale = hitParent.GetComponent<ARScale>().unitVector;
