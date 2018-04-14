@@ -66,15 +66,15 @@ public class TrackingProjectile : NormalProjectile {
 	}
 
 	protected override void OnCollisionEnter(Collision coll){
-		Vector3 normal = - coll.collider.transform.forward;
-		Vector3 velocity = rigidbody.velocity;
+		//Vector3 normal = - coll.collider.transform.forward;
+		//Vector3 velocity = rigidbody.velocity;
 
-		Quaternion deltaRot = Quaternion.FromToRotation (normal, velocity);
-		float angle = Quaternion.Angle (deltaRot, Quaternion.identity);
+		//Quaternion deltaRot = Quaternion.FromToRotation (normal, velocity);
+		//float angle = Quaternion.Angle (deltaRot, Quaternion.identity);
 
-		// Debug.Log ("tracking projectile hit, angle: " + angle.ToString ());
+		//Debug.Log ("tracking projectile hit, angle: " + angle.ToString ());
 
-		base.OnCollisionEnter (coll);
+		//base.OnCollisionEnter (coll);
 	}
 
 	bool isInSuicideDistance(){

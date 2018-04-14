@@ -56,8 +56,8 @@ Material:
     - _FieldBG: 55.52
     - _FieldBGPow: 1.6910715
     - _FieldPanSpeed: 1
-    - _FieldPanSpeedX: 3
-    - _FieldPanSpeedY: 3
+    - _FieldPanSpeedX: 0
+    - _FieldPanSpeedY: 0
     - _FieldSparks: 555
     - _FieldSparksPow: 1
     - _Fresnel: 1

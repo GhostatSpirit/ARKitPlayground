@@ -94,7 +94,7 @@
 				power = _AmbientFactor + (1 - _AmbientFactor) * power;
 
 				fixed4 col = _RimColor * power * 2.0;
-				if( upDotN < 0.9)
+				if(upDotN < 0.9)
 					col *= scanline.r;
 
 				return col;

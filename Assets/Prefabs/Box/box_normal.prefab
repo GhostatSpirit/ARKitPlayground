@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 65611598141056148}
   - component: {fileID: 54647642350749892}
   - component: {fileID: 114818778140302890}
+  - component: {fileID: 114616264073640038}
   m_Layer: 9
   m_Name: box_normal
   m_TagString: TurretBox
@@ -103,7 +104,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1579597832182756}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.05, z: 0.100000024}
+  m_LocalPosition: {x: -0.7, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4772516604894554}
@@ -292,6 +293,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7058778fe8d2204469732b50d4d2e3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114616264073640038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1579597832182756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d544b51b67c65a4989ddc26770a534d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 50f6f9c7c742bec42aa92bcf45e97669, type: 2}
 --- !u!114 &114818778140302890
 MonoBehaviour:
   m_ObjectHideFlags: 1
