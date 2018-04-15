@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 114035017763323986}
   - component: {fileID: 114745846832755384}
   - component: {fileID: 114102668957996922}
+  - component: {fileID: 114113322069806652}
   m_Layer: 0
   m_Name: box-protectA_new
   m_TagString: TurretBox
@@ -208,7 +209,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1867058317857618}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.35000002, z: 0}
+  m_LocalPosition: {x: 0.70000005, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4280740541529244}
@@ -414,6 +415,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Barrier: {fileID: 1575115487969756, guid: 253f48b19da1b424ab3ac521f21eb0f9, type: 2}
+--- !u!114 &114113322069806652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1867058317857618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d544b51b67c65a4989ddc26770a534d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 8c5b41c0f9198d44eb4bae2693cecf92, type: 2}
 --- !u!114 &114333336808333300
 MonoBehaviour:
   m_ObjectHideFlags: 1

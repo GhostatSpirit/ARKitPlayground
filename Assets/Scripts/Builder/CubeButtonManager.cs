@@ -12,7 +12,14 @@ public class CubeButtonManager : MonoBehaviour {
     public Transform buttonParent;
 
     public CubeBuilder cubeBuilder;
-    public List<BaseCube> cubes;
+
+    public CubeList cubeList;
+
+    List<BaseCube> cubes {
+        get {
+            return cubeList.cubes;
+        }
+    }
 
     //Dictionary<Button, BaseCube> button2Cube;
     [SerializeField]
@@ -20,9 +27,6 @@ public class CubeButtonManager : MonoBehaviour {
 
     public void GenerateButtons()
     {
-
-        if (cubes == null)
-            cubes = new List<BaseCube>();
 
         foreach (var cube in cubes)
         {

@@ -6698,9 +6698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubeParent: {fileID: 450272496}
   fileName: bastion00.json
-  cubeDataList:
-  - {fileID: 11400000, guid: 50f6f9c7c742bec42aa92bcf45e97669, type: 2}
-  - {fileID: 11400000, guid: f7429c8b4363d4645becd019f1e05fdf, type: 2}
+  cubeList: {fileID: 11400000, guid: 0307735ad03dc024085f46dc7a3928f6, type: 2}
 --- !u!4 &450870075 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4381066198893162, guid: 174b2abd7915c1449a3128f2fe02241d,
@@ -8969,15 +8967,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 1080760487730844, guid: fa71175d4e0fb1642b5401aaeabeee1b, type: 2}
-      propertyPath: m_Name
-      value: box-core
-      objectReference: {fileID: 0}
-    - target: {fileID: 54799310553146716, guid: fa71175d4e0fb1642b5401aaeabeee1b,
-        type: 2}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa71175d4e0fb1642b5401aaeabeee1b, type: 2}
   m_IsPrefabParent: 0
@@ -10709,6 +10698,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1493357076211832, guid: 1294fce8a88bb4e458ebc1f96a1c69db, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1294fce8a88bb4e458ebc1f96a1c69db, type: 2}
   m_IsPrefabParent: 0
@@ -11977,10 +11970,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1497629615836256, guid: 174b2abd7915c1449a3128f2fe02241d, type: 2}
-      propertyPath: m_Name
-      value: box_type_spinner
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 174b2abd7915c1449a3128f2fe02241d, type: 2}
   m_IsPrefabParent: 0
@@ -12581,14 +12570,7 @@ MonoBehaviour:
   button: {fileID: 1816120578933770, guid: 6bb6eea471a4f8f48bb17edd3bcd7569, type: 2}
   buttonParent: {fileID: 1953067138}
   cubeBuilder: {fileID: 450272495}
-  cubes:
-  - {fileID: 11400000, guid: 50f6f9c7c742bec42aa92bcf45e97669, type: 2}
-  - {fileID: 11400000, guid: 3316862fc3afae24fb71e2501f8415de, type: 2}
-  - {fileID: 11400000, guid: acde5a3f56239624d8a82b44ee74c6bb, type: 2}
-  - {fileID: 11400000, guid: 9c87333ebe193e54ca57f80be9009961, type: 2}
-  - {fileID: 11400000, guid: f7429c8b4363d4645becd019f1e05fdf, type: 2}
-  - {fileID: 11400000, guid: 8c5b41c0f9198d44eb4bae2693cecf92, type: 2}
-  - {fileID: 11400000, guid: e215a593dc4cee8428e59abae114dcd9, type: 2}
+  cubeList: {fileID: 11400000, guid: 0307735ad03dc024085f46dc7a3928f6, type: 2}
   activeButton: {fileID: 1760774808}
 --- !u!1 &1505720544
 GameObject:
@@ -14663,15 +14645,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 1867058317857618, guid: 6dfa3a7f42646c346ae82b7ce435ad5e, type: 2}
-      propertyPath: m_Name
-      value: box-protectA_new
-      objectReference: {fileID: 0}
-    - target: {fileID: 33531267071470486, guid: 6dfa3a7f42646c346ae82b7ce435ad5e,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 77e45dfb76fe3b448ace32f2552ed79b, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6dfa3a7f42646c346ae82b7ce435ad5e, type: 2}
   m_IsPrefabParent: 0

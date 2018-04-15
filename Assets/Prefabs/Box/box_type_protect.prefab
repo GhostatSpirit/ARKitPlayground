@@ -445,6 +445,7 @@ GameObject:
   - component: {fileID: 114378479203072178}
   - component: {fileID: 114281236861386066}
   - component: {fileID: 114678247538996944}
+  - component: {fileID: 114662493438446906}
   m_Layer: 9
   m_Name: box_type_protect
   m_TagString: TurretBox
@@ -1819,6 +1820,18 @@ MonoBehaviour:
   _currentHealth: 0
   destoryOnDead: 1
   godModeInEditor: 0
+--- !u!114 &114662493438446906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1954693530285444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d544b51b67c65a4989ddc26770a534d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: e215a593dc4cee8428e59abae114dcd9, type: 2}
 --- !u!114 &114678247538996944
 MonoBehaviour:
   m_ObjectHideFlags: 1

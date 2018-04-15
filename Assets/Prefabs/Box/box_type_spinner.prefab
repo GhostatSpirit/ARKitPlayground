@@ -312,6 +312,7 @@ GameObject:
   - component: {fileID: 114072776435306918}
   - component: {fileID: 114885928782736238}
   - component: {fileID: 114618784657207268}
+  - component: {fileID: 114898957751046212}
   m_Layer: 9
   m_Name: box_type_spinner
   m_TagString: TurretBox
@@ -1841,3 +1842,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ffa627de45d67540be74864b8f18ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114898957751046212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1497629615836256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d544b51b67c65a4989ddc26770a534d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 9c87333ebe193e54ca57f80be9009961, type: 2}

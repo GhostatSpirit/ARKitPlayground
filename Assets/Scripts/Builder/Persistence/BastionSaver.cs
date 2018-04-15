@@ -22,7 +22,13 @@ public class BastionSaver : MonoBehaviour {
     public Transform cubeParent;
     public string fileName = "bastion00.json";
 
-    public List<BaseCube> cubeDataList;
+    public CubeList cubeList;
+
+    List<BaseCube> cubeDataList {
+        get {
+            return cubeList.cubes;
+        }
+    }
     Dictionary<BaseCube, int> cubeIdDict;
 
     public void Start()
@@ -49,9 +55,19 @@ public class BastionSaver : MonoBehaviour {
         foreach(var cd in cubeDatas)
         {
             CubeSaveData sd;
-            sd.cubeId = cubeIdDict[cd.data];
-            sd.position = cubeParent.transform.InverseTransformPoint(cd.transform.position);
-            cubeSaves.Add(sd);
+
+            int cubeId = -1;
+            if(cubeIdDict.TryGetValue(cd.data, out cubeId))
+            {
+                sd.cubeId = cubeIdDict[cd.data];
+                sd.position = cubeParent.transform.InverseTransformPoint(cd.transform.position);
+                cubeSaves.Add(sd);
+            }
+            else
+            {
+                Debug.Log("Warning: Saving skips cube [" + cd.name +"].");
+            }
+
         }
 
         string savePath = Path.Combine(Application.persistentDataPath, fileName);
