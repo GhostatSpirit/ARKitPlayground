@@ -116,7 +116,7 @@ public class CubeBuilder : MonoBehaviour {
 //            Debug.Log(arhit.hit);
             CubeData cd = arhit.hit.transform.GetComponent<CubeData>();
 
-            if (!cd || cd == coreCube) return;
+            if (!cd || cd.data == coreCube) return;
             else
             {
                 Destroy(cd.gameObject);

@@ -6668,7 +6668,7 @@ MonoBehaviour:
     m_Bits: 16896
   activeMaterial: {fileID: 2100000, guid: 7e63bbf066a872e48962fb703d5cca17, type: 2}
   inactiveMaterial: {fileID: 2100000, guid: 0cd2d5e435fae33478fd7f4bf124279c, type: 2}
-  coreCube: {fileID: 0}
+  coreCube: {fileID: 11400000, guid: fbd92ecb9e1aec748807984c3809acd9, type: 2}
   isCubeCollided: 0
   neighborDir: {x: 0, y: 0, z: 0}
 --- !u!4 &450272496
