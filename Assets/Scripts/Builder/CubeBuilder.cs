@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 /* Attach this script to a transform at position (0, 0, 0)
  * under AR anchor.
  */
-public class CubePlacer : MonoBehaviour {
+public class CubeBuilder : MonoBehaviour {
 
     public BaseCube activeCube;
     public ARScreenRaycast sr;
@@ -36,8 +36,11 @@ public class CubePlacer : MonoBehaviour {
     public Material activeMaterial;
     public Material inactiveMaterial;
 
+    public BaseCube coreCube;
+
     [ReadOnly]
     public bool isCubeCollided = false;
+    [ReadOnly]
     public Vector3 neighborDir;
 
 	// Use this for initialization
@@ -78,13 +81,22 @@ public class CubePlacer : MonoBehaviour {
 
                 if(isNeighborToCube)
                 {
-                    // can respawn cube here
+                    // respawn cube in the unity editor
+#if UNITY_EDITOR
                     if(Input.GetMouseButtonDown(0) && 
                        !EventSystem.current.IsPointerOverGameObject())
                     {
                         Instantiate(activeCube.cube, anchor.position, 
                                     anchor.rotation, transform);
                     }
+#elif UNITY_STANDALONE
+                    if(Input.GetMouseButtonDown(0) && 
+                       !EventSystem.current.IsPointerOverGameObject())
+                    {
+                        Instantiate(activeCube.cube, anchor.position, 
+                                    anchor.rotation, transform);
+                    }
+#endif
                 }
             }
             
@@ -104,11 +116,20 @@ public class CubePlacer : MonoBehaviour {
 //            Debug.Log(arhit.hit);
             CubeData cd = arhit.hit.transform.GetComponent<CubeData>();
 
-            if (!cd) return;
+            if (!cd || cd == coreCube) return;
             else
             {
                 Destroy(cd.gameObject);
             }
+        }
+    }
+
+    public void TryPlaceCube()
+    {
+        bool isNeighborToCube = neighborDir != Vector3.zero;
+        if(isNeighborToCube)
+        {
+            Instantiate(activeCube.cube, anchor.position, anchor.rotation, transform);
         }
     }
 

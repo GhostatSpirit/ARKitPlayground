@@ -11,7 +11,7 @@ public class CubeButtonManager : MonoBehaviour {
     public GameObject button;
     public Transform buttonParent;
 
-    public CubePlacer cubePlacer;
+    public CubeBuilder cubeBuilder;
     public List<BaseCube> cubes;
 
     //Dictionary<Button, BaseCube> button2Cube;
@@ -70,7 +70,7 @@ public class CubeButtonManager : MonoBehaviour {
             if (activeButton == null)
             {
                 activeButton = cbutton;
-                cubePlacer.activeCube = cube;
+                cubeBuilder.activeCube = cube;
             }
 
         }
@@ -103,7 +103,7 @@ public class CubeButtonManager : MonoBehaviour {
         BaseCube newActive = button.GetComponent<CubeData>().data;
         if(newActive)
         {
-            cubePlacer.activeCube = newActive;
+            cubeBuilder.activeCube = newActive;
         }
         if(activeButton)
             ResetNormalSprites(activeButton);

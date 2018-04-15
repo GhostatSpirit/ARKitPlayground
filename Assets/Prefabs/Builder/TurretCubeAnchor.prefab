@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 33542986231359398}
   - component: {fileID: 23700420680537564}
   m_Layer: 9
-  m_Name: MissileCubeAnchor
+  m_Name: TurretCubeAnchor
   m_TagString: TurretBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

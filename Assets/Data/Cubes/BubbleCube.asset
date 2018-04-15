@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fac77c2c6822fb4482306b67144e8fe, type: 3}
-  m_Name: ObstacleCube
+  m_Name: BubbleCube
   m_EditorClassIdentifier: 
-  displayName: Armor
-  anchor: {fileID: 1760441955992588, guid: c5386ba4cce8c9b408ba400076b94d10, type: 2}
-  cube: {fileID: 1579597832182756, guid: 1cf0f02529fa072439c1bda1b1fa9efe, type: 2}
+  displayName: Defender
+  anchor: {fileID: 1363200349333990, guid: 0993c8789486176409ad5b750a506376, type: 2}
+  cube: {fileID: 1867058317857618, guid: 6dfa3a7f42646c346ae82b7ce435ad5e, type: 2}
   health: 70
   builderSprite:
     normal: {fileID: 21300000, guid: da93de8dbdeb36d40aed950751f53c7e, type: 3}
