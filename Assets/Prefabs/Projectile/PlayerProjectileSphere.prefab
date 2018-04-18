@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 23786338443226288}
   - component: {fileID: 114712669480414592}
   - component: {fileID: 54553712553233950}
-  - component: {fileID: 114913488298066570}
   - component: {fileID: 114729446077287454}
   m_Layer: 11
   m_Name: PlayerProjectileSphere
@@ -55,8 +54,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1314121851068298}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.035, y: 0.005, z: 0.05700001}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 4673131219714344}
@@ -259,41 +258,6 @@ MonoBehaviour:
   spawnHoleMask:
     serializedVersion: 2
     m_Bits: 16896
---- !u!114 &114913488298066570
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1314121851068298}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03f45171fa0ec034389fbcb17aa0d0d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prints:
-  - {fileID: 114506629442017404, guid: 4780d0c07c80018458d79836dcdd10d0, type: 2}
-  printLayers:
-  - serializedVersion: 2
-    m_Bits: 0
-  printTags:
-  - 
-  printMethod: 0
-  poolID: 0
-  parent: 1
-  printBehaviours: 1
-  destroyOnPrint: 1
-  frequencyTime: 0
-  frequencyDistance: 0
-  overlaps:
-  - poolId: 0
-    intersectionStrength: 0.5
-  rotationSource: 0
-  condition: 0
-  conditionTime: 0
-  layers:
-    serializedVersion: 2
-    m_Bits: 0
-  useTransformForward: 0
 --- !u!135 &135006188533868210
 SphereCollider:
   m_ObjectHideFlags: 1
