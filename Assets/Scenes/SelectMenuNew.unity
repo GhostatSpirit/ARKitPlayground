@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 72111552}
   - component: {fileID: 72111551}
   - component: {fileID: 72111550}
+  - component: {fileID: 72111553}
   m_Layer: 5
   m_Name: LevelPanel
   m_TagString: Untagged
@@ -207,6 +208,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 72111548}
+--- !u!114 &72111553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 72111548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c820291386d05a46b6b14674dd11085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelSceneName: LevelNew
+  activeBastionFile: {fileID: 11400000, guid: a9927141d1914ad419a018399b2da9a2, type: 2}
 --- !u!1 &133485435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,7 +1171,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 774746401}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 72111553}
+        m_MethodName: LoadScene
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 5faf001646c6cc147982f1823f37d8e8,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: BastionData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &774746401
@@ -1992,7 +2018,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1451920419}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 72111553}
+        m_MethodName: LoadScene
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 3d409a3ca12d6da4abc9c57146f9cb16,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: BastionData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1451920419
@@ -2103,7 +2141,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1457491554}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 72111553}
+        m_MethodName: LoadScene
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: b0e929a5644a5c3478de2d5a086442ab,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: BastionData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1457491554

@@ -6,5 +6,6 @@ using UnityEngine;
 public class ActiveBastionFile : ScriptableObject {
 
     public string fileName;
+    public BastionData bastionData;
 	
 }

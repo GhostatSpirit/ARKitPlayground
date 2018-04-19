@@ -4,20 +4,6 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.SceneManagement;
 
-
-[System.Serializable]
-public struct CubeSaveData
-{
-    public int cubeId;
-    public Vector3 position;
-}
-
-[System.Serializable]
-public struct BastionSaveData
-{
-    public List<CubeSaveData> cubes;
-}
-
 public class BastionSaver : MonoBehaviour {
 
     public Transform cubeParent;
@@ -25,6 +11,8 @@ public class BastionSaver : MonoBehaviour {
 
     public ActiveBastionFile activeBastionFile;
     public string defaultFileName = "bastion00.json";
+
+    public bool loadOnSceneLoaded = false;
 
     private string fileName {
         get {
@@ -46,8 +34,13 @@ public class BastionSaver : MonoBehaviour {
 
     public void Start()
     {
+        InitCubeIdDict();
+    }
+
+    public void InitCubeIdDict()
+    {
         cubeIdDict = new Dictionary<BaseCube, int>();
-        for(int id = 0; id < cubeDataList.Count; ++id)
+        for (int id = 0; id < cubeDataList.Count; ++id)
         {
             cubeIdDict.Add(cubeDataList[id], id);
         }
@@ -150,6 +143,9 @@ public class BastionSaver : MonoBehaviour {
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Load();
+        if (loadOnSceneLoaded)
+        {
+            Load();
+        }
     }
 }

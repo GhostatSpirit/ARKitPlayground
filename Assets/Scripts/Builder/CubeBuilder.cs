@@ -110,8 +110,8 @@ public class CubeBuilder : MonoBehaviour {
         ARRaycastHit arhit = sr.arhit;
         if(arhit.type == ARRaycastHit.HitType.UnityHit)
         {
-//            Debug.Log(arhit.hit);
-            CubeData cd = arhit.hit.transform.GetComponent<CubeData>();
+//          Debug.Log(arhit.hit);
+            CubeData cd = arhit.hit.transform.GetComponentInParent<CubeData>();
 
             if (!cd || cd.data == coreCube) return;
             else
