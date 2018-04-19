@@ -49,7 +49,10 @@ public class ARHitTestNew : MonoBehaviour
                 setted = true;
                 set = false;
 
-                startButton.SetActive(true);
+                if (startButton)
+                {
+                    startButton.SetActive(true);
+                }
 
 				ARPoint point = new ARPoint {
 					x = 0.5f,
