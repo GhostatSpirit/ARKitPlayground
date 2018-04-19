@@ -17,10 +17,7 @@ public class Transition : MonoBehaviour {
     // Use this for initialization
     void Start () {
         image = GetComponent<Image>();
-
         NextSceneNum = LSP.targetSceneNum;
-            
-        //NextSceneNum = SceneManager.GetActiveScene().buildIndex + 1;
         StartCoroutine(SceneLoad());
     }
 	
@@ -28,7 +25,6 @@ public class Transition : MonoBehaviour {
 	void Update () {
         if(async != null)
         {
-            //image.fillAmount = Mathf.Lerp(image.fillAmount, async.progress, Time.deltaTime);
             image.fillAmount = async.progress / (float) 0.9;
             if (async.progress >= 0.85)
             {
@@ -60,5 +56,4 @@ public class Transition : MonoBehaviour {
         async.allowSceneActivation = false;
         yield return async;
     }
-
 }

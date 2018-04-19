@@ -6,8 +6,18 @@ using UnityEngine.UI;
 
 public class TransitionSimple : MonoBehaviour {
 
-    public void TransitionScene(int sceneNum)
+    public LoadSceneParam LSP;
+
+    public int loadingSceneIndex = 2;
+
+    public void TransitionScene()
     {
-        SceneManager.LoadScene(sceneNum, LoadSceneMode.Single);
+        SceneManager.LoadScene(loadingSceneIndex, LoadSceneMode.Single);
+    }
+
+    public void TransitionNew(int sceneIndex)
+    {
+        LSP.targetSceneNum = sceneIndex;
+        SceneManager.LoadScene(loadingSceneIndex, LoadSceneMode.Single);
     }
 }
