@@ -2,25 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-
-
-[System.Serializable]
-public struct CubeSaveData
-{
-    public int cubeId;
-    public Vector3 position;
-}
-
-[System.Serializable]
-public struct BastionSaveData
-{
-    public List<CubeSaveData> cubes;
-}
+using UnityEngine.SceneManagement;
 
 public class BastionSaver : MonoBehaviour {
 
     public Transform cubeParent;
-    public string fileName = "bastion00.json";
+
+
+    public ActiveBastionFile activeBastionFile;
+    public string defaultFileName = "bastion00.json";
+
+    public bool loadOnSceneLoaded = false;
+
+    private string fileName {
+        get {
+            if (activeBastionFile && activeBastionFile.fileName != "")
+                return activeBastionFile.fileName;
+            else
+                return defaultFileName;
+        }
+    }
 
     public CubeList cubeList;
 
@@ -33,8 +34,13 @@ public class BastionSaver : MonoBehaviour {
 
     public void Start()
     {
+        InitCubeIdDict();
+    }
+
+    public void InitCubeIdDict()
+    {
         cubeIdDict = new Dictionary<BaseCube, int>();
-        for(int id = 0; id < cubeDataList.Count; ++id)
+        for (int id = 0; id < cubeDataList.Count; ++id)
         {
             cubeIdDict.Add(cubeDataList[id], id);
         }
@@ -123,5 +129,23 @@ public class BastionSaver : MonoBehaviour {
             return null;
         else
             return cubeDataList[id];
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (loadOnSceneLoaded)
+        {
+            Load();
+        }
     }
 }

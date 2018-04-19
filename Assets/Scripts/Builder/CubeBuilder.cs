@@ -43,6 +43,9 @@ public class CubeBuilder : MonoBehaviour {
     [ReadOnly]
     public Vector3 neighborDir;
 
+    public LayerMask groundLayer;
+    public int fallingCount = 0;
+
 	// Use this for initialization
 	void Start () {
         if (arScale) unit = arScale.unit;
@@ -78,26 +81,6 @@ public class CubeBuilder : MonoBehaviour {
                     turretAnchor.position = worldBoxPos + spaceDir * unit / 2.0f;
                     turretAnchor.up = spaceDir;
                 }
-
-                if(isNeighborToCube)
-                {
-                    // respawn cube in the unity editor
-#if UNITY_EDITOR
-                    if(Input.GetMouseButtonDown(0) && 
-                       !EventSystem.current.IsPointerOverGameObject())
-                    {
-                        Instantiate(activeCube.cube, anchor.position, 
-                                    anchor.rotation, transform);
-                    }
-#elif UNITY_STANDALONE
-                    if(Input.GetMouseButtonDown(0) && 
-                       !EventSystem.current.IsPointerOverGameObject())
-                    {
-                        Instantiate(activeCube.cube, anchor.position, 
-                                    anchor.rotation, transform);
-                    }
-#endif
-                }
             }
             
         }
@@ -106,15 +89,29 @@ public class CubeBuilder : MonoBehaviour {
             anchor.gameObject.SetActive(false);
         }
 
-	}
+
+#if UNITY_EDITOR
+        if(!EventSystem.current.IsPointerOverGameObject())
+        {
+            if (Input.GetMouseButtonDown(0))
+                TryPlaceCube();
+            else if (Input.GetMouseButtonDown(1))
+                TryDeleteCube();
+        }
+
+#endif
+            
+        //fallingCount = fallingBodies.Count;
+
+    }
 
     public void TryDeleteCube()
     {
         ARRaycastHit arhit = sr.arhit;
         if(arhit.type == ARRaycastHit.HitType.UnityHit)
         {
-//            Debug.Log(arhit.hit);
-            CubeData cd = arhit.hit.transform.GetComponent<CubeData>();
+//          Debug.Log(arhit.hit);
+            CubeData cd = arhit.hit.transform.GetComponentInParent<CubeData>();
 
             if (!cd || cd.data == coreCube) return;
             else
@@ -129,14 +126,57 @@ public class CubeBuilder : MonoBehaviour {
         bool isNeighborToCube = neighborDir != Vector3.zero;
         if(isNeighborToCube)
         {
-            Instantiate(activeCube.cube, anchor.position, anchor.rotation, transform);
+            GameObject cubeGO = 
+                Instantiate(activeCube.cube, anchor.position, anchor.rotation, transform)as GameObject;
+            Rigidbody rb = cubeGO.GetComponentInChildren<Rigidbody>();
+            StartCoroutine(FallingCubeIE(rb.transform));
         }
+    }
+
+    IEnumerator FallingCubeIE(Transform cubeTransform)
+    {
+        //fallingBodies.Add(rb);
+        fallingCount++;
+
+        RaycastHit hitInfo = new RaycastHit();
+
+        float length = unit / 2.0f + 0.025f;
+
+        //while (rb != null && !Physics.Raycast(ray, out hitInfo, length, groundLayer))
+        //{
+        //    // did not hit anything...
+        //    yield return new WaitForSeconds(0.1f);
+        //}
+        while (cubeTransform != null && 
+            !Physics.Raycast(cubeTransform.position, Vector3.down, out hitInfo, length, groundLayer))
+        {
+            // did not hit anything...
+            yield return new WaitForSecondsRealtime(0.2f);
+        }
+
+
+        //Debug.Log(hitInfo.collider.transform);
+
+        fallingCount--;
+        //fallingBodies.Remove(rb);
     }
 
     Vector3 GetWorldTargetPos(ARRaycastHit arhit)
     {
+
         Vector3 localPos = transform.InverseTransformPoint(arhit.point);
         Vector3 localNormal = transform.InverseTransformDirection(arhit.normal);
+
+        bool hitCube = false;
+        if (arhit.type == ARRaycastHit.HitType.UnityHit)
+        {
+            if(arhit.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            {
+                // hit cube
+                hitCube = true;
+                localPos = transform.InverseTransformPoint(arhit.transform.position);
+            }
+        }
 
 
         Vector3 bottomPos = new Vector3(localPos.x, localPos.y - unit / 2.0f, localPos.z);
@@ -147,8 +187,16 @@ public class CubeBuilder : MonoBehaviour {
         //Debug.Log(string.Format("normal: (x:{0:0.######} y:{1:0.######} z:{2:0.######})",
         //                        arhit.normal.x, arhit.normal.y, arhit.normal.z));
 
-        targetPos += AlignVector(localNormal) * (unit / 2.0f);
-        targetPos = RoundToUnit(targetPos);
+
+        if(!hitCube)
+        {
+            targetPos += AlignVector(localNormal) * (unit / 2.0f);
+            targetPos = RoundToUnit(targetPos);
+        }
+        else
+        {
+            targetPos += AlignVector(localNormal) * unit;
+        }
 
         targetPos.y += unit / 2.0f;
 
@@ -275,4 +323,6 @@ public class CubeBuilder : MonoBehaviour {
             anchorCube = activeCube;
         }
     }
+
+
 }
