@@ -926,7 +926,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &213537632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1052,7 +1052,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 1901337889}
   scalingMode: 2
-  randomSeed: -492471897
+  randomSeed: -1094623420
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5030,7 +5030,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &353059581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5526,7 +5526,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &450272495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6991,7 +6991,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &957006824
 Transform:
   m_ObjectHideFlags: 0
@@ -8945,7 +8945,7 @@ MonoBehaviour:
   set: 0
   setted: 0
   startButton: {fileID: 346921049}
-  turretInitial: {fileID: 0}
+  turretInitial: {fileID: 450272494}
 --- !u!1 &1639731172
 GameObject:
   m_ObjectHideFlags: 0
@@ -9316,7 +9316,7 @@ MonoBehaviour:
   maxRayDistance: 30
   collisionLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
   findingSquareDist: 0.5
 --- !u!4 &1671735039
 Transform:

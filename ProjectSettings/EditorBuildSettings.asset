@@ -35,6 +35,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Builder/BuilderTest.unity
     guid: 4f1ebf5293646504b89192be18891fbd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelNew.unity
     guid: bcdc24ac6c2da64409d3afab2576300a
