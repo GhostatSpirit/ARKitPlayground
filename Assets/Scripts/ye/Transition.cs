@@ -6,18 +6,21 @@ using UnityEngine.UI;
 
 public class Transition : MonoBehaviour {
 
-    //public string transtionScene;
-
     AsyncOperation async;
 
-    int NextSceneNum;
+    int NextSceneNum = 0;
 
     Image image;
+
+    public LoadSceneParam LSP; 
 
     // Use this for initialization
     void Start () {
         image = GetComponent<Image>();
-        NextSceneNum = SceneManager.GetActiveScene().buildIndex + 1;
+
+        NextSceneNum = LSP.targetSceneNum;
+            
+        //NextSceneNum = SceneManager.GetActiveScene().buildIndex + 1;
         StartCoroutine(SceneLoad());
     }
 	

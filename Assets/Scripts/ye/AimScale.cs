@@ -73,17 +73,20 @@ public class AimScale : MonoBehaviour {
 
         if (scaleOnMoving)
         {
+            rotationAngle = Quaternion.Angle(parentTrans.rotation, postRotation);
+            movingDistance = Vector3.Distance(postPosition, parentTrans.position);
             if (parentTrans.rotation != postRotation || parentTrans.position != postPosition)
             {
-                rotationAngle = Quaternion.Angle(parentTrans.rotation, postRotation);
-                movingDistance = Vector3.Distance(postPosition, parentTrans.position);
-                //Debug.Log("rotationAngle: " + rotationAngle);
-
                 if(rotationAngle >= movingScaleActiveAngle)
                 {
                     movingScale += Time.deltaTime * movingScaleUpk;
                 }
-                
+
+                else if (movingDistance >= movingScaleActiveDistance)
+                {
+                    movingScale += Time.deltaTime * movingScaleUpk;
+                }
+
                 if (movingScale > movingScaleLimit)
                 {
                     movingScale = movingScaleLimit;
