@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 
 [System.Serializable]
@@ -20,7 +21,19 @@ public struct BastionSaveData
 public class BastionSaver : MonoBehaviour {
 
     public Transform cubeParent;
-    public string fileName = "bastion00.json";
+
+
+    public ActiveBastionFile activeBastionFile;
+    public string defaultFileName = "bastion00.json";
+
+    private string fileName {
+        get {
+            if (activeBastionFile && activeBastionFile.fileName != "")
+                return activeBastionFile.fileName;
+            else
+                return defaultFileName;
+        }
+    }
 
     public CubeList cubeList;
 
@@ -123,5 +136,20 @@ public class BastionSaver : MonoBehaviour {
             return null;
         else
             return cubeDataList[id];
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Load();
     }
 }
