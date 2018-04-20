@@ -16,6 +16,6 @@ MonoBehaviour:
   cube: {fileID: 1579597832182756, guid: 1cf0f02529fa072439c1bda1b1fa9efe, type: 2}
   health: 70
   builderSprite:
-    normal: {fileID: 21300000, guid: da93de8dbdeb36d40aed950751f53c7e, type: 3}
-    pressed: {fileID: 21300000, guid: 82405817a78009d42b15a995ccdb43a8, type: 3}
-    selected: {fileID: 21300000, guid: a7ef2e39caef17d408a30db01e6b55cc, type: 3}
+    normal: {fileID: 21300000, guid: e7a87e5010ec319468e348b438008a84, type: 3}
+    pressed: {fileID: 21300000, guid: 39584411fabbe294bb258bad53c73bde, type: 3}
+    selected: {fileID: 21300000, guid: 922e0ff6288e7794a8e09f4d47fa4440, type: 3}
