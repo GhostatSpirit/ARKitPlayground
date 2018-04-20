@@ -17,12 +17,14 @@ public class TurretManager : MonoBehaviour {
 	}
 
 	public void ToggleTurrets(){
-		if(turrets != null){
-			foreach(Transform turret in turrets){
-				TurretControl tc = turret.GetComponentInChildren<TurretControl> ();
-				tc.ToggleRotate ();
-				tc.ToggleShoot ();
-			}
-		}
-	}
+        if (turrets != null)
+        {
+            foreach (Transform turret in turrets)
+            {
+                TurretControl tc = turret.GetComponentInChildren<TurretControl>();
+                tc.ToggleRotate();
+                tc.ToggleShoot();
+            }
+        }
+    }
 }

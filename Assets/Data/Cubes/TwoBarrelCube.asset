@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99723e91a40dae346a25da385f5e4ff3, type: 3}
+  m_Name: TwoBarrelCube
+  m_EditorClassIdentifier: 
+  displayName: Crimson
+  anchor: {fileID: 1729486638690436, guid: 75f61dde17ee9ac48bbc83f6cb2f1af7, type: 2}
+  cube: {fileID: 1952718170888454, guid: fd58f1ec4cdaa4b46abedddf86ff279a, type: 2}
+  health: 110
+  builderSprite:
+    normal: {fileID: 21300000, guid: 5848d57308cbffa40b79dd2abbec539f, type: 3}
+    pressed: {fileID: 21300000, guid: 0159010e72a57604a84218b1d3804fb2, type: 3}
+    selected: {fileID: 21300000, guid: 30fcc04ca6f74a24aa709631c7fdfd4a, type: 3}
+  turretAnchor: {fileID: 1858428778523020, guid: 036a377c97c44c54aac2c3a85ecbe344,
+    type: 2}
+  turret: {fileID: 1760992938758168, guid: cdd62863c32e6e74eb6b8d288dfa157b, type: 2}
+  turretHealth: 50

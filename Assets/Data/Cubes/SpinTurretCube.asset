@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99723e91a40dae346a25da385f5e4ff3, type: 3}
+  m_Name: SpinTurretCube
+  m_EditorClassIdentifier: 
+  displayName: Cyclone
+  anchor: {fileID: 1729486638690436, guid: 75f61dde17ee9ac48bbc83f6cb2f1af7, type: 2}
+  cube: {fileID: 1497629615836256, guid: 174b2abd7915c1449a3128f2fe02241d, type: 2}
+  health: 110
+  builderSprite:
+    normal: {fileID: 21300000, guid: 7a80fb5ac86c64344a8c237786cb9720, type: 3}
+    pressed: {fileID: 21300000, guid: f8d3541ebc4cbc048bbbb48f482e9740, type: 3}
+    selected: {fileID: 21300000, guid: 3964fbdfe2f275642b32b2be5e89fe83, type: 3}
+  turretAnchor: {fileID: 1217556454815744, guid: 4c7a462d7387bb44382d3826e25df41f,
+    type: 2}
+  turret: {fileID: 1812078204228556, guid: f3f6d42cca681c4479cd4f156e9444d4, type: 2}
+  turretHealth: 50

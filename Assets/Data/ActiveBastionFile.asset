@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88c8c9181da1c914981c19af38656943, type: 3}
+  m_Name: ActiveBastionFile
+  m_EditorClassIdentifier: 
+  fileName: bastion00.json
+  bastionData: {fileID: 11400000, guid: 34a9db8617cc8aa4db7e9cff2a545859, type: 2}

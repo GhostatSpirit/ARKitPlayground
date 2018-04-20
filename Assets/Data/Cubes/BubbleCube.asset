@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fac77c2c6822fb4482306b67144e8fe, type: 3}
+  m_Name: BubbleCube
+  m_EditorClassIdentifier: 
+  displayName: Defender
+  anchor: {fileID: 1363200349333990, guid: 0993c8789486176409ad5b750a506376, type: 2}
+  cube: {fileID: 1867058317857618, guid: 6dfa3a7f42646c346ae82b7ce435ad5e, type: 2}
+  health: 70
+  builderSprite:
+    normal: {fileID: 21300000, guid: 027a81cc347e7b64d8cd22817b7a6379, type: 3}
+    pressed: {fileID: 21300000, guid: 56b2f1c1964849140868d6ef49348964, type: 3}
+    selected: {fileID: 21300000, guid: 30a57413a65e15d4fb916810f30f5a04, type: 3}

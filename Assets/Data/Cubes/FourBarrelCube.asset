@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99723e91a40dae346a25da385f5e4ff3, type: 3}
+  m_Name: FourBarrelCube
+  m_EditorClassIdentifier: 
+  displayName: Stormer
+  anchor: {fileID: 1729486638690436, guid: 75f61dde17ee9ac48bbc83f6cb2f1af7, type: 2}
+  cube: {fileID: 1580859730703662, guid: c21e1ecdc15ac124e895fe9956d1dd64, type: 2}
+  health: 110
+  builderSprite:
+    normal: {fileID: 21300000, guid: 5a168c27be512aa478031061c974b3d9, type: 3}
+    pressed: {fileID: 21300000, guid: d109ee39daedf2e4c94b8ef9ac35369a, type: 3}
+    selected: {fileID: 21300000, guid: 00601edc17b46a447a4d7fe89c2d8a47, type: 3}
+  turretAnchor: {fileID: 1061608066826068, guid: 6772d8faf027d354eac3297abd81be92,
+    type: 2}
+  turret: {fileID: 1229823953285450, guid: fa55c81ba9fb73c48980f0801c0794d7, type: 2}
+  turretHealth: 50

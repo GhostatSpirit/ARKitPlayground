@@ -63,8 +63,18 @@ public class HealthChangedEventArgs : EventArgs {
 public class HealthSystem : MonoBehaviour {
 
 	public int maxHealth = 100;
+	public int currentHealth {
+		get{
+			return _currentHealth;
+		}
+		set{
+			_currentHealth = value;
+		}
+	}
 
-	public int currentHealth;
+	[SerializeField]
+	private int _currentHealth;
+
 	bool isDead = false;
 
 	public event EventHandler<ObjectDeadEventArgs> OnObjectDead;
@@ -73,23 +83,35 @@ public class HealthSystem : MonoBehaviour {
 
 	public bool destoryOnDead = false;
 
-	public Text healthText;
+	public bool godModeInEditor = false;
+
+	//public Text healthText;
 
 	// Use this for initialization
 	void Start () {
 		currentHealth = maxHealth;
+
+		#if UNITY_EDITOR
+		if(godModeInEditor){
+			currentHealth = maxHealth = 1000000;
+		}
+		#endif
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (healthText) {
-			healthText.text = "Health: " + currentHealth.ToString ();
-		}
+		//if (healthText) {
+		//	healthText.text = "Health: " + currentHealth.ToString ();
+		//}
+
 	}
 
 	public void DoDamage(int damage, GameObject attacker, Collision coll){
 		currentHealth -= damage;
-		if (currentHealth < 0)
+//        Debug.Log("health of " + transform.name + ":" + currentHealth);
+        //  Debug.Log(currentHealth);
+        if (currentHealth < 0)
 			currentHealth = 0;
 
 		if (OnHealthChanged != null) {
@@ -115,6 +137,7 @@ public class HealthSystem : MonoBehaviour {
 	}
 	public void DoDamage(int damage, GameObject attacker, Vector3 hitPoint){
 		currentHealth -= damage;
+        
 		if (currentHealth < 0)
 			currentHealth = 0;
 
