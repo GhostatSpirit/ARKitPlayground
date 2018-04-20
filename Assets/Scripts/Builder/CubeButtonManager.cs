@@ -23,7 +23,7 @@ public class CubeButtonManager : MonoBehaviour {
 
     //Dictionary<Button, BaseCube> button2Cube;
     [SerializeField]
-    Button activeButton;
+    public Button activeButton;
 
     public void GenerateButtons()
     {
@@ -113,7 +113,7 @@ public class CubeButtonManager : MonoBehaviour {
         {
             cubeBuilder.activeCube = newActive;
         }
-        if(activeButton)
+        if(activeButton != button)
             ResetNormalSprites(activeButton);
         activeButton = button;
     }

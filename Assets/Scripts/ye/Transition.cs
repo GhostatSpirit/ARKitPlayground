@@ -6,18 +6,18 @@ using UnityEngine.UI;
 
 public class Transition : MonoBehaviour {
 
-    //public string transtionScene;
-
     AsyncOperation async;
 
-    int NextSceneNum;
+    int NextSceneNum = 0;
 
     Image image;
+
+    public LoadSceneParam LSP; 
 
     // Use this for initialization
     void Start () {
         image = GetComponent<Image>();
-        NextSceneNum = SceneManager.GetActiveScene().buildIndex + 1;
+        NextSceneNum = LSP.targetSceneNum;
         StartCoroutine(SceneLoad());
     }
 	
@@ -25,9 +25,8 @@ public class Transition : MonoBehaviour {
 	void Update () {
         if(async != null)
         {
-            //image.fillAmount = Mathf.Lerp(image.fillAmount, async.progress, Time.deltaTime);
-            image.fillAmount = async.progress / (float) 0.9;
-            if (async.progress >= 0.85)
+            image.fillAmount = async.progress;
+            if (async.progress >= 0.7)
             {
                 ActivatedScene();
             }
@@ -57,5 +56,4 @@ public class Transition : MonoBehaviour {
         async.allowSceneActivation = false;
         yield return async;
     }
-
 }

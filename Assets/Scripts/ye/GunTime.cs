@@ -15,6 +15,8 @@ public class GunTime : MonoBehaviour {
 
     public float overheatRate;
 
+    public AimScale AS;
+
 	// Use this for initialization
 	void Start () {
         PSN = GetComponent<PlayerShootingNew>();
@@ -53,6 +55,17 @@ public class GunTime : MonoBehaviour {
                 }
                 break;
             case false:
+
+                if (AS.overheatScale - AS.overheatScaleDown * Time.deltaTime < 0)
+                {
+                    AS.overheatScale = 0;
+                }
+                else
+                {
+                    AS.overheatScale -= AS.overheatScaleDown * Time.deltaTime;
+                }
+
+
                 switch (PSN.Overheat)
                 {
                     case true:

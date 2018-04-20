@@ -6,22 +6,22 @@ using UnityEngine.SceneManagement;
 public class BastionDataAdapter : MonoBehaviour {
 
     public Transform bastionRoot;
-    public ActiveBastionFile activeBastionFile;
+    // public ActiveBastionFile activeBastionFile;
 
     public void Load()
     {
-        if (activeBastionFile && activeBastionFile.bastionData)
+        if (ActiveBastionMeta.bastionData)
         {
-            var data = activeBastionFile.bastionData;
+            var data = ActiveBastionMeta.bastionData;
             data.Load(bastionRoot);
         }
     }
 
     public void Save()
     {
-        if (activeBastionFile && activeBastionFile.bastionData)
+        if (ActiveBastionMeta.bastionData)
         {
-            var data = activeBastionFile.bastionData;
+            var data = ActiveBastionMeta.bastionData;
             data.Save(bastionRoot);
         }
     }

@@ -10,17 +10,14 @@ public class PlayerShootingNew : MonoBehaviour {
 	public GameObject projectile;
 	public List<GameObject> projectileSpawns;
 
+    public AimScale AS;
+
     AudioSource audioSource;
 
     // public float OverheatTime = 2f;
 
     [HideInInspector]
     public float ShootTime = 0;
-
-    public float SpreadRadius = 10;
-
-    public float SpreadTime = 2;
-
 
 	List<GameObject> m_lastProjectiles = new List<GameObject> ();
 	float m_fireTimer = 0.0f;
@@ -36,8 +33,20 @@ public class PlayerShootingNew : MonoBehaviour {
     [HideInInspector]
     GunTime GT;
 
-	// Use this for initialization
-	void Start () {
+    //public bool scaleOnMoving;
+
+    //public bool scaleOnShooting;
+
+    float radius = 5;
+
+    float k = 4;
+
+    Vector3 overHeatVec;
+
+    Vector3 moveVec;
+
+    // Use this for initialization
+    void Start () {
         PSN = GetComponent<PlayerShootingNew>();
         GT = GetComponent<GunTime>();
         audioSource = GetComponent<AudioSource>();
@@ -54,16 +63,45 @@ public class PlayerShootingNew : MonoBehaviour {
             if (m_fireTimer >= fireRate)
             {
                 audioSource.Play();
+                if (AS.overheatScale + AS.overheatScaleUp * Time.deltaTime > AS.overheatScaleLimit)
+                {
+                    AS.overheatScale = AS.overheatScaleLimit;
+                }
+                else
+                {
+                    AS.overheatScale += AS.overheatScaleUp * Time.deltaTime;
+                }
                 SpawnProjectiles();
                 m_fireTimer = 0f;
             }
         }
 
-        if(Overheat == true)
+        else if(Overheat == true)
         {
+            //if(AS.overheatScale - AS.overheatScaleDown * Time.deltaTime < 0)
+            //{
+            //    AS.overheatScale = 0;
+            //}
+            //else
+            //{
+            //    AS.overheatScale -= AS.overheatScaleDown * Time.deltaTime;
+            //}
+
             shoot = false;
             m_fireTimer = 0f;
         }
+
+        //if(shoot == false)
+        //{
+        //    if (AS.overheatScale - AS.overheatScaleDown * Time.deltaTime < 0)
+        //    {
+        //        AS.overheatScale = 0;
+        //    }
+        //    else
+        //    {
+        //        AS.overheatScale -= AS.overheatScaleDown * Time.deltaTime;
+        //    }
+        //}
         
     }
 
@@ -92,8 +130,18 @@ public class PlayerShootingNew : MonoBehaviour {
 
 
                 proj.transform.forward = projectileSpawns[i].transform.forward;
-                Vector3 overHeatVec = new Vector3(RandomSpreadCircle(GT.overheatRate/100).x, RandomSpreadCircle(GT.overheatRate/100).y, 0f); 
-                Vector3 shiftGlobal = proj.transform.TransformVector(overHeatVec);
+                //Vector3 overHeatVec = new Vector3(RandomSpreadCircle(GT.overheatRate/100).x, RandomSpreadCircle(GT.overheatRate/100).y, 0f);                 
+
+                if (AS!= null && AS.scaleOnMoving)
+                {
+                    moveVec = RandomSpreadCircle(AS.aimScale * k);
+                }
+                else
+                {
+                    moveVec = new Vector3(0f, 0f, 0f);
+                }
+
+                Vector3 shiftGlobal = proj.transform.TransformVector(moveVec);
                 proj.transform.forward += shiftGlobal;
 
 				proj.GetComponent<BaseProjectile> ()
@@ -105,15 +153,12 @@ public class PlayerShootingNew : MonoBehaviour {
 		}
 	}
 
-    Vector2 RandomSpreadCircle(float i)
+    Vector2 RandomSpreadCircle(float spreadRadius)
     {
+
         Vector2 randomCircle = new Vector2();
 
-        float time = 1;
-
-        time = Mathf.Pow(i, SpreadTime);
-
-        randomCircle = Random.insideUnitCircle.normalized * time * SpreadRadius;
+        randomCircle = Random.insideUnitCircle * spreadRadius;
 
         return randomCircle;
     }
