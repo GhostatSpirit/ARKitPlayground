@@ -130,7 +130,7 @@ public class AimScale : MonoBehaviour {
         {
             movingScale = 1;
         }
-
+        //Debug.Log(aimScale);
         aimScale = overheatScale + movingScale;
 	}
 

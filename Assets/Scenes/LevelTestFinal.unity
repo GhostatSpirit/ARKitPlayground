@@ -3176,7 +3176,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.12624726, y: 0.09465103, z: 0.005}
+  m_Size: {x: 0.12624726, y: 0.094685435, z: 0.005}
   m_Center: {x: 0, y: 0, z: 0.0025}
 --- !u!33 &856800784
 MeshFilter:
@@ -3196,7 +3196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4b2f0abae7b409585aeb910a8d939b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100000000
+  maxHealth: 200
   _currentHealth: 0
   destoryOnDead: 0
   godModeInEditor: 1
@@ -3488,7 +3488,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 1036868625}
   scalingMode: 2
-  randomSeed: 1114209356
+  randomSeed: 1043049394
   InitialModule:
     serializedVersion: 3
     enabled: 1

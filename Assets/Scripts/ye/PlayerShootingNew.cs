@@ -39,7 +39,7 @@ public class PlayerShootingNew : MonoBehaviour {
 
     float radius = 5;
 
-    float k = 4;
+    float k = 2;
 
     Vector3 overHeatVec;
 
@@ -134,6 +134,7 @@ public class PlayerShootingNew : MonoBehaviour {
 
                 if (AS!= null && AS.scaleOnMoving)
                 {
+                    //Debug.Log(AS.aimScale * k);
                     moveVec = RandomSpreadCircle(AS.aimScale * k);
                 }
                 else
