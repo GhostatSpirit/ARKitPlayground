@@ -77,22 +77,31 @@ public class AimScale : MonoBehaviour {
             movingDistance = Vector3.Distance(postPosition, parentTrans.position);
             if (parentTrans.rotation != postRotation || parentTrans.position != postPosition)
             {
-                if(rotationAngle >= movingScaleActiveAngle)
+                if(rotationAngle > movingScaleActiveAngle || movingDistance > movingScaleActiveDistance)
                 {
                     movingScale += Time.deltaTime * movingScaleUpk;
+                    timeCount = 0;
+                }
+                else
+                {
+                    timeCount += Time.deltaTime;
+                    if (timeCount >= aimTime)
+                    {
+                        timeCount = aimTime;
+                    }
                 }
 
-                if (movingDistance >= movingScaleActiveDistance)
-                {
-                    movingScale += Time.deltaTime * movingScaleUpk;
-                }
+                //if (movingDistance >= movingScaleActiveDistance)
+                //{
+                //    movingScale += Time.deltaTime * movingScaleUpk;
+                //}
 
                 if (movingScale > movingScaleLimit)
                 {
                     movingScale = movingScaleLimit;
                 }
 
-                timeCount = 0;
+                
             }
             else
             {
@@ -105,11 +114,11 @@ public class AimScale : MonoBehaviour {
 
             if (timeCount == aimTime)
             {
-                if (movingScale - Time.deltaTime >= 1)
+                if (movingScale - Time.deltaTime * movingScaleDownk>= 1)
                 {
                     movingScale -= Time.deltaTime * movingScaleDownk;
                 }
-                if (movingScale > 1 && movingScale - Time.deltaTime < 1)
+                if (movingScale > 1 && movingScale - Time.deltaTime * movingScaleDownk < 1)
                 {
                     movingScale = 1;
                 }

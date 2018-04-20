@@ -11,12 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d8239f20dbf5c747882055734898de6, type: 3}
   m_Name: ShootingParam
   m_EditorClassIdentifier: 
-  aimTime: 1
+  aimTime: 0.5
   movingScaleLimit: 4
-  movingScaleActiveAngle: 4
-  movingScaleActiveDistance: 0
+  movingScaleActiveAngle: 0.7
+  movingScaleActiveDistance: 0.15
   overheatScaleLimit: 4
   movingScaleUpk: 2
   movingScaleDownk: 1
-  overheatScaleUp: 4
-  overheatScaleDown: 0.5
+  overheatScaleUp: 1.5
+  overheatScaleDown: 0.3
