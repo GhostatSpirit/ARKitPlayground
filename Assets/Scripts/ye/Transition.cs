@@ -17,7 +17,7 @@ public class Transition : MonoBehaviour {
     // Use this for initialization
     void Start () {
         image = GetComponent<Image>();
-        NextSceneNum = LSP.targetSceneNum;
+        NextSceneNum = ActiveBastionMeta.targetSceneNum;
         StartCoroutine(SceneLoad());
     }
 	

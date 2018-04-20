@@ -5,6 +5,6 @@ using UnityEngine;
 public class EnableZWrite : MonoBehaviour {
 	void Start () {
 		var myMaterial = GetComponent<Renderer>().material;
-		myMaterial.SetInt("_ZWrite", 1);
+		myMaterial.SetInt("_ZWrite", 0);
 	}
 }

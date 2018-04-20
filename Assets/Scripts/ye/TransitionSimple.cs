@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class TransitionSimple : MonoBehaviour {
 
-    public LoadSceneParam LSP;
+    // public LoadSceneParam LSP;
 
     public int loadingSceneIndex = 2;
 
@@ -20,7 +20,7 @@ public class TransitionSimple : MonoBehaviour {
     public void TransitionNew(int sceneIndex)
     {
         Debug.Log(loadingSceneIndex);
-        LSP.targetSceneNum = sceneIndex;    
+        ActiveBastionMeta.targetSceneNum = sceneIndex;    
         SceneManager.LoadScene(2, LoadSceneMode.Single);
     }
 

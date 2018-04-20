@@ -5,6 +5,7 @@ using UnityEngine;
 public static class ActiveBastionMeta {
     private static string _fileName = "bastion00.json";
     private static BastionData _bastionData;
+    private static int _targetSceneNum = 0;
 	
     public static string fileName
     {
@@ -27,6 +28,18 @@ public static class ActiveBastionMeta {
         set
         {
             _bastionData = value;
+        }
+    }
+
+    public static int targetSceneNum
+    {
+        get
+        {
+            return _targetSceneNum;
+        }
+        set
+        {
+            _targetSceneNum = value;
         }
     }
 }

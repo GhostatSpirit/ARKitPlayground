@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Name: ShootingParam
   m_EditorClassIdentifier: 
   aimTime: 0.3
-  movingScaleLimit: 2.5
-  movingScaleActiveAngle: 0.8
-  movingScaleActiveDistance: 0.2
-  overheatScaleLimit: 2
-  movingScaleUpk: 0.5
+  movingScaleLimit: 4
+  movingScaleActiveAngle: 0.7
+  movingScaleActiveDistance: 0.15
+  overheatScaleLimit: 3
+  movingScaleUpk: 0.8
   movingScaleDownk: 1
   overheatScaleUp: 0.8
   overheatScaleDown: 0.5
