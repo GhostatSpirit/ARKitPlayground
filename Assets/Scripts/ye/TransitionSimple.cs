@@ -10,14 +10,34 @@ public class TransitionSimple : MonoBehaviour {
 
     public int loadingSceneIndex = 2;
 
-    public void TransitionScene()
+    public ActiveBastionFile activeBastionFile;
+
+    public void TransitionSceneWithoutLoad(int targetSceneIndex)
     {
-        SceneManager.LoadScene(loadingSceneIndex, LoadSceneMode.Single);
+        SceneManager.LoadScene(targetSceneIndex, LoadSceneMode.Single);
     }
 
     public void TransitionNew(int sceneIndex)
     {
-        LSP.targetSceneNum = sceneIndex;
-        SceneManager.LoadScene(loadingSceneIndex, LoadSceneMode.Single);
+        Debug.Log(loadingSceneIndex);
+        LSP.targetSceneNum = sceneIndex;    
+        SceneManager.LoadScene(2, LoadSceneMode.Single);
+    }
+
+    public void TransitionSetBastionData(BastionData bastionData)
+    {
+        if (activeBastionFile)
+        {
+            activeBastionFile.bastionData = bastionData;
+        }
+    }
+
+    public void TransitionSetBuildName(string fileName)
+    {
+        if (activeBastionFile)
+        {
+            activeBastionFile.fileName = fileName;
+        }
+        //SceneManager.LoadScene(builderSceneName);
     }
 }

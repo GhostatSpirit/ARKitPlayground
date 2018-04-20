@@ -25,8 +25,8 @@ public class Transition : MonoBehaviour {
 	void Update () {
         if(async != null)
         {
-            image.fillAmount = async.progress / (float) 0.9;
-            if (async.progress >= 0.85)
+            image.fillAmount = async.progress;
+            if (async.progress >= 0.7)
             {
                 ActivatedScene();
             }
