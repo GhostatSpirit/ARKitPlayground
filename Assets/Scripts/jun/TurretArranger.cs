@@ -119,84 +119,84 @@ public class TurretArranger : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate() {
         //config the pointed location
-        if (cubeLoc == true)
-        {
-            ArrangeBoxMotion();
+        //if (cubeLoc == true)
+        //{
+        //    ArrangeBoxMotion();
 
 
 
-            //set the turret
-            isSet = Input.GetKeyDown(KeyCode.P);
-            if (isSet == true)
-            {
-                Vector3 turretPostion = setTurretPostion();
-                GameObject tmp = Instantiate(boxModel, turretPostion, arrangeCube.rotation);
-                if (tmp.GetComponent<BoxDoorControl>())
-                {
-                    tmp.GetComponent<BoxDoorControl>().turrent = turretModels[turretType];
-                }
+        //    //set the turret
+        //    isSet = Input.GetKeyDown(KeyCode.P);
+        //    if (isSet == true)
+        //    {
+        //        Vector3 turretPostion = setTurretPostion();
+        //        GameObject tmp = Instantiate(boxModel, turretPostion, arrangeCube.rotation);
+        //        if (tmp.GetComponent<BoxDoorControl>())
+        //        {
+        //            tmp.GetComponent<BoxDoorControl>().turrent = turretModels[turretType];
+        //        }
 
-                tmp.transform.parent = hitParent;
-                tmp.GetComponent<BasicInfo>().initial(turretType, turretPostion);
-                tmp.GetComponent<HealthSystem>().OnObjectDead += cubeDestroyed;
-                boxes.Add(tmp);
+        //        tmp.transform.parent = hitParent;
+        //        tmp.GetComponent<BasicInfo>().initial(turretType, turretPostion);
+        //        tmp.GetComponent<HealthSystem>().OnObjectDead += cubeDestroyed;
+        //        boxes.Add(tmp);
 
-            }
+        //    }
 
-            //unset the turret
-            isUnset = Input.GetKeyDown(KeyCode.O);
-            if (isUnset == true)
-            {
-                GameObject topObj = unsetTurret();
-                if (topObj != null)
-                {
-                    Destroy(topObj);
-                    boxes.Remove(topObj);
+        //    //unset the turret
+        //    isUnset = Input.GetKeyDown(KeyCode.O);
+        //    if (isUnset == true)
+        //    {
+        //        GameObject topObj = unsetTurret();
+        //        if (topObj != null)
+        //        {
+        //            Destroy(topObj);
+        //            boxes.Remove(topObj);
 
-                }
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
         
-        if (Input.GetKeyDown(KeyCode.I)&&started)
-        {
-            rearrangeAllTurret();
-            started=false;
-        }
+        //if (Input.GetKeyDown(KeyCode.I)&&started)
+        //{
+        //    rearrangeAllTurret();
+        //    started=false;
+        //}
 
-        bool withdraw = Input.GetKeyDown(KeyCode.R);
-        if (withdraw == true)
-        {
-            withdrawAllTurret();
-        }
+        //bool withdraw = Input.GetKeyDown(KeyCode.R);
+        //if (withdraw == true)
+        //{
+        //    withdrawAllTurret();
+        //}
 
-        bool save = Input.GetKeyDown(KeyCode.U);
-        if (save == true) {
-            fd.SaveToFile();
-        }
+        //bool save = Input.GetKeyDown(KeyCode.U);
+        //if (save == true) {
+        //    fd.SaveToFile();
+        //}
 
-        bool load = Input.GetKeyDown(KeyCode.L);
-        if (load == true)
-        {
-            List<int> types=new List<int>();
-            List<Vector3> positions=new List<Vector3>();
-            fd.LoadFromFile(ref types,ref positions);
-            for (int i = 0; i < positions.Count; i++) {
-                //cannot load the turrets from the initializer
-                if (positions[i].y == 0) { continue; }   
+        //bool load = Input.GetKeyDown(KeyCode.L);
+        //if (load == true)
+        //{
+        //    List<int> types=new List<int>();
+        //    List<Vector3> positions=new List<Vector3>();
+        //    fd.LoadFromFile(ref types,ref positions);
+        //    for (int i = 0; i < positions.Count; i++) {
+        //        //cannot load the turrets from the initializer
+        //        if (positions[i].y == 0) { continue; }   
 
-                GameObject tmp = Instantiate(boxModel, positions[i], arrangeCube.rotation);
-                if (tmp.GetComponent<BoxDoorControl>())
-                {
-                    tmp.GetComponent<BoxDoorControl>().turrent = turretModels[types[i]];
-                }
-                tmp.transform.parent = hitParent;
-                tmp.GetComponent<HealthSystem>().OnObjectDead += cubeDestroyed;
-                tmp.GetComponent<BasicInfo>().initial(turretType, positions[i]);
-                boxes.Add(tmp);
-            }
-        }
+        //        GameObject tmp = Instantiate(boxModel, positions[i], arrangeCube.rotation);
+        //        if (tmp.GetComponent<BoxDoorControl>())
+        //        {
+        //            tmp.GetComponent<BoxDoorControl>().turrent = turretModels[types[i]];
+        //        }
+        //        tmp.transform.parent = hitParent;
+        //        tmp.GetComponent<HealthSystem>().OnObjectDead += cubeDestroyed;
+        //        tmp.GetComponent<BasicInfo>().initial(turretType, positions[i]);
+        //        boxes.Add(tmp);
+        //    }
+        //}
 
         
     }
@@ -253,8 +253,9 @@ public class TurretArranger : MonoBehaviour {
         if (shootHit.Length == 0) { ; }
         foreach (RaycastHit i in shootHit)
         {
-          //  Debug.Log(name + "things" + i.point + shootRay.direction + (i.point - shootRay.origin).magnitude+" "+ (blockGap * parentScalef / 2) +almostEqual((i.point - shootRay.origin).magnitude, blockGap * parentScalef / 2));
-            if (almostEqual((i.point - shootRay.origin).magnitude, (blockGap * parentScalef / 2)))
+            //  Debug.Log(name + "things" + i.point + shootRay.direction + (i.point - shootRay.origin).magnitude+" "+ (blockGap * parentScalef / 2) +almostEqual((i.point - shootRay.origin).magnitude, blockGap * parentScalef / 2));
+            // if (almostEqual((i.point - shootRay.origin).magnitude, (blockGap * parentScalef / 2)))
+            if ((i.point - shootRay.origin).magnitude <= parentScalef / 2.0f * 1.1f)
             {
                 //if (DebugOn)
                     //Debug.Log(name+"something in direction" + i.point + shootRay.direction + (i.point - shootRay.origin).magnitude);
@@ -416,7 +417,7 @@ public class TurretArranger : MonoBehaviour {
 
     bool almostEqual(float a, float b)
     {
-        if ((a - b <=  parentScalef / 100 && a - b >= - parentScalef / 100))
+        if ((a - b <=  parentScalef / 100f && a - b >= - parentScalef / 100f))
         {
             return true;
         }

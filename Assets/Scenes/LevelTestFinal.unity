@@ -1064,6 +1064,7 @@ GameObject:
   - component: {fileID: 320160076}
   - component: {fileID: 320160077}
   - component: {fileID: 320160079}
+  - component: {fileID: 320160080}
   m_Layer: 0
   m_Name: HitParent
   m_TagString: Untagged
@@ -1208,6 +1209,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bastionRoot: {fileID: 1468096573}
+--- !u!114 &320160080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 320160074}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79fef2ed7d2c68c48b15d9ae7888234e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubeParent: {fileID: 1468096573}
+  activeBastionFile: {fileID: 11400000, guid: a9927141d1914ad419a018399b2da9a2, type: 2}
+  defaultFileName: bastion00.json
+  loadOnSceneLoaded: 0
+  cubeList: {fileID: 11400000, guid: 0307735ad03dc024085f46dc7a3928f6, type: 2}
 --- !u!1 &332532926 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1547790195023844, guid: 97a1dad3acf28c642837e878179f98cc,
@@ -3176,7 +3193,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.12624726, y: 0.09465103, z: 0.005}
+  m_Size: {x: 0.12618014, y: 0.094685435, z: 0.005}
   m_Center: {x: 0, y: 0, z: 0.0025}
 --- !u!33 &856800784
 MeshFilter:
