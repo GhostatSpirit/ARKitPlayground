@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be6d681b5c922fa46be5135156689e79, type: 3}
+  m_Name: LoadSceneParam
+  m_EditorClassIdentifier: 
+  aimTime: 0
+  movingScaleLimit: 0
+  movingScaleActiveAngle: 0
+  movingScaleActiveDistance: 0
+  overheatScaleLimit: 0
+  movingScaleUpk: 0
+  movingScaleDownk: 0
+  overheatScaleUp: 0
+  overheatScaleDown: 0
