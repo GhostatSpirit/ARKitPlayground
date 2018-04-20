@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: ActiveBastionFile
   m_EditorClassIdentifier: 
   fileName: bastion00.json
-  bastionData: {fileID: 0}
+  bastionData: {fileID: 11400000, guid: 3d409a3ca12d6da4abc9c57146f9cb16, type: 2}

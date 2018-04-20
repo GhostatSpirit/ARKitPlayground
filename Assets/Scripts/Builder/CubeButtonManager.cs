@@ -45,6 +45,10 @@ public class CubeButtonManager : MonoBehaviour {
             spriteState.disabledSprite = cube.builderSprite.normal;
             spriteState.highlightedSprite = cube.builderSprite.normal;
             spriteState.pressedSprite = cube.builderSprite.pressed;
+            cbutton.spriteState = spriteState;
+
+            Image cImage = cbuttonGO.GetComponent<Image>();
+            cImage.sprite = cube.builderSprite.normal;
 
             // add to dict
             //button2Cube.Add(cbutton, cube);

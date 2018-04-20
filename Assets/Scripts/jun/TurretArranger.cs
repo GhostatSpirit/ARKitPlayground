@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-
+// use rearrageAllTurret() to init arranger
 
 public class TurretArranger : MonoBehaviour {
     private bool DebugOn = false;
