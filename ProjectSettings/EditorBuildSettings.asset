@@ -9,32 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Start.unity
     guid: 76efc224edb07c74dbbc68d05886d660
   - enabled: 1
-    path: Assets/Scenes/SelectMenu.unity
-    guid: d5682285e1f09984a8d155bbdda7f07f
+    path: Assets/Scenes/SelectMenuNew.unity
+    guid: 7b24c3298faf70d47900517b30dd1259
   - enabled: 1
-    path: Assets/Scenes/Loading02.unity
-    guid: 59ac3e168c36bd342a1964ff2e600044
-  - enabled: 1
-    path: Assets/Scenes/Level02.unity
-    guid: 5921a515b21be2c4489d49190fb9037b
-  - enabled: 1
-    path: Assets/Scenes/Loading01.unity
+    path: Assets/Scenes/Loading.unity
     guid: 41f465ecbf9c6834eb52a696df202890
   - enabled: 1
-    path: Assets/Scenes/Level01.unity
-    guid: 61eb5c58eed0bfe4aaea9a18b75984f0
-  - enabled: 1
-    path: Assets/Scenes/Loading03.unity
-    guid: 58f10da7111111049b8cf282af97b316
-  - enabled: 0
-    path: Assets/Scenes/Level04.unity
-    guid: 010e3e537a31c474f9386cf1aa195de9
-  - enabled: 0
-    path: Assets/Scenes/Level03.unity
-    guid: 5a97e84c955d9f04a8debee2707a7a42
+    path: Assets/Scenes/LevelTest 1.unity
+    guid: cc5397a24cffab94683889801fe4f349
   - enabled: 1
     path: Assets/Scenes/Builder/BuilderTest.unity
     guid: 4f1ebf5293646504b89192be18891fbd
-  - enabled: 0
-    path: Assets/Scenes/LevelNew.unity
-    guid: bcdc24ac6c2da64409d3afab2576300a
