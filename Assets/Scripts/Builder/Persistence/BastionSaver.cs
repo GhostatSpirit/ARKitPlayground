@@ -16,10 +16,11 @@ public class BastionSaver : MonoBehaviour {
 
     private string fileName {
         get {
-            if (activeBastionFile && activeBastionFile.fileName != "")
-                return activeBastionFile.fileName;
-            else
-                return defaultFileName;
+            //if (activeBastionFile && activeBastionFile.fileName != "")
+            //    return activeBastionFile.fileName;
+            //else
+            //    return defaultFileName;
+            return ActiveBastionMeta.fileName;
         }
     }
 
@@ -93,6 +94,7 @@ public class BastionSaver : MonoBehaviour {
     public void Load()
     {
         string filePath = Path.Combine(Application.persistentDataPath, fileName);
+        Debug.Log(filePath);
         if(File.Exists(filePath))
         {
             string dataAsJson = File.ReadAllText(filePath);

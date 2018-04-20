@@ -26,18 +26,12 @@ public class TransitionSimple : MonoBehaviour {
 
     public void TransitionSetBastionData(BastionData bastionData)
     {
-        if (activeBastionFile)
-        {
-            activeBastionFile.bastionData = bastionData;
-        }
+        ActiveBastionMeta.bastionData = bastionData;
     }
 
     public void TransitionSetBuildName(string fileName)
     {
-        if (activeBastionFile)
-        {
-            activeBastionFile.fileName = fileName;
-        }
+        ActiveBastionMeta.fileName = fileName;
         //SceneManager.LoadScene(builderSceneName);
     }
 }

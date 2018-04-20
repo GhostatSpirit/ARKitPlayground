@@ -82,7 +82,7 @@ public class AimScale : MonoBehaviour {
                     movingScale += Time.deltaTime * movingScaleUpk;
                 }
 
-                else if (movingDistance >= movingScaleActiveDistance)
+                if (movingDistance >= movingScaleActiveDistance)
                 {
                     movingScale += Time.deltaTime * movingScaleUpk;
                 }
